@@ -61,8 +61,16 @@ ActiveRecord::Schema.define(version: 20_230_521_173_100) do
     t.index ['id'], name: 'index_products_on_id', unique: true
   end
 
-  # Could not dump table "sale_items" because of following StandardError
-  #   Unknown type 'uuid' for column 'id'
+  create_table 'sale_items', force: :cascade do |t|
+    t.integer 'sale_id', null: false
+    t.integer 'product_id', null: false
+    t.integer 'quantity'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['id'], name: 'index_sale_items_on_id', unique: true
+    t.index ['product_id'], name: 'index_sale_items_on_product_id'
+    t.index ['sale_id'], name: 'index_sale_items_on_sale_id'
+  end
 
   create_table 'sales', force: :cascade do |t|
     t.integer 'product_id_id', null: false
@@ -92,8 +100,8 @@ ActiveRecord::Schema.define(version: 20_230_521_173_100) do
   add_foreign_key 'productor_affiliateds', 'affiliateds'
   add_foreign_key 'productor_affiliateds', 'productors'
   add_foreign_key 'products', 'productors'
-  add_foreign_key 'sale_items', 'product_ids'
-  add_foreign_key 'sale_items', 'sale_ids'
+  add_foreign_key 'sale_items', 'products'
+  add_foreign_key 'sale_items', 'sales'
   add_foreign_key 'sales', 'creator_affiliateds'
   add_foreign_key 'sales', 'product_ids'
   add_foreign_key 'sales', 'transaction_types'

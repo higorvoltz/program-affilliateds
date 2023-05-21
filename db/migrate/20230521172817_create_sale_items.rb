@@ -2,9 +2,9 @@
 
 class CreateSaleItems < ActiveRecord::Migration[6.1]
   def change
-    create_table :sale_items, id: :uuid do |t|
-      t.references :sale_id, null: false, foreign_key: true, type: :uuid
-      t.references :product_id, null: false, foreign_key: true, type: :uuid
+    create_table :sale_items, id: :integer do |t|
+      t.references :sale, null: false, foreign_key: true, type: :integer
+      t.references :product, null: false, foreign_key: true, type: :integer
       t.integer :quantity
 
       t.timestamps

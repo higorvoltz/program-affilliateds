@@ -32,7 +32,7 @@ module ProgramAffiliatedApi
 
     # Load locales
     config.i18n.enforce_available_locales = true
-    config.i18n.available_locales = ['en', 'pt-BR']
+    config.i18n.available_locales = %w[en pt-BR]
     config.i18n.default_locale = 'pt-BR'
     config.active_model.i18n_customize_full_message = true
     config.encoding = 'utf-8'

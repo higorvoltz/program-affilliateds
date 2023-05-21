@@ -1,5 +1,11 @@
 # frozen_string_literal: true
 
-product1 = Product.create(id: Faker::Internet.uuid, name: "Chicken", price: 1000)
-product2 = Product.create(id: Faker::Internet.uuid, name: "Veggie", price: 2000)
-product3 = Product.create(id: Faker::Internet.uuid, name: "Beef", price: 2000)
+Product.create(name: 'Chicken', price: Faker::Number.number(digits: 4))
+Product.create(name: 'Veggie', price: Faker::Number.number(digits: 4))
+Product.create(name: 'Beef', price: Faker::Number.number(digits: 4))
+
+Productor.create!(name: Faker::Name.name, email: Faker::Internet.email,
+                  balance: Faker::Number.number(digits: 5))
+
+Affiliated.create!(name: Faker::Name.name, email: Faker::Internet.email, balance: 0)
+Affiliated.create!(name: Faker::Name.name, email: Faker::Internet.email, balance: 0)

@@ -1676,3 +1676,745 @@ You have 1 pending migration:
 2023-05-21 11:12:40.889748 [35mT[0m [346080:3760] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::IO
 2023-05-21 11:12:40.889788 [35mT[0m [346080:3760] [35mSemanticLogger::Appenders[0m -- All appenders flushed
 2023-05-21 11:12:40.889966 [35mT[0m [346080:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Thread has stopped
+2023-05-21 12:52:48.142643 [32mD[0m [345704:puma srv tp 002] [32mRack[0m -- Started -- {:method=>"GET", :path=>"/products", :ip=>"::1"}
+2023-05-21 12:52:48.144821 [32mD[0m [345704:puma srv tp 002] [32mProductsController[0m -- Processing #index
+2023-05-21 12:52:48.148097 [32mD[0m [345704:puma srv tp 002] ([1m2.379ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT sqlite_version(*)", :allocations=>22, :cached=>nil}
+2023-05-21 12:52:48.148299 [32mD[0m [345704:puma srv tp 002] ([1m0.071ms[0m) [32mActiveRecord[0m -- Product Load -- {:sql=>"SELECT \"products\".* FROM \"products\"", :allocations=>56, :cached=>nil}
+2023-05-21 12:52:48.148563 [32mD[0m [345704:puma srv tp 002] [32mRails[0m -- No serializer found for resource: #<Product id: "3c353050-cbee-4222-999d-55c2460bd554", name: "Chicken", price: 1000, created_at: "2023-05-21 10:48:38.784017000 -0300", updated_at: "2023-05-21 10:48:38.784017000 -0300">
+2023-05-21 12:52:48.174072 [36mI[0m [345704:puma srv tp 002] [36mRails[0m -- Rendered ActiveModel::Serializer::CollectionSerializer with Product::ActiveRecord_Relation (25.45ms)
+2023-05-21 12:52:48.174219 [36mI[0m [345704:puma srv tp 002] ([1m29.4ms[0m) [36mProductsController[0m -- Completed #index -- {:controller=>"ProductsController", :action=>"index", :params=>{"product"=>{}}, :format=>"*/*", :method=>"GET", :path=>"/products", :status=>200, :view_runtime=>29.16, :db_runtime=>2.65, :allocations=>927, :status_message=>"OK"}
+2023-05-21 12:53:04.790809 [32mD[0m [345704:puma srv tp 003] [32mRack[0m -- Started -- {:method=>"GET", :path=>"/products/%223c353050-cbee-4222-999d-55c2460bd554%22", :ip=>"::1"}
+2023-05-21 12:53:04.791637 [32mD[0m [345704:puma srv tp 003] [32mProductsController[0m -- Processing #show
+2023-05-21 12:53:04.797042 [32mD[0m [345704:puma srv tp 003] ([1m0.143ms[0m) [32mActiveRecord[0m -- Product Load -- {:sql=>"SELECT \"products\".* FROM \"products\" WHERE \"products\".\"id\" = ? LIMIT ?", :binds=>{:id=>"\"3c353050-cbee-4222-999d-55c2460bd554\"", :limit=>1}, :allocations=>59, :cached=>nil}
+2023-05-21 12:53:04.797254 [36mI[0m [345704:puma srv tp 003] ([1m5.586ms[0m) [36mProductsController[0m -- Completed #show -- {:controller=>"ProductsController", :action=>"show", :params=>{"id"=>"\"3c353050-cbee-4222-999d-55c2460bd554\"", "product"=>{}}, :format=>"*/*", :method=>"GET", :path=>"/products/%223c353050-cbee-4222-999d-55c2460bd554%22", :view_runtime=>0.0, :db_runtime=>0.14, :exception_object=>#<ActiveRecord::RecordNotFound: Couldn't find Product with 'id'="3c353050-cbee-4222-999d-55c2460bd554">, :status=>404, :allocations=>2210, :status_message=>"Not Found"}
+2023-05-21 12:53:04.797398 [31mF[0m [345704:puma srv tp 003 thread_local_var.rb:93] [31mRails[0m -- Exception: [31mActiveRecord::RecordNotFound: Couldn't find Product with 'id'="3c353050-cbee-4222-999d-55c2460bd554"[0m
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/core.rb:353:in `find'
+/home/voltz/Desenvolvimento/estudos/learneroo/ruby-apis/program-affilliateds/app/controllers/products_controller.rb:20:in `show'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/abstract_controller/base.rb:228:in `process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal/rendering.rb:30:in `process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/callbacks.rb:98:in `run_callbacks'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/abstract_controller/callbacks.rb:41:in `process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal/rescue.rb:22:in `process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/notifications.rb:203:in `block in instrument'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/notifications.rb:203:in `instrument'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal/instrumentation.rb:33:in `process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal/params_wrapper.rb:249:in `process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/abstract_controller/base.rb:165:in `process'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal.rb:190:in `dispatch'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal.rb:254:in `dispatch'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/routing/route_set.rb:33:in `serve'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/journey/router.rb:50:in `block in serve'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/journey/router.rb:32:in `each'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/journey/router.rb:32:in `serve'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/routing/route_set.rb:842:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rack-2.2.7/lib/rack/etag.rb:27:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rack-2.2.7/lib/rack/conditional_get.rb:27:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rack-2.2.7/lib/rack/head.rb:12:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/migration.rb:601:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/callbacks.rb:98:in `run_callbacks'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/executor.rb:14:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rails_semantic_logger-4.12.0/lib/rails_semantic_logger/rack/logger.rb:45:in `call_app'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rails_semantic_logger-4.12.0/lib/rails_semantic_logger/rack/logger.rb:28:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/request_id.rb:26:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rack-2.2.7/lib/rack/runtime.rb:22:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/executor.rb:14:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/static.rb:24:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rack-2.2.7/lib/rack/sendfile.rb:110:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/host_authorization.rb:148:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rack-cors-2.0.1/lib/rack/cors.rb:102:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/railties-6.1.7.3/lib/rails/engine.rb:539:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/configuration.rb:252:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/request.rb:77:in `block in handle_request'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/request.rb:76:in `handle_request'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/server.rb:443:in `process_client'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+2023-05-21 12:53:13.900696 [32mD[0m [345704:puma srv tp 004] [32mRack[0m -- Started -- {:method=>"GET", :path=>"/products", :ip=>"::1"}
+2023-05-21 12:53:13.901912 [32mD[0m [345704:puma srv tp 004] [32mProductsController[0m -- Processing #index
+2023-05-21 12:53:13.902613 [32mD[0m [345704:puma srv tp 004] ([1m0.114ms[0m) [32mActiveRecord[0m -- Product Load -- {:sql=>"SELECT \"products\".* FROM \"products\"", :allocations=>32, :cached=>nil}
+2023-05-21 12:53:13.903020 [32mD[0m [345704:puma srv tp 004] [32mRails[0m -- No serializer found for resource: #<Product id: "3c353050-cbee-4222-999d-55c2460bd554", name: "Chicken", price: 1000, created_at: "2023-05-21 10:48:38.784017000 -0300", updated_at: "2023-05-21 10:48:38.784017000 -0300">
+2023-05-21 12:53:13.903573 [36mI[0m [345704:puma srv tp 004] [36mRails[0m -- Rendered ActiveModel::Serializer::CollectionSerializer with Product::ActiveRecord_Relation (0.45ms)
+2023-05-21 12:53:13.903778 [36mI[0m [345704:puma srv tp 004] ([1m1.829ms[0m) [36mProductsController[0m -- Completed #index -- {:controller=>"ProductsController", :action=>"index", :params=>{"product"=>{}}, :format=>"*/*", :method=>"GET", :path=>"/products", :status=>200, :view_runtime=>1.49, :db_runtime=>0.11, :allocations=>793, :status_message=>"OK"}
+2023-05-21 12:53:36.722432 [32mD[0m [345704:puma srv tp 002] [32mRack[0m -- Started -- {:method=>"GET", :path=>"/products/3c353050-cbee-4222-999d-55c2460bd554", :ip=>"::1"}
+2023-05-21 12:53:36.723138 [32mD[0m [345704:puma srv tp 002] [32mProductsController[0m -- Processing #show
+2023-05-21 12:53:36.723527 [32mD[0m [345704:puma srv tp 002] ([1m0.081ms[0m) [32mActiveRecord[0m -- Product Load -- {:sql=>"SELECT \"products\".* FROM \"products\" WHERE \"products\".\"id\" = ? LIMIT ?", :binds=>{:id=>"3c353050-cbee-4222-999d-55c2460bd554", :limit=>1}, :allocations=>22, :cached=>nil}
+2023-05-21 12:53:36.731742 [36mI[0m [345704:puma srv tp 002] [36mRails[0m -- Rendered ActiveModel::Serializer::Null with Product (0.41ms)
+2023-05-21 12:53:36.731941 [36mI[0m [345704:puma srv tp 002] ([1m8.772ms[0m) [36mProductsController[0m -- Completed #show -- {:controller=>"ProductsController", :action=>"show", :params=>{"id"=>"3c353050-cbee-4222-999d-55c2460bd554", "product"=>{}}, :format=>"*/*", :method=>"GET", :path=>"/products/3c353050-cbee-4222-999d-55c2460bd554", :status=>200, :view_runtime=>8.26, :db_runtime=>0.08, :allocations=>2094, :status_message=>"OK"}
+2023-05-21 12:54:14.957394 [32mD[0m [345704:puma srv tp 005] [32mRack[0m -- Started -- {:method=>"POST", :path=>"/products", :ip=>"::1"}
+2023-05-21 12:54:14.958763 [32mD[0m [345704:puma srv tp 005] [32mProductsController[0m -- Processing #create
+2023-05-21 12:54:14.960413 [32mD[0m [345704:puma srv tp 005] ([1m0.068ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>21, :cached=>nil}
+2023-05-21 12:54:14.960893 [32mD[0m [345704:puma srv tp 005] ([1m0.279ms[0m) [32mActiveRecord[0m -- Product Create -- {:sql=>"INSERT INTO \"products\" (\"name\", \"price\", \"created_at\", \"updated_at\") VALUES (?, ?, ?, ?)", :binds=>{:name=>"cesta de ovos", :price=>1200, :created_at=>"2023-05-21 12:54:14.959598", :updated_at=>"2023-05-21 12:54:14.959598"}, :allocations=>167, :cached=>nil}
+2023-05-21 12:54:14.960969 [32mD[0m [345704:puma srv tp 005] ([1m0.024ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"rollback transaction", :allocations=>16, :cached=>nil}
+2023-05-21 12:54:14.961083 [36mI[0m [345704:puma srv tp 005] ([1m2.281ms[0m) [36mProductsController[0m -- Completed #create -- {:controller=>"ProductsController", :action=>"create", :params=>{"name"=>"cesta de ovos", "price"=>1200, "product"=>{"name"=>"cesta de ovos", "price"=>1200}}, :format=>"*/*", :method=>"POST", :path=>"/products", :view_runtime=>0.0, :db_runtime=>0.37, :exception_object=>#<ActiveRecord::NotNullViolation: SQLite3::ConstraintException: NOT NULL constraint failed: products.id>, :status=>500, :allocations=>1198, :status_message=>"Internal Server Error"}
+2023-05-21 12:54:14.961197 [31mF[0m [345704:puma srv tp 005 thread_local_var.rb:93] [31mRails[0m -- Exception: [31mActiveRecord::NotNullViolation: SQLite3::ConstraintException: NOT NULL constraint failed: products.id[0m
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/sqlite3-1.6.3-x86_64-linux/lib/sqlite3/statement.rb:108:in `step'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/sqlite3-1.6.3-x86_64-linux/lib/sqlite3/statement.rb:108:in `block in each'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/sqlite3-1.6.3-x86_64-linux/lib/sqlite3/statement.rb:107:in `loop'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/sqlite3-1.6.3-x86_64-linux/lib/sqlite3/statement.rb:107:in `each'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/connection_adapters/sqlite3/database_statements.rb:58:in `to_a'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/connection_adapters/sqlite3/database_statements.rb:58:in `block (2 levels) in exec_query'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/dependencies/interlock.rb:48:in `block in permit_concurrent_loads'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/concurrency/share_lock.rb:187:in `yield_shares'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/dependencies/interlock.rb:47:in `permit_concurrent_loads'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/connection_adapters/sqlite3/database_statements.rb:49:in `block in exec_query'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/connection_adapters/abstract_adapter.rb:696:in `block (2 levels) in log'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:26:in `block (2 levels) in synchronize'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `handle_interrupt'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `block in synchronize'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `handle_interrupt'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `synchronize'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/connection_adapters/abstract_adapter.rb:695:in `block in log'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/connection_adapters/abstract_adapter.rb:687:in `log'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/connection_adapters/sqlite3/database_statements.rb:48:in `exec_query'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/connection_adapters/abstract/database_statements.rb:136:in `exec_insert'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/connection_adapters/abstract/database_statements.rb:171:in `insert'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/connection_adapters/abstract/query_cache.rb:22:in `insert'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/persistence.rb:375:in `_insert_record'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/persistence.rb:929:in `_create_record'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/counter_cache.rb:166:in `_create_record'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/locking/optimistic.rb:79:in `_create_record'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/attribute_methods/dirty.rb:201:in `_create_record'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/callbacks.rb:461:in `block in _create_record'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/callbacks.rb:98:in `run_callbacks'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/callbacks.rb:824:in `_run_create_callbacks'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/callbacks.rb:461:in `_create_record'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/timestamp.rb:108:in `_create_record'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/persistence.rb:900:in `create_or_update'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/callbacks.rb:457:in `block in create_or_update'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/callbacks.rb:98:in `run_callbacks'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/callbacks.rb:824:in `_run_save_callbacks'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/callbacks.rb:457:in `create_or_update'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/timestamp.rb:126:in `create_or_update'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/persistence.rb:474:in `save'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/validations.rb:47:in `save'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/transactions.rb:298:in `block in save'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/transactions.rb:354:in `block in with_transaction_returning_status'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/connection_adapters/abstract/database_statements.rb:320:in `block in transaction'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/connection_adapters/abstract/transaction.rb:319:in `block in within_new_transaction'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:26:in `block (2 levels) in synchronize'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `handle_interrupt'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `block in synchronize'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `handle_interrupt'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `synchronize'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/connection_adapters/abstract/transaction.rb:317:in `within_new_transaction'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/connection_adapters/abstract/database_statements.rb:320:in `transaction'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/transactions.rb:350:in `with_transaction_returning_status'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/transactions.rb:298:in `save'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/suppressor.rb:44:in `save'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/persistence.rb:38:in `create'
+/home/voltz/Desenvolvimento/estudos/learneroo/ruby-apis/program-affilliateds/app/controllers/products_controller.rb:12:in `create'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/abstract_controller/base.rb:228:in `process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal/rendering.rb:30:in `process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/callbacks.rb:98:in `run_callbacks'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/abstract_controller/callbacks.rb:41:in `process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal/rescue.rb:22:in `process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/notifications.rb:203:in `block in instrument'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/notifications.rb:203:in `instrument'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal/instrumentation.rb:33:in `process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal/params_wrapper.rb:249:in `process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/abstract_controller/base.rb:165:in `process'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal.rb:190:in `dispatch'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal.rb:254:in `dispatch'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/routing/route_set.rb:33:in `serve'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/journey/router.rb:50:in `block in serve'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/journey/router.rb:32:in `each'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/journey/router.rb:32:in `serve'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/routing/route_set.rb:842:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rack-2.2.7/lib/rack/etag.rb:27:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rack-2.2.7/lib/rack/conditional_get.rb:40:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rack-2.2.7/lib/rack/head.rb:12:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/migration.rb:601:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/callbacks.rb:98:in `run_callbacks'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/executor.rb:14:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rails_semantic_logger-4.12.0/lib/rails_semantic_logger/rack/logger.rb:45:in `call_app'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rails_semantic_logger-4.12.0/lib/rails_semantic_logger/rack/logger.rb:28:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/request_id.rb:26:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rack-2.2.7/lib/rack/runtime.rb:22:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/executor.rb:14:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/static.rb:24:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rack-2.2.7/lib/rack/sendfile.rb:110:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/host_authorization.rb:148:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rack-cors-2.0.1/lib/rack/cors.rb:102:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/railties-6.1.7.3/lib/rails/engine.rb:539:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/configuration.rb:252:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/request.rb:77:in `block in handle_request'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/request.rb:76:in `handle_request'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/server.rb:443:in `process_client'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+Cause: SQLite3::ConstraintException: NOT NULL constraint failed: products.id
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/sqlite3-1.6.3-x86_64-linux/lib/sqlite3/statement.rb:108:in `step'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/sqlite3-1.6.3-x86_64-linux/lib/sqlite3/statement.rb:108:in `block in each'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/sqlite3-1.6.3-x86_64-linux/lib/sqlite3/statement.rb:107:in `loop'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/sqlite3-1.6.3-x86_64-linux/lib/sqlite3/statement.rb:107:in `each'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/connection_adapters/sqlite3/database_statements.rb:58:in `to_a'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/connection_adapters/sqlite3/database_statements.rb:58:in `block (2 levels) in exec_query'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/dependencies/interlock.rb:48:in `block in permit_concurrent_loads'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/concurrency/share_lock.rb:187:in `yield_shares'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/dependencies/interlock.rb:47:in `permit_concurrent_loads'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/connection_adapters/sqlite3/database_statements.rb:49:in `block in exec_query'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/connection_adapters/abstract_adapter.rb:696:in `block (2 levels) in log'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:26:in `block (2 levels) in synchronize'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `handle_interrupt'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `block in synchronize'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `handle_interrupt'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `synchronize'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/connection_adapters/abstract_adapter.rb:695:in `block in log'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/connection_adapters/abstract_adapter.rb:687:in `log'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/connection_adapters/sqlite3/database_statements.rb:48:in `exec_query'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/connection_adapters/abstract/database_statements.rb:136:in `exec_insert'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/connection_adapters/abstract/database_statements.rb:171:in `insert'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/connection_adapters/abstract/query_cache.rb:22:in `insert'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/persistence.rb:375:in `_insert_record'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/persistence.rb:929:in `_create_record'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/counter_cache.rb:166:in `_create_record'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/locking/optimistic.rb:79:in `_create_record'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/attribute_methods/dirty.rb:201:in `_create_record'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/callbacks.rb:461:in `block in _create_record'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/callbacks.rb:98:in `run_callbacks'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/callbacks.rb:824:in `_run_create_callbacks'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/callbacks.rb:461:in `_create_record'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/timestamp.rb:108:in `_create_record'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/persistence.rb:900:in `create_or_update'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/callbacks.rb:457:in `block in create_or_update'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/callbacks.rb:98:in `run_callbacks'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/callbacks.rb:824:in `_run_save_callbacks'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/callbacks.rb:457:in `create_or_update'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/timestamp.rb:126:in `create_or_update'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/persistence.rb:474:in `save'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/validations.rb:47:in `save'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/transactions.rb:298:in `block in save'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/transactions.rb:354:in `block in with_transaction_returning_status'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/connection_adapters/abstract/database_statements.rb:320:in `block in transaction'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/connection_adapters/abstract/transaction.rb:319:in `block in within_new_transaction'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:26:in `block (2 levels) in synchronize'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `handle_interrupt'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:25:in `block in synchronize'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `handle_interrupt'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/concurrency/load_interlock_aware_monitor.rb:21:in `synchronize'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/connection_adapters/abstract/transaction.rb:317:in `within_new_transaction'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/connection_adapters/abstract/database_statements.rb:320:in `transaction'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/transactions.rb:350:in `with_transaction_returning_status'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/transactions.rb:298:in `save'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/suppressor.rb:44:in `save'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/persistence.rb:38:in `create'
+/home/voltz/Desenvolvimento/estudos/learneroo/ruby-apis/program-affilliateds/app/controllers/products_controller.rb:12:in `create'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/abstract_controller/base.rb:228:in `process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal/rendering.rb:30:in `process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/callbacks.rb:98:in `run_callbacks'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/abstract_controller/callbacks.rb:41:in `process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal/rescue.rb:22:in `process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/notifications.rb:203:in `block in instrument'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/notifications.rb:203:in `instrument'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal/instrumentation.rb:33:in `process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal/params_wrapper.rb:249:in `process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/abstract_controller/base.rb:165:in `process'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal.rb:190:in `dispatch'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal.rb:254:in `dispatch'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/routing/route_set.rb:33:in `serve'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/journey/router.rb:50:in `block in serve'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/journey/router.rb:32:in `each'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/journey/router.rb:32:in `serve'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/routing/route_set.rb:842:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rack-2.2.7/lib/rack/etag.rb:27:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rack-2.2.7/lib/rack/conditional_get.rb:40:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rack-2.2.7/lib/rack/head.rb:12:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/migration.rb:601:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/callbacks.rb:98:in `run_callbacks'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/executor.rb:14:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rails_semantic_logger-4.12.0/lib/rails_semantic_logger/rack/logger.rb:45:in `call_app'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rails_semantic_logger-4.12.0/lib/rails_semantic_logger/rack/logger.rb:28:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/request_id.rb:26:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rack-2.2.7/lib/rack/runtime.rb:22:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/executor.rb:14:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/static.rb:24:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rack-2.2.7/lib/rack/sendfile.rb:110:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/host_authorization.rb:148:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rack-cors-2.0.1/lib/rack/cors.rb:102:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/railties-6.1.7.3/lib/rails/engine.rb:539:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/configuration.rb:252:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/request.rb:77:in `block in handle_request'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/request.rb:76:in `handle_request'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/server.rb:443:in `process_client'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+2023-05-21 13:15:09.907271 [32mD[0m [345704:puma srv tp 003] [32mRack[0m -- Started -- {:method=>"GET", :path=>"/products", :ip=>"::1"}
+2023-05-21 13:15:09.907976 [32mD[0m [345704:puma srv tp 003] [32mProductsController[0m -- Processing #index
+2023-05-21 13:15:09.909014 [32mD[0m [345704:puma srv tp 003] ([1m0.036ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT sqlite_version(*)", :allocations=>20, :cached=>nil}
+2023-05-21 13:15:09.909193 [32mD[0m [345704:puma srv tp 003] ([1m0.062ms[0m) [32mActiveRecord[0m -- Product Load -- {:sql=>"SELECT \"products\".* FROM \"products\"", :allocations=>56, :cached=>nil}
+2023-05-21 13:15:09.909511 [32mD[0m [345704:puma srv tp 003] [32mRails[0m -- No serializer found for resource: #<Product id: "3c353050-cbee-4222-999d-55c2460bd554", name: "Chicken", price: 1000, created_at: "2023-05-21 10:48:38.784017000 -0300", updated_at: "2023-05-21 10:48:38.784017000 -0300">
+2023-05-21 13:15:09.909834 [36mI[0m [345704:puma srv tp 003] [36mRails[0m -- Rendered ActiveModel::Serializer::CollectionSerializer with Product::ActiveRecord_Relation (0.25ms)
+2023-05-21 13:15:09.909939 [36mI[0m [345704:puma srv tp 003] ([1m1.936ms[0m) [36mProductsController[0m -- Completed #index -- {:controller=>"ProductsController", :action=>"index", :params=>{"product"=>{}}, :format=>"*/*", :method=>"GET", :path=>"/products", :status=>200, :view_runtime=>1.64, :db_runtime=>0.31, :allocations=>930, :status_message=>"OK"}
+2023-05-21 13:15:43.831171 [32mD[0m [345704:puma srv tp 001] [32mRack[0m -- Started -- {:method=>"GET", :path=>"/products/1", :ip=>"::1"}
+2023-05-21 13:15:43.832189 [32mD[0m [345704:puma srv tp 001] [32mProductsController[0m -- Processing #show
+2023-05-21 13:15:43.832775 [32mD[0m [345704:puma srv tp 001] ([1m0.168ms[0m) [32mActiveRecord[0m -- Product Load -- {:sql=>"SELECT \"products\".* FROM \"products\" WHERE \"products\".\"id\" = ? LIMIT ?", :binds=>{:id=>"1", :limit=>1}, :allocations=>42, :cached=>nil}
+2023-05-21 13:15:43.833003 [36mI[0m [345704:puma srv tp 001] ([1m0.772ms[0m) [36mProductsController[0m -- Completed #show -- {:controller=>"ProductsController", :action=>"show", :params=>{"id"=>"1", "product"=>{}}, :format=>"*/*", :method=>"GET", :path=>"/products/1", :view_runtime=>0.0, :db_runtime=>0.17, :exception_object=>#<ActiveRecord::RecordNotFound: Couldn't find Product with 'id'=1>, :status=>404, :allocations=>219, :status_message=>"Not Found"}
+2023-05-21 13:15:43.833140 [31mF[0m [345704:puma srv tp 001 thread_local_var.rb:93] [31mRails[0m -- Exception: [31mActiveRecord::RecordNotFound: Couldn't find Product with 'id'=1[0m
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/core.rb:353:in `find'
+/home/voltz/Desenvolvimento/estudos/learneroo/ruby-apis/program-affilliateds/app/controllers/products_controller.rb:20:in `show'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/abstract_controller/base.rb:228:in `process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal/rendering.rb:30:in `process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/callbacks.rb:98:in `run_callbacks'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/abstract_controller/callbacks.rb:41:in `process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal/rescue.rb:22:in `process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/notifications.rb:203:in `block in instrument'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/notifications.rb:203:in `instrument'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal/instrumentation.rb:33:in `process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal/params_wrapper.rb:249:in `process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/abstract_controller/base.rb:165:in `process'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal.rb:190:in `dispatch'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal.rb:254:in `dispatch'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/routing/route_set.rb:33:in `serve'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/journey/router.rb:50:in `block in serve'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/journey/router.rb:32:in `each'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/journey/router.rb:32:in `serve'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/routing/route_set.rb:842:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rack-2.2.7/lib/rack/etag.rb:27:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rack-2.2.7/lib/rack/conditional_get.rb:27:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rack-2.2.7/lib/rack/head.rb:12:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/migration.rb:601:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/callbacks.rb:98:in `run_callbacks'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/executor.rb:14:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rails_semantic_logger-4.12.0/lib/rails_semantic_logger/rack/logger.rb:45:in `call_app'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rails_semantic_logger-4.12.0/lib/rails_semantic_logger/rack/logger.rb:28:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/request_id.rb:26:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rack-2.2.7/lib/rack/runtime.rb:22:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/executor.rb:14:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/static.rb:24:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rack-2.2.7/lib/rack/sendfile.rb:110:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/host_authorization.rb:148:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rack-cors-2.0.1/lib/rack/cors.rb:102:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/railties-6.1.7.3/lib/rails/engine.rb:539:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/configuration.rb:252:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/request.rb:77:in `block in handle_request'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/request.rb:76:in `handle_request'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/server.rb:443:in `process_client'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+2023-05-21 13:17:30.444312 [32mD[0m [345704:puma srv tp 004] [32mRack[0m -- Started -- {:method=>"PUT", :path=>"/products/4", :ip=>"::1"}
+2023-05-21 13:17:30.445380 [32mD[0m [345704:puma srv tp 004] [32mProductsController[0m -- Processing #update
+2023-05-21 13:17:30.445772 [32mD[0m [345704:puma srv tp 004] ([1m0.079ms[0m) [32mActiveRecord[0m -- Product Load -- {:sql=>"SELECT \"products\".* FROM \"products\" WHERE \"products\".\"id\" = ? LIMIT ?", :binds=>{:id=>"4", :limit=>1}, :allocations=>17, :cached=>nil}
+2023-05-21 13:17:30.445933 [36mI[0m [345704:puma srv tp 004] ([1m0.527ms[0m) [36mProductsController[0m -- Completed #update -- {:controller=>"ProductsController", :action=>"update", :params=>{"name"=>"cesta de ovos", "price"=>1500, "id"=>"4", "product"=>{"name"=>"cesta de ovos", "price"=>1500}}, :format=>"*/*", :method=>"PUT", :path=>"/products/4", :view_runtime=>0.0, :db_runtime=>0.08, :exception_object=>#<ActiveRecord::RecordNotFound: Couldn't find Product with 'id'=4>, :status=>404, :allocations=>171, :status_message=>"Not Found"}
+2023-05-21 13:17:30.446038 [31mF[0m [345704:puma srv tp 004 thread_local_var.rb:93] [31mRails[0m -- Exception: [31mActiveRecord::RecordNotFound: Couldn't find Product with 'id'=4[0m
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/core.rb:353:in `find'
+/home/voltz/Desenvolvimento/estudos/learneroo/ruby-apis/program-affilliateds/app/controllers/products_controller.rb:25:in `update'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/abstract_controller/base.rb:228:in `process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal/rendering.rb:30:in `process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/callbacks.rb:98:in `run_callbacks'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/abstract_controller/callbacks.rb:41:in `process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal/rescue.rb:22:in `process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/notifications.rb:203:in `block in instrument'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/notifications.rb:203:in `instrument'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal/instrumentation.rb:33:in `process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal/params_wrapper.rb:249:in `process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/abstract_controller/base.rb:165:in `process'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal.rb:190:in `dispatch'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal.rb:254:in `dispatch'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/routing/route_set.rb:33:in `serve'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/journey/router.rb:50:in `block in serve'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/journey/router.rb:32:in `each'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/journey/router.rb:32:in `serve'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/routing/route_set.rb:842:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rack-2.2.7/lib/rack/etag.rb:27:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rack-2.2.7/lib/rack/conditional_get.rb:40:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rack-2.2.7/lib/rack/head.rb:12:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/migration.rb:601:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/callbacks.rb:98:in `run_callbacks'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/executor.rb:14:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rails_semantic_logger-4.12.0/lib/rails_semantic_logger/rack/logger.rb:45:in `call_app'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rails_semantic_logger-4.12.0/lib/rails_semantic_logger/rack/logger.rb:28:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/request_id.rb:26:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rack-2.2.7/lib/rack/runtime.rb:22:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/executor.rb:14:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/static.rb:24:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rack-2.2.7/lib/rack/sendfile.rb:110:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/host_authorization.rb:148:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rack-cors-2.0.1/lib/rack/cors.rb:102:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/railties-6.1.7.3/lib/rails/engine.rb:539:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/configuration.rb:252:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/request.rb:77:in `block in handle_request'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/request.rb:76:in `handle_request'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/server.rb:443:in `process_client'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+2023-05-21 13:18:04.878031 [32mD[0m [345704:puma srv tp 002] [32mRack[0m -- Started -- {:method=>"PUT", :path=>"/products/4", :ip=>"::1"}
+2023-05-21 13:18:04.878885 [32mD[0m [345704:puma srv tp 002] [32mProductsController[0m -- Processing #update
+2023-05-21 13:18:04.879250 [32mD[0m [345704:puma srv tp 002] ([1m0.078ms[0m) [32mActiveRecord[0m -- Product Load -- {:sql=>"SELECT \"products\".* FROM \"products\" WHERE \"products\".\"id\" = ? LIMIT ?", :binds=>{:id=>"4", :limit=>1}, :allocations=>17, :cached=>nil}
+2023-05-21 13:18:04.879413 [36mI[0m [345704:puma srv tp 002] ([1m0.485ms[0m) [36mProductsController[0m -- Completed #update -- {:controller=>"ProductsController", :action=>"update", :params=>{"id"=>"4", "name"=>"cesta de ovos", "price"=>1500, "product"=>{"id"=>"4", "name"=>"cesta de ovos", "price"=>1500}}, :format=>"*/*", :method=>"PUT", :path=>"/products/4", :view_runtime=>0.0, :db_runtime=>0.08, :exception_object=>#<ActiveRecord::RecordNotFound: Couldn't find Product with 'id'=4>, :status=>404, :allocations=>170, :status_message=>"Not Found"}
+2023-05-21 13:18:04.879517 [31mF[0m [345704:puma srv tp 002 thread_local_var.rb:93] [31mRails[0m -- Exception: [31mActiveRecord::RecordNotFound: Couldn't find Product with 'id'=4[0m
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/core.rb:353:in `find'
+/home/voltz/Desenvolvimento/estudos/learneroo/ruby-apis/program-affilliateds/app/controllers/products_controller.rb:25:in `update'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal/basic_implicit_render.rb:6:in `send_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/abstract_controller/base.rb:228:in `process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal/rendering.rb:30:in `process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/abstract_controller/callbacks.rb:42:in `block in process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/callbacks.rb:98:in `run_callbacks'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/abstract_controller/callbacks.rb:41:in `process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal/rescue.rb:22:in `process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal/instrumentation.rb:34:in `block in process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/notifications.rb:203:in `block in instrument'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/notifications/instrumenter.rb:24:in `instrument'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/notifications.rb:203:in `instrument'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal/instrumentation.rb:33:in `process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal/params_wrapper.rb:249:in `process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/railties/controller_runtime.rb:27:in `process_action'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/abstract_controller/base.rb:165:in `process'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal.rb:190:in `dispatch'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_controller/metal.rb:254:in `dispatch'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/routing/route_set.rb:50:in `dispatch'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/routing/route_set.rb:33:in `serve'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/journey/router.rb:50:in `block in serve'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/journey/router.rb:32:in `each'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/journey/router.rb:32:in `serve'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/routing/route_set.rb:842:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rack-2.2.7/lib/rack/etag.rb:27:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rack-2.2.7/lib/rack/conditional_get.rb:40:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rack-2.2.7/lib/rack/head.rb:12:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activerecord-6.1.7.3/lib/active_record/migration.rb:601:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/callbacks.rb:27:in `block in call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/callbacks.rb:98:in `run_callbacks'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/callbacks.rb:26:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/executor.rb:14:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/actionable_exceptions.rb:18:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/debug_exceptions.rb:29:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rails_semantic_logger-4.12.0/lib/rails_semantic_logger/rack/logger.rb:45:in `call_app'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rails_semantic_logger-4.12.0/lib/rails_semantic_logger/rack/logger.rb:28:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/request_id.rb:26:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rack-2.2.7/lib/rack/runtime.rb:22:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/executor.rb:14:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/static.rb:24:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rack-2.2.7/lib/rack/sendfile.rb:110:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/host_authorization.rb:148:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rack-cors-2.0.1/lib/rack/cors.rb:102:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/railties-6.1.7.3/lib/rails/engine.rb:539:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/configuration.rb:252:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/request.rb:77:in `block in handle_request'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/request.rb:76:in `handle_request'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/server.rb:443:in `process_client'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+2023-05-21 13:29:32.952797 [35mT[0m [345704:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::File
+2023-05-21 13:29:32.952992 [35mT[0m [345704:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::IO
+2023-05-21 13:29:32.953058 [35mT[0m [345704:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- All appenders flushed
+2023-05-21 13:29:32.953462 [35mT[0m [345704:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Thread has stopped
+2023-05-21 13:37:44.176231 [35mT[0m [364931:3760] [35mSemanticLogger::Appenders[0m -- Reopening appender: SemanticLogger::Appender::File
+2023-05-21 13:37:44.177102 [35mT[0m [364931:3760] [35mSemanticLogger::Appenders[0m -- All appenders re-opened
+2023-05-21 13:37:44.178287 [35mT[0m [364931:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Appender thread active
+2023-05-21 13:37:44.233493 [35mT[0m [364931:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::File
+2023-05-21 13:37:44.233570 [35mT[0m [364931:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- All appenders flushed
+2023-05-21 13:37:44.233709 [35mT[0m [364931:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Thread has stopped
+2023-05-21 13:37:58.608013 [35mT[0m [365031:3760] [35mSemanticLogger::Appenders[0m -- Reopening appender: SemanticLogger::Appender::File
+2023-05-21 13:37:58.608220 [35mT[0m [365031:3760] [35mSemanticLogger::Appenders[0m -- All appenders re-opened
+2023-05-21 13:37:58.610445 [35mT[0m [365031:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Appender thread active
+2023-05-21 13:37:58.670791 [35mT[0m [365031:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::File
+2023-05-21 13:37:58.670898 [35mT[0m [365031:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- All appenders flushed
+2023-05-21 13:37:58.671070 [35mT[0m [365031:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Thread has stopped
+2023-05-21 13:38:53.570337 [35mT[0m [365348:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Appender thread active
+2023-05-21 13:39:01.363189 [35mT[0m [365348:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::File
+2023-05-21 13:39:01.363285 [35mT[0m [365348:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::IO
+2023-05-21 13:39:01.363304 [35mT[0m [365348:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- All appenders flushed
+2023-05-21 13:39:01.363370 [35mT[0m [365348:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Thread has stopped
+2023-05-21 13:39:33.806291 [35mT[0m [365647:3760] [35mSemanticLogger::Appenders[0m -- Reopening appender: SemanticLogger::Appender::File
+2023-05-21 13:39:33.806986 [35mT[0m [365647:3760] [35mSemanticLogger::Appenders[0m -- All appenders re-opened
+2023-05-21 13:39:33.807687 [35mT[0m [365647:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Appender thread active
+2023-05-21 13:39:33.863487 [32mD[0m [365647:3760] ([1m0.548ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT sqlite_version(*)", :allocations=>238, :cached=>nil}
+2023-05-21 13:39:33.877355 [32mD[0m [365647:3760] ([1m0.099ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT \"schema_migrations\".\"version\" FROM \"schema_migrations\" ORDER BY \"schema_migrations\".\"version\" ASC", :allocations=>59, :cached=>nil}
+2023-05-21 13:39:33.879091 [32mD[0m [365647:3760] ([1m0.073ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT \"ar_internal_metadata\".\"value\" FROM \"ar_internal_metadata\" WHERE \"ar_internal_metadata\".\"key\" = ?", :binds=>{:key=>"environment"}, :allocations=>42, :cached=>nil}
+2023-05-21 13:39:33.879282 [32mD[0m [365647:3760] ([1m0.028ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT \"schema_migrations\".\"version\" FROM \"schema_migrations\" ORDER BY \"schema_migrations\".\"version\" ASC", :allocations=>27, :cached=>nil}
+2023-05-21 13:39:33.879479 [32mD[0m [365647:3760] ([1m0.031ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT \"ar_internal_metadata\".\"value\" FROM \"ar_internal_metadata\" WHERE \"ar_internal_metadata\".\"key\" = ?", :binds=>{:key=>"environment"}, :allocations=>16, :cached=>nil}
+2023-05-21 13:39:33.879617 [32mD[0m [365647:3760] ([1m0.023ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT \"schema_migrations\".\"version\" FROM \"schema_migrations\" ORDER BY \"schema_migrations\".\"version\" ASC", :allocations=>27, :cached=>nil}
+2023-05-21 13:39:33.879753 [32mD[0m [365647:3760] ([1m0.022ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT \"ar_internal_metadata\".\"value\" FROM \"ar_internal_metadata\" WHERE \"ar_internal_metadata\".\"key\" = ?", :binds=>{:key=>"environment"}, :allocations=>16, :cached=>nil}
+2023-05-21 13:39:33.882296 [32mD[0m [365647:3760] ([1m0.034ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT sqlite_version(*)", :allocations=>21, :cached=>nil}
+2023-05-21 13:39:33.883172 [32mD[0m [365647:3760] ([1m0.026ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT sqlite_version(*)", :allocations=>16, :cached=>nil}
+2023-05-21 13:39:33.883963 [32mD[0m [365647:3760] ([1m0.026ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT sqlite_version(*)", :allocations=>16, :cached=>nil}
+2023-05-21 13:39:33.894123 [32mD[0m [365647:3760] ([1m9.232ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"schema_migrations\" (\"version\" varchar NOT NULL PRIMARY KEY)", :allocations=>15, :cached=>nil}
+2023-05-21 13:39:33.899101 [32mD[0m [365647:3760] ([1m4.561ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"ar_internal_metadata\" (\"key\" varchar NOT NULL PRIMARY KEY, \"value\" varchar, \"created_at\" datetime(6) NOT NULL, \"updated_at\" datetime(6) NOT NULL)", :allocations=>15, :cached=>nil}
+2023-05-21 13:39:33.899685 [32mD[0m [365647:3760] ([1m0.119ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT \"schema_migrations\".\"version\" FROM \"schema_migrations\" ORDER BY \"schema_migrations\".\"version\" ASC", :allocations=>22, :cached=>nil}
+2023-05-21 13:39:33.899768 [36mI[0m [365647:3760] [36mActiveRecord::Base[0m -- Migrating to CreateProducts (20230520183142)
+2023-05-21 13:39:33.902862 [32mD[0m [365647:3760] ([1m0.086ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>22, :cached=>nil}
+2023-05-21 13:39:33.903172 [32mD[0m [365647:3760] ([1m0.234ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"products\" (\"id\" integer PRIMARY KEY AUTOINCREMENT NOT NULL, \"name\" text, \"price\" integer, \"created_at\" datetime(6) NOT NULL, \"updated_at\" datetime(6) NOT NULL)", :allocations=>20, :cached=>nil}
+2023-05-21 13:39:33.904730 [32mD[0m [365647:3760] ([1m0.105ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE UNIQUE INDEX \"index_products_on_id\" ON \"products\" (\"id\")", :allocations=>15, :cached=>nil}
+2023-05-21 13:39:33.907852 [32mD[0m [365647:3760] ([1m0.222ms[0m) [32mActiveRecord[0m -- ActiveRecord::SchemaMigration Create -- {:sql=>"INSERT INTO \"schema_migrations\" (\"version\") VALUES (?)", :binds=>{:version=>"20230520183142"}, :allocations=>19, :cached=>nil}
+2023-05-21 13:39:33.913153 [32mD[0m [365647:3760] ([1m5.143ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>16, :cached=>nil}
+2023-05-21 13:39:33.913356 [36mI[0m [365647:3760] [36mActiveRecord::Base[0m -- Migrating to CreateProductors (20230520183248)
+2023-05-21 13:39:33.915677 [32mD[0m [365647:3760] ([1m0.072ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>20, :cached=>nil}
+2023-05-21 13:39:33.915981 [32mD[0m [365647:3760] ([1m0.242ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"productors\" (\"id\" integer PRIMARY KEY AUTOINCREMENT NOT NULL, \"name\" text, \"email\" text, \"created_at\" datetime(6) NOT NULL, \"updated_at\" datetime(6) NOT NULL)", :allocations=>20, :cached=>nil}
+2023-05-21 13:39:33.916695 [32mD[0m [365647:3760] ([1m0.089ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE UNIQUE INDEX \"index_productors_on_id\" ON \"productors\" (\"id\")", :allocations=>15, :cached=>nil}
+2023-05-21 13:39:33.918981 [32mD[0m [365647:3760] ([1m1.518ms[0m) [32mActiveRecord[0m -- ActiveRecord::SchemaMigration Create -- {:sql=>"INSERT INTO \"schema_migrations\" (\"version\") VALUES (?)", :binds=>{:version=>"20230520183248"}, :allocations=>23, :cached=>nil}
+2023-05-21 13:39:33.923413 [32mD[0m [365647:3760] ([1m4.344ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>15, :cached=>nil}
+2023-05-21 13:39:33.923487 [36mI[0m [365647:3760] [36mActiveRecord::Base[0m -- Migrating to CreateAffiliateds (20230520183351)
+2023-05-21 13:39:33.925935 [32mD[0m [365647:3760] ([1m0.103ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>20, :cached=>nil}
+2023-05-21 13:39:33.926465 [32mD[0m [365647:3760] ([1m0.396ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"affiliateds\" (\"id\" integer PRIMARY KEY AUTOINCREMENT NOT NULL, \"name\" text, \"email\" text, \"created_at\" datetime(6) NOT NULL, \"updated_at\" datetime(6) NOT NULL)", :allocations=>20, :cached=>nil}
+2023-05-21 13:39:33.927884 [32mD[0m [365647:3760] ([1m0.143ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE UNIQUE INDEX \"index_affiliateds_on_id\" ON \"affiliateds\" (\"id\")", :allocations=>15, :cached=>nil}
+2023-05-21 13:39:33.928570 [32mD[0m [365647:3760] ([1m0.105ms[0m) [32mActiveRecord[0m -- ActiveRecord::SchemaMigration Create -- {:sql=>"INSERT INTO \"schema_migrations\" (\"version\") VALUES (?)", :binds=>{:version=>"20230520183351"}, :allocations=>23, :cached=>nil}
+2023-05-21 13:39:33.933307 [32mD[0m [365647:3760] ([1m4.643ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>15, :cached=>nil}
+2023-05-21 13:39:33.933387 [36mI[0m [365647:3760] [36mActiveRecord::Base[0m -- Migrating to CreateTransactionTypes (20230520183546)
+2023-05-21 13:39:33.935546 [32mD[0m [365647:3760] ([1m0.049ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>20, :cached=>nil}
+2023-05-21 13:39:33.935784 [32mD[0m [365647:3760] ([1m0.196ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"transaction_types\" (\"id\" integer PRIMARY KEY AUTOINCREMENT NOT NULL, \"type\" text, \"description\" text, \"nature\" text, \"signal\" text, \"created_at\" datetime(6) NOT NULL, \"updated_at\" datetime(6) NOT NULL)", :allocations=>20, :cached=>nil}
+2023-05-21 13:39:33.936506 [32mD[0m [365647:3760] ([1m0.080ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE UNIQUE INDEX \"index_transaction_types_on_id\" ON \"transaction_types\" (\"id\")", :allocations=>15, :cached=>nil}
+2023-05-21 13:39:33.937349 [32mD[0m [365647:3760] ([1m0.220ms[0m) [32mActiveRecord[0m -- ActiveRecord::SchemaMigration Create -- {:sql=>"INSERT INTO \"schema_migrations\" (\"version\") VALUES (?)", :binds=>{:version=>"20230520183546"}, :allocations=>23, :cached=>nil}
+2023-05-21 13:39:33.941926 [32mD[0m [365647:3760] ([1m4.438ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>15, :cached=>nil}
+2023-05-21 13:39:33.942054 [36mI[0m [365647:3760] [36mActiveRecord::Base[0m -- Migrating to CreateSales (20230520183717)
+2023-05-21 13:39:33.944638 [32mD[0m [365647:3760] ([1m0.057ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>20, :cached=>nil}
+2023-05-21 13:39:33.944905 [32mD[0m [365647:3760] ([1m0.215ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"sales\" (\"id\" integer PRIMARY KEY AUTOINCREMENT NOT NULL, \"product_id_id\" integer NOT NULL, \"amount\" integer, \"creator_affiliated_id_id\" integer NOT NULL, \"transaction_type_id_id\" integer NOT NULL, \"created_at\" datetime(6) NOT NULL, \"updated_at\" datetime(6) NOT NULL, CONSTRAINT \"fk_rails_65d92e1480\"\nFOREIGN KEY (\"product_id_id\")\n  REFERENCES \"product_ids\" (\"id\")\n, CONSTRAINT \"fk_rails_cc2b4a33c2\"\nFOREIGN KEY (\"creator_affiliated_id_id\")\n  REFERENCES \"creator_affiliated_ids\" (\"id\")\n, CONSTRAINT \"fk_rails_ba8a94d09f\"\nFOREIGN KEY (\"transaction_type_id_id\")\n  REFERENCES \"transaction_type_ids\" (\"id\")\n)", :allocations=>20, :cached=>nil}
+2023-05-21 13:39:33.945099 [32mD[0m [365647:3760] ([1m0.077ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE INDEX \"index_sales_on_product_id_id\" ON \"sales\" (\"product_id_id\")", :allocations=>15, :cached=>nil}
+2023-05-21 13:39:33.945189 [32mD[0m [365647:3760] ([1m0.044ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE INDEX \"index_sales_on_creator_affiliated_id_id\" ON \"sales\" (\"creator_affiliated_id_id\")", :allocations=>15, :cached=>nil}
+2023-05-21 13:39:33.946057 [32mD[0m [365647:3760] ([1m0.170ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE INDEX \"index_sales_on_transaction_type_id_id\" ON \"sales\" (\"transaction_type_id_id\")", :allocations=>15, :cached=>nil}
+2023-05-21 13:39:33.946449 [32mD[0m [365647:3760] ([1m0.098ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE UNIQUE INDEX \"index_sales_on_id\" ON \"sales\" (\"id\")", :allocations=>15, :cached=>nil}
+2023-05-21 13:39:33.947674 [32mD[0m [365647:3760] ([1m0.140ms[0m) [32mActiveRecord[0m -- ActiveRecord::SchemaMigration Create -- {:sql=>"INSERT INTO \"schema_migrations\" (\"version\") VALUES (?)", :binds=>{:version=>"20230520183717"}, :allocations=>23, :cached=>nil}
+2023-05-21 13:39:33.954745 [32mD[0m [365647:3760] ([1m6.956ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>15, :cached=>nil}
+2023-05-21 13:39:33.954850 [36mI[0m [365647:3760] [36mActiveRecord::Base[0m -- Migrating to CreateCommissions (20230520183840)
+2023-05-21 13:39:33.959591 [32mD[0m [365647:3760] ([1m0.178ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>20, :cached=>nil}
+2023-05-21 13:39:33.960096 [32mD[0m [365647:3760] ([1m0.381ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"commissions\" (\"id\" integer PRIMARY KEY AUTOINCREMENT NOT NULL, \"sale_id_id\" integer NOT NULL, \"transaction_type_id_id\" integer NOT NULL, \"created_at\" datetime(6) NOT NULL, \"updated_at\" datetime(6) NOT NULL, CONSTRAINT \"fk_rails_c9f7cebc0c\"\nFOREIGN KEY (\"sale_id_id\")\n  REFERENCES \"sale_ids\" (\"id\")\n, CONSTRAINT \"fk_rails_972ed221fc\"\nFOREIGN KEY (\"transaction_type_id_id\")\n  REFERENCES \"transaction_type_ids\" (\"id\")\n)", :allocations=>20, :cached=>nil}
+2023-05-21 13:39:33.960331 [32mD[0m [365647:3760] ([1m0.087ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE INDEX \"index_commissions_on_sale_id_id\" ON \"commissions\" (\"sale_id_id\")", :allocations=>15, :cached=>nil}
+2023-05-21 13:39:33.960445 [32mD[0m [365647:3760] ([1m0.058ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE INDEX \"index_commissions_on_transaction_type_id_id\" ON \"commissions\" (\"transaction_type_id_id\")", :allocations=>15, :cached=>nil}
+2023-05-21 13:39:33.962093 [32mD[0m [365647:3760] ([1m0.258ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE UNIQUE INDEX \"index_commissions_on_id\" ON \"commissions\" (\"id\")", :allocations=>15, :cached=>nil}
+2023-05-21 13:39:33.963310 [32mD[0m [365647:3760] ([1m0.106ms[0m) [32mActiveRecord[0m -- ActiveRecord::SchemaMigration Create -- {:sql=>"INSERT INTO \"schema_migrations\" (\"version\") VALUES (?)", :binds=>{:version=>"20230520183840"}, :allocations=>23, :cached=>nil}
+2023-05-21 13:39:33.969253 [32mD[0m [365647:3760] ([1m5.832ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>15, :cached=>nil}
+2023-05-21 13:39:33.969325 [36mI[0m [365647:3760] [36mActiveRecord::Base[0m -- Migrating to AddBalanceToAffiliateds (20230521163744)
+2023-05-21 13:39:33.972267 [32mD[0m [365647:3760] ([1m0.071ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>20, :cached=>nil}
+2023-05-21 13:39:33.972864 [32mD[0m [365647:3760] ([1m0.511ms[0m) [32mActiveRecord[0m -- {:sql=>"ALTER TABLE \"affiliateds\" ADD \"balance\" integer", :allocations=>20, :cached=>nil}
+2023-05-21 13:39:33.975213 [32mD[0m [365647:3760] ([1m0.229ms[0m) [32mActiveRecord[0m -- ActiveRecord::SchemaMigration Create -- {:sql=>"INSERT INTO \"schema_migrations\" (\"version\") VALUES (?)", :binds=>{:version=>"20230521163744"}, :allocations=>23, :cached=>nil}
+2023-05-21 13:39:33.979146 [32mD[0m [365647:3760] ([1m3.806ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>15, :cached=>nil}
+2023-05-21 13:39:33.979232 [36mI[0m [365647:3760] [36mActiveRecord::Base[0m -- Migrating to AddBalanceToProductors (20230521163758)
+2023-05-21 13:39:33.983905 [32mD[0m [365647:3760] ([1m0.063ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>20, :cached=>nil}
+2023-05-21 13:39:33.984324 [32mD[0m [365647:3760] ([1m0.362ms[0m) [32mActiveRecord[0m -- {:sql=>"ALTER TABLE \"productors\" ADD \"balance\" integer", :allocations=>20, :cached=>nil}
+2023-05-21 13:39:33.986123 [32mD[0m [365647:3760] ([1m0.096ms[0m) [32mActiveRecord[0m -- ActiveRecord::SchemaMigration Create -- {:sql=>"INSERT INTO \"schema_migrations\" (\"version\") VALUES (?)", :binds=>{:version=>"20230521163758"}, :allocations=>23, :cached=>nil}
+2023-05-21 13:39:33.990987 [32mD[0m [365647:3760] ([1m4.750ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>15, :cached=>nil}
+2023-05-21 13:39:33.992188 [32mD[0m [365647:3760] ([1m0.313ms[0m) [32mActiveRecord[0m -- ActiveRecord::InternalMetadata Load -- {:sql=>"SELECT \"ar_internal_metadata\".* FROM \"ar_internal_metadata\" WHERE \"ar_internal_metadata\".\"key\" = ? LIMIT ?", :binds=>{:key=>"environment", :limit=>1}, :allocations=>35, :cached=>nil}
+2023-05-21 13:39:33.995941 [32mD[0m [365647:3760] ([1m0.049ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>16, :cached=>nil}
+2023-05-21 13:39:33.996475 [32mD[0m [365647:3760] ([1m0.345ms[0m) [32mActiveRecord[0m -- ActiveRecord::InternalMetadata Create -- {:sql=>"INSERT INTO \"ar_internal_metadata\" (\"key\", \"value\", \"created_at\", \"updated_at\") VALUES (?, ?, ?, ?)", :binds=>{:key=>"environment", :value=>"development", :created_at=>"2023-05-21 13:39:33.995075", :updated_at=>"2023-05-21 13:39:33.995075"}, :allocations=>23, :cached=>nil}
+2023-05-21 13:39:34.001054 [32mD[0m [365647:3760] ([1m4.405ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>15, :cached=>nil}
+2023-05-21 13:39:34.002678 [32mD[0m [365647:3760] ([1m0.103ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT sqlite_version(*)", :allocations=>16, :cached=>nil}
+2023-05-21 13:39:34.004588 [32mD[0m [365647:3760] ([1m0.055ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT \"schema_migrations\".\"version\" FROM \"schema_migrations\" ORDER BY \"schema_migrations\".\"version\" ASC", :allocations=>38, :cached=>nil}
+2023-05-21 13:39:34.013233 [32mD[0m [365647:3760] ([1m0.031ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT sqlite_version(*)", :allocations=>16, :cached=>nil}
+2023-05-21 13:39:34.014264 [32mD[0m [365647:3760] ([1m0.064ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT \"schema_migrations\".\"version\" FROM \"schema_migrations\" ORDER BY \"schema_migrations\".\"version\" ASC", :allocations=>38, :cached=>nil}
+2023-05-21 13:39:34.017016 [32mD[0m [365647:3760] ([1m0.039ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT sqlite_version(*)", :allocations=>24, :cached=>nil}
+2023-05-21 13:39:34.021097 [32mD[0m [365647:3760] ([1m0.052ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>16, :cached=>nil}
+2023-05-21 13:39:34.021726 [32mD[0m [365647:3760] ([1m0.356ms[0m) [32mActiveRecord[0m -- Product Create -- {:sql=>"INSERT INTO \"products\" (\"name\", \"price\", \"created_at\", \"updated_at\") VALUES (?, ?, ?, ?)", :binds=>{:name=>"Chicken", :price=>3532, :created_at=>"2023-05-21 13:39:34.020544", :updated_at=>"2023-05-21 13:39:34.020544"}, :allocations=>26, :cached=>nil}
+2023-05-21 13:39:34.026512 [32mD[0m [365647:3760] ([1m4.596ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>15, :cached=>nil}
+2023-05-21 13:39:34.027330 [32mD[0m [365647:3760] ([1m0.045ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>16, :cached=>nil}
+2023-05-21 13:39:34.027661 [32mD[0m [365647:3760] ([1m0.186ms[0m) [32mActiveRecord[0m -- Product Create -- {:sql=>"INSERT INTO \"products\" (\"name\", \"price\", \"created_at\", \"updated_at\") VALUES (?, ?, ?, ?)", :binds=>{:name=>"Veggie", :price=>1272, :created_at=>"2023-05-21 13:39:34.026864", :updated_at=>"2023-05-21 13:39:34.026864"}, :allocations=>25, :cached=>nil}
+2023-05-21 13:39:34.031558 [32mD[0m [365647:3760] ([1m3.783ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>15, :cached=>nil}
+2023-05-21 13:39:34.032170 [32mD[0m [365647:3760] ([1m0.029ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>16, :cached=>nil}
+2023-05-21 13:39:34.032625 [32mD[0m [365647:3760] ([1m0.336ms[0m) [32mActiveRecord[0m -- Product Create -- {:sql=>"INSERT INTO \"products\" (\"name\", \"price\", \"created_at\", \"updated_at\") VALUES (?, ?, ?, ?)", :binds=>{:name=>"Beef", :price=>7109, :created_at=>"2023-05-21 13:39:34.031822", :updated_at=>"2023-05-21 13:39:34.031822"}, :allocations=>25, :cached=>nil}
+2023-05-21 13:39:34.036646 [32mD[0m [365647:3760] ([1m3.875ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>15, :cached=>nil}
+2023-05-21 13:39:34.211154 [32mD[0m [365647:3760] ([1m0.028ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>17, :cached=>nil}
+2023-05-21 13:39:34.211375 [32mD[0m [365647:3760] ([1m0.122ms[0m) [32mActiveRecord[0m -- Productor Create -- {:sql=>"INSERT INTO \"productors\" (\"name\", \"email\", \"created_at\", \"updated_at\", \"balance\") VALUES (?, ?, ?, ?, ?)", :binds=>{:name=>"Gúbio Lobos", :email=>"katheryn@okon.biz", :created_at=>"2023-05-21 13:39:34.210799", :updated_at=>"2023-05-21 13:39:34.210799", :balance=>80650}, :allocations=>27, :cached=>nil}
+2023-05-21 13:39:34.220337 [32mD[0m [365647:3760] ([1m8.871ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>15, :cached=>nil}
+2023-05-21 13:39:34.234461 [35mT[0m [365647:3760] [35mSemanticLogger::Appenders[0m -- Async: Queued log messages: 6, running command: flush
+2023-05-21 13:39:34.225224 [32mD[0m [365647:3760] ([1m0.020ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>17, :cached=>nil}
+2023-05-21 13:39:34.225435 [32mD[0m [365647:3760] ([1m0.121ms[0m) [32mActiveRecord[0m -- Affiliated Create -- {:sql=>"INSERT INTO \"affiliateds\" (\"name\", \"email\", \"created_at\", \"updated_at\", \"balance\") VALUES (?, ?, ?, ?, ?)", :binds=>{:name=>"Isadora Aragão", :email=>"carley@lindgren.io", :created_at=>"2023-05-21 13:39:34.224913", :updated_at=>"2023-05-21 13:39:34.224913", :balance=>0}, :allocations=>27, :cached=>nil}
+2023-05-21 13:39:34.229636 [32mD[0m [365647:3760] ([1m4.123ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>15, :cached=>nil}
+2023-05-21 13:39:34.230239 [32mD[0m [365647:3760] ([1m0.018ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>16, :cached=>nil}
+2023-05-21 13:39:34.230403 [32mD[0m [365647:3760] ([1m0.101ms[0m) [32mActiveRecord[0m -- Affiliated Create -- {:sql=>"INSERT INTO \"affiliateds\" (\"name\", \"email\", \"created_at\", \"updated_at\", \"balance\") VALUES (?, ?, ?, ?, ?)", :binds=>{:name=>"Francisco Cruz Jr.", :email=>"shelton@yost.biz", :created_at=>"2023-05-21 13:39:34.230031", :updated_at=>"2023-05-21 13:39:34.230031", :balance=>0}, :allocations=>26, :cached=>nil}
+2023-05-21 13:39:34.234285 [32mD[0m [365647:3760] ([1m3.828ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>15, :cached=>nil}
+2023-05-21 13:39:34.235485 [35mT[0m [365647:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::File
+2023-05-21 13:39:34.235605 [35mT[0m [365647:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- All appenders flushed
+2023-05-21 13:39:34.235880 [35mT[0m [365647:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Thread has stopped
+2023-05-21 13:39:58.758067 [35mT[0m [346053:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::File
+2023-05-21 13:39:58.758214 [35mT[0m [346053:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- All appenders flushed
+2023-05-21 13:39:58.760854 [35mT[0m [346053:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Thread has stopped
+2023-05-21 13:39:59.897832 [35mT[0m [365833:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Appender thread active
+2023-05-21 13:40:27.304904 [35mT[0m [365887:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Appender thread active
+2023-05-21 13:40:40.642289 [32mD[0m [365887:puma srv tp 002] [32mRack[0m -- Started -- {:method=>"GET", :path=>"/products", :ip=>"::1"}
+2023-05-21 13:40:40.644872 [32mD[0m [365887:puma srv tp 002] ([1m0.274ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT sqlite_version(*)", :allocations=>245, :cached=>nil}
+2023-05-21 13:40:40.660508 [32mD[0m [365887:puma srv tp 002] ([1m0.145ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT \"schema_migrations\".\"version\" FROM \"schema_migrations\" ORDER BY \"schema_migrations\".\"version\" ASC", :allocations=>63, :cached=>nil}
+2023-05-21 13:40:40.669604 [32mD[0m [365887:puma srv tp 002] [32mProductsController[0m -- Processing #index
+2023-05-21 13:40:40.675254 [32mD[0m [365887:puma srv tp 002] ([1m0.157ms[0m) [32mActiveRecord[0m -- Product Load -- {:sql=>"SELECT \"products\".* FROM \"products\"", :allocations=>67, :cached=>nil}
+2023-05-21 13:40:40.681987 [32mD[0m [365887:puma srv tp 002] [32mRails[0m -- No serializer found for resource: #<Product id: 1, name: "Chicken", price: 3532, created_at: "2023-05-21 13:39:34.020544000 -0300", updated_at: "2023-05-21 13:39:34.020544000 -0300">
+2023-05-21 13:40:40.682585 [36mI[0m [365887:puma srv tp 002] [36mRails[0m -- Rendered ActiveModel::Serializer::CollectionSerializer with Product::ActiveRecord_Relation (0.44ms)
+2023-05-21 13:40:40.682826 [36mI[0m [365887:puma srv tp 002] ([1m13.2ms[0m) [36mProductsController[0m -- Completed #index -- {:controller=>"ProductsController", :action=>"index", :params=>{"product"=>{}}, :format=>"*/*", :method=>"GET", :path=>"/products", :status=>200, :view_runtime=>8.32, :db_runtime=>0.79, :allocations=>6538, :status_message=>"OK"}
+2023-05-21 13:41:03.295246 [32mD[0m [365887:puma srv tp 005] [32mRack[0m -- Started -- {:method=>"GET", :path=>"/products/1", :ip=>"::1"}
+2023-05-21 13:41:03.296298 [32mD[0m [365887:puma srv tp 005] [32mProductsController[0m -- Processing #show
+2023-05-21 13:41:03.306873 [32mD[0m [365887:puma srv tp 005] ([1m0.189ms[0m) [32mActiveRecord[0m -- Product Load -- {:sql=>"SELECT \"products\".* FROM \"products\" WHERE \"products\".\"id\" = ? LIMIT ?", :binds=>{:id=>1, :limit=>1}, :allocations=>62, :cached=>nil}
+2023-05-21 13:41:03.310615 [36mI[0m [365887:puma srv tp 005] [36mRails[0m -- Rendered ActiveModel::Serializer::Null with Product (0.3ms)
+2023-05-21 13:41:03.311543 [36mI[0m [365887:puma srv tp 005] ([1m15.2ms[0m) [36mProductsController[0m -- Completed #show -- {:controller=>"ProductsController", :action=>"show", :params=>{"id"=>"1", "product"=>{}}, :format=>"*/*", :method=>"GET", :path=>"/products/1", :status=>200, :view_runtime=>4.4, :db_runtime=>0.19, :allocations=>2877, :status_message=>"OK"}
+2023-05-21 13:41:14.304949 [32mD[0m [365887:puma srv tp 001] [32mRack[0m -- Started -- {:method=>"POST", :path=>"/products", :ip=>"::1"}
+2023-05-21 13:41:14.306042 [32mD[0m [365887:puma srv tp 001] [32mProductsController[0m -- Processing #create
+2023-05-21 13:41:14.307523 [32mD[0m [365887:puma srv tp 001] ([1m0.068ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>22, :cached=>nil}
+2023-05-21 13:41:14.308052 [32mD[0m [365887:puma srv tp 001] ([1m0.303ms[0m) [32mActiveRecord[0m -- Product Create -- {:sql=>"INSERT INTO \"products\" (\"name\", \"price\", \"created_at\", \"updated_at\") VALUES (?, ?, ?, ?)", :binds=>{:name=>"cesta de ovos", :price=>1200, :created_at=>"2023-05-21 13:41:14.306762", :updated_at=>"2023-05-21 13:41:14.306762"}, :allocations=>35, :cached=>nil}
+2023-05-21 13:41:14.317561 [32mD[0m [365887:puma srv tp 001] ([1m9.303ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>16, :cached=>nil}
+2023-05-21 13:41:14.318496 [36mI[0m [365887:puma srv tp 001] [36mRails[0m -- Rendered ActiveModel::Serializer::Null with Product (0.44ms)
+2023-05-21 13:41:14.318698 [36mI[0m [365887:puma srv tp 001] ([1m12.6ms[0m) [36mProductsController[0m -- Completed #create -- {:controller=>"ProductsController", :action=>"create", :params=>{"name"=>"cesta de ovos", "price"=>1200, "product"=>{"name"=>"cesta de ovos", "price"=>1200}}, :format=>"*/*", :method=>"POST", :path=>"/products", :status=>200, :view_runtime=>0.88, :db_runtime=>9.67, :allocations=>1303, :status_message=>"OK"}
+2023-05-21 13:41:19.032053 [32mD[0m [365887:puma srv tp 002] [32mRack[0m -- Started -- {:method=>"GET", :path=>"/products", :ip=>"::1"}
+2023-05-21 13:41:19.033775 [32mD[0m [365887:puma srv tp 002] [32mProductsController[0m -- Processing #index
+2023-05-21 13:41:19.037031 [32mD[0m [365887:puma srv tp 002] ([1m0.096ms[0m) [32mActiveRecord[0m -- Product Load -- {:sql=>"SELECT \"products\".* FROM \"products\"", :allocations=>33, :cached=>nil}
+2023-05-21 13:41:19.037455 [32mD[0m [365887:puma srv tp 002] [32mRails[0m -- No serializer found for resource: #<Product id: 1, name: "Chicken", price: 3532, created_at: "2023-05-21 13:39:34.020544000 -0300", updated_at: "2023-05-21 13:39:34.020544000 -0300">
+2023-05-21 13:41:19.040869 [36mI[0m [365887:puma srv tp 002] [36mRails[0m -- Rendered ActiveModel::Serializer::CollectionSerializer with Product::ActiveRecord_Relation (3.31ms)
+2023-05-21 13:41:19.041047 [36mI[0m [365887:puma srv tp 002] ([1m7.239ms[0m) [36mProductsController[0m -- Completed #index -- {:controller=>"ProductsController", :action=>"index", :params=>{"product"=>{}}, :format=>"*/*", :method=>"GET", :path=>"/products", :status=>200, :view_runtime=>6.94, :db_runtime=>0.1, :allocations=>797, :status_message=>"OK"}
+2023-05-21 13:41:34.783149 [32mD[0m [365887:puma srv tp 003] [32mRack[0m -- Started -- {:method=>"PUT", :path=>"/products/4", :ip=>"::1"}
+2023-05-21 13:41:34.787287 [32mD[0m [365887:puma srv tp 003] [32mProductsController[0m -- Processing #update
+2023-05-21 13:41:34.787891 [32mD[0m [365887:puma srv tp 003] ([1m0.100ms[0m) [32mActiveRecord[0m -- Product Load -- {:sql=>"SELECT \"products\".* FROM \"products\" WHERE \"products\".\"id\" = ? LIMIT ?", :binds=>{:id=>4, :limit=>1}, :allocations=>21, :cached=>nil}
+2023-05-21 13:41:34.791181 [32mD[0m [365887:puma srv tp 003] ([1m0.059ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>16, :cached=>nil}
+2023-05-21 13:41:34.791683 [32mD[0m [365887:puma srv tp 003] ([1m0.372ms[0m) [32mActiveRecord[0m -- Product Update -- {:sql=>"UPDATE \"products\" SET \"price\" = ?, \"updated_at\" = ? WHERE \"products\".\"id\" = ?", :binds=>{:price=>1500, :updated_at=>"2023-05-21 13:41:34.788206", :id=>4}, :allocations=>22, :cached=>nil}
+2023-05-21 13:41:34.801240 [32mD[0m [365887:puma srv tp 003] ([1m9.335ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>15, :cached=>nil}
+2023-05-21 13:41:34.801796 [36mI[0m [365887:puma srv tp 003] [36mRails[0m -- Rendered ActiveModel::Serializer::Null with Product (0.2ms)
+2023-05-21 13:41:34.801937 [36mI[0m [365887:puma srv tp 003] ([1m14.6ms[0m) [36mProductsController[0m -- Completed #update -- {:controller=>"ProductsController", :action=>"update", :params=>{"id"=>"4", "name"=>"cesta de ovos", "price"=>1500, "product"=>{"id"=>"4", "name"=>"cesta de ovos", "price"=>1500}}, :format=>"*/*", :method=>"PUT", :path=>"/products/4", :status=>200, :view_runtime=>0.53, :db_runtime=>9.87, :allocations=>904, :status_message=>"OK"}
+2023-05-21 13:41:44.582703 [32mD[0m [365887:puma srv tp 004] [32mRack[0m -- Started -- {:method=>"PUT", :path=>"/products/4", :ip=>"::1"}
+2023-05-21 13:41:44.586669 [32mD[0m [365887:puma srv tp 004] [32mProductsController[0m -- Processing #update
+2023-05-21 13:41:44.587141 [32mD[0m [365887:puma srv tp 004] ([1m0.116ms[0m) [32mActiveRecord[0m -- Product Load -- {:sql=>"SELECT \"products\".* FROM \"products\" WHERE \"products\".\"id\" = ? LIMIT ?", :binds=>{:id=>4, :limit=>1}, :allocations=>21, :cached=>nil}
+2023-05-21 13:41:44.590500 [32mD[0m [365887:puma srv tp 004] ([1m0.067ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>16, :cached=>nil}
+2023-05-21 13:41:44.590896 [32mD[0m [365887:puma srv tp 004] ([1m0.251ms[0m) [32mActiveRecord[0m -- Product Update -- {:sql=>"UPDATE \"products\" SET \"price\" = ?, \"updated_at\" = ? WHERE \"products\".\"id\" = ?", :binds=>{:price=>1600, :updated_at=>"2023-05-21 13:41:44.587423", :id=>4}, :allocations=>22, :cached=>nil}
+2023-05-21 13:41:44.602319 [32mD[0m [365887:puma srv tp 004] ([1m11.2ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>15, :cached=>nil}
+2023-05-21 13:41:44.602963 [36mI[0m [365887:puma srv tp 004] [36mRails[0m -- Rendered ActiveModel::Serializer::Null with Product (0.24ms)
+2023-05-21 13:41:44.603144 [36mI[0m [365887:puma srv tp 004] ([1m16.4ms[0m) [36mProductsController[0m -- Completed #update -- {:controller=>"ProductsController", :action=>"update", :params=>{"name"=>"cesta de ovos", "price"=>1600, "id"=>"4", "product"=>{"name"=>"cesta de ovos", "price"=>1600}}, :format=>"*/*", :method=>"PUT", :path=>"/products/4", :status=>200, :view_runtime=>0.64, :db_runtime=>11.63, :allocations=>717, :status_message=>"OK"}
+2023-05-21 13:41:51.763329 [32mD[0m [365887:puma srv tp 005] [32mRack[0m -- Started -- {:method=>"GET", :path=>"/products", :ip=>"::1"}
+2023-05-21 13:41:51.764279 [32mD[0m [365887:puma srv tp 005] [32mProductsController[0m -- Processing #index
+2023-05-21 13:41:51.768896 [32mD[0m [365887:puma srv tp 005] ([1m3.812ms[0m) [32mActiveRecord[0m -- Product Load -- {:sql=>"SELECT \"products\".* FROM \"products\"", :allocations=>32, :cached=>nil}
+2023-05-21 13:41:51.769387 [32mD[0m [365887:puma srv tp 005] [32mRails[0m -- No serializer found for resource: #<Product id: 1, name: "Chicken", price: 3532, created_at: "2023-05-21 13:39:34.020544000 -0300", updated_at: "2023-05-21 13:39:34.020544000 -0300">
+2023-05-21 13:41:51.773853 [36mI[0m [365887:puma srv tp 005] [36mRails[0m -- Rendered ActiveModel::Serializer::CollectionSerializer with Product::ActiveRecord_Relation (4.36ms)
+2023-05-21 13:41:51.774222 [36mI[0m [365887:puma srv tp 005] ([1m9.891ms[0m) [36mProductsController[0m -- Completed #index -- {:controller=>"ProductsController", :action=>"index", :params=>{"product"=>{}}, :format=>"*/*", :method=>"GET", :path=>"/products", :status=>200, :view_runtime=>5.65, :db_runtime=>3.81, :allocations=>759, :status_message=>"OK"}
+2023-05-21 13:42:13.869479 [32mD[0m [365887:puma srv tp 003] [32mRack[0m -- Started -- {:method=>"DELETE", :path=>"/products/4", :ip=>"::1"}
+2023-05-21 13:42:13.870452 [32mD[0m [365887:puma srv tp 003] [32mProductsController[0m -- Processing #destroy
+2023-05-21 13:42:13.871002 [32mD[0m [365887:puma srv tp 003] ([1m0.101ms[0m) [32mActiveRecord[0m -- Product Load -- {:sql=>"SELECT \"products\".* FROM \"products\" WHERE \"products\".\"id\" = ? LIMIT ?", :binds=>{:id=>4, :limit=>1}, :allocations=>20, :cached=>nil}
+2023-05-21 13:42:13.871459 [32mD[0m [365887:puma srv tp 003] ([1m0.041ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>16, :cached=>nil}
+2023-05-21 13:42:13.871698 [32mD[0m [365887:puma srv tp 003] ([1m0.187ms[0m) [32mActiveRecord[0m -- Product Destroy -- {:sql=>"DELETE FROM \"products\" WHERE \"products\".\"id\" = ?", :binds=>{:id=>4}, :allocations=>20, :cached=>nil}
+2023-05-21 13:42:13.877268 [32mD[0m [365887:puma srv tp 003] ([1m5.451ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>15, :cached=>nil}
+2023-05-21 13:42:13.877939 [36mI[0m [365887:puma srv tp 003] [36mRails[0m -- Rendered ActiveModel::Serializer::Null with Product (0.26ms)
+2023-05-21 13:42:13.878098 [36mI[0m [365887:puma srv tp 003] ([1m7.605ms[0m) [36mProductsController[0m -- Completed #destroy -- {:controller=>"ProductsController", :action=>"destroy", :params=>{"id"=>"4", "product"=>{}}, :format=>"*/*", :method=>"DELETE", :path=>"/products/4", :status=>200, :view_runtime=>0.65, :db_runtime=>5.78, :allocations=>603, :status_message=>"OK"}
+2023-05-21 13:42:17.303138 [32mD[0m [365887:puma srv tp 004] [32mRack[0m -- Started -- {:method=>"GET", :path=>"/products", :ip=>"::1"}
+2023-05-21 13:42:17.304146 [32mD[0m [365887:puma srv tp 004] [32mProductsController[0m -- Processing #index
+2023-05-21 13:42:17.304892 [32mD[0m [365887:puma srv tp 004] ([1m0.130ms[0m) [32mActiveRecord[0m -- Product Load -- {:sql=>"SELECT \"products\".* FROM \"products\"", :allocations=>28, :cached=>nil}
+2023-05-21 13:42:17.305293 [32mD[0m [365887:puma srv tp 004] [32mRails[0m -- No serializer found for resource: #<Product id: 1, name: "Chicken", price: 3532, created_at: "2023-05-21 13:39:34.020544000 -0300", updated_at: "2023-05-21 13:39:34.020544000 -0300">
+2023-05-21 13:42:17.305851 [36mI[0m [365887:puma srv tp 004] [36mRails[0m -- Rendered ActiveModel::Serializer::CollectionSerializer with Product::ActiveRecord_Relation (0.47ms)
+2023-05-21 13:42:17.306207 [36mI[0m [365887:puma srv tp 004] ([1m2.018ms[0m) [36mProductsController[0m -- Completed #index -- {:controller=>"ProductsController", :action=>"index", :params=>{"product"=>{}}, :format=>"*/*", :method=>"GET", :path=>"/products", :status=>200, :view_runtime=>1.66, :db_runtime=>0.13, :allocations=>642, :status_message=>"OK"}
+2023-05-21 13:42:27.993614 [32mD[0m [365887:puma srv tp 005] [32mRack[0m -- Started -- {:method=>"GET", :path=>"/productors", :ip=>"::1"}
+2023-05-21 13:42:27.994288 [31mF[0m [365887:puma srv tp 005 thread_local_var.rb:93] [31mRails[0m -- Exception: [31mActionController::RoutingError: No route matches [GET] "/productors"[0m
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/debug_exceptions.rb:33:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rails_semantic_logger-4.12.0/lib/rails_semantic_logger/rack/logger.rb:45:in `call_app'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rails_semantic_logger-4.12.0/lib/rails_semantic_logger/rack/logger.rb:28:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/request_id.rb:26:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rack-2.2.7/lib/rack/runtime.rb:22:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/executor.rb:14:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/static.rb:24:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rack-2.2.7/lib/rack/sendfile.rb:110:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/host_authorization.rb:148:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rack-cors-2.0.1/lib/rack/cors.rb:102:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/railties-6.1.7.3/lib/rails/engine.rb:539:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/configuration.rb:252:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/request.rb:77:in `block in handle_request'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/request.rb:76:in `handle_request'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/server.rb:443:in `process_client'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+2023-05-21 13:42:38.194903 [32mD[0m [365887:puma srv tp 001] [32mRack[0m -- Started -- {:method=>"GET", :path=>"/productors", :ip=>"::1"}
+2023-05-21 13:42:38.195456 [31mF[0m [365887:puma srv tp 001 thread_local_var.rb:93] [31mRails[0m -- Exception: [31mActionController::RoutingError: No route matches [GET] "/productors"[0m
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/debug_exceptions.rb:33:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rails_semantic_logger-4.12.0/lib/rails_semantic_logger/rack/logger.rb:45:in `call_app'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rails_semantic_logger-4.12.0/lib/rails_semantic_logger/rack/logger.rb:28:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/request_id.rb:26:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rack-2.2.7/lib/rack/runtime.rb:22:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/activesupport-6.1.7.3/lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/executor.rb:14:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/static.rb:24:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rack-2.2.7/lib/rack/sendfile.rb:110:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/actionpack-6.1.7.3/lib/action_dispatch/middleware/host_authorization.rb:148:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/rack-cors-2.0.1/lib/rack/cors.rb:102:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/railties-6.1.7.3/lib/rails/engine.rb:539:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/configuration.rb:252:in `call'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/request.rb:77:in `block in handle_request'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/thread_pool.rb:340:in `with_force_shutdown'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/request.rb:76:in `handle_request'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/server.rb:443:in `process_client'
+/home/voltz/.rbenv/versions/3.1.2/lib/ruby/gems/3.1.0/gems/puma-5.6.5/lib/puma/thread_pool.rb:147:in `block in spawn_thread'
+2023-05-21 13:43:35.124921 [35mT[0m [365833:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::File
+2023-05-21 13:43:35.125040 [35mT[0m [365833:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- All appenders flushed
+2023-05-21 13:43:35.125148 [35mT[0m [365833:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Thread has stopped
+2023-05-21 13:43:36.140504 [35mT[0m [366447:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Appender thread active
+2023-05-21 13:43:37.767049 [32mD[0m [365887:puma srv tp 004] [32mRack[0m -- Started -- {:method=>"GET", :path=>"/productors", :ip=>"::1"}
+2023-05-21 13:43:37.837779 [32mD[0m [365887:puma srv tp 004] ([1m0.032ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT sqlite_version(*)", :allocations=>24, :cached=>nil}
+2023-05-21 13:43:37.838481 [32mD[0m [365887:puma srv tp 004] [32mProductorsController[0m -- Processing #index
+2023-05-21 13:43:37.838905 [32mD[0m [365887:puma srv tp 004] ([1m0.054ms[0m) [32mActiveRecord[0m -- Productor Load -- {:sql=>"SELECT \"productors\".* FROM \"productors\"", :allocations=>51, :cached=>nil}
+2023-05-21 13:43:37.841316 [32mD[0m [365887:puma srv tp 004] [32mRails[0m -- No serializer found for resource: #<Productor id: 1, name: "Gúbio Lobos", email: "katheryn@okon.biz", created_at: "2023-05-21 13:39:34.210799000 -0300", updated_at: "2023-05-21 13:39:34.210799000 -0300", balance: 80650>
+2023-05-21 13:43:37.841447 [36mI[0m [365887:puma srv tp 004] [36mRails[0m -- Rendered ActiveModel::Serializer::CollectionSerializer with Productor::ActiveRecord_Relation (0.09ms)
+2023-05-21 13:43:37.841530 [36mI[0m [365887:puma srv tp 004] ([1m3.032ms[0m) [36mProductorsController[0m -- Completed #index -- {:controller=>"ProductorsController", :action=>"index", :params=>{"productor"=>{}}, :format=>"*/*", :method=>"GET", :path=>"/productors", :status=>200, :view_runtime=>2.74, :db_runtime=>0.45, :allocations=>3643, :status_message=>"OK"}
+2023-05-21 13:43:55.522203 [32mD[0m [365887:puma srv tp 005] [32mRack[0m -- Started -- {:method=>"GET", :path=>"/affiliateds", :ip=>"::1"}
+2023-05-21 13:43:55.526068 [32mD[0m [365887:puma srv tp 005] [32mAffiliatedsController[0m -- Processing #index
+2023-05-21 13:43:55.526809 [32mD[0m [365887:puma srv tp 005] ([1m0.084ms[0m) [32mActiveRecord[0m -- Affiliated Load -- {:sql=>"SELECT \"affiliateds\".* FROM \"affiliateds\"", :allocations=>55, :cached=>nil}
+2023-05-21 13:43:55.530287 [32mD[0m [365887:puma srv tp 005] [32mRails[0m -- No serializer found for resource: #<Affiliated id: 1, name: "Isadora Aragão", email: "carley@lindgren.io", created_at: "2023-05-21 13:39:34.224913000 -0300", updated_at: "2023-05-21 13:39:34.224913000 -0300", balance: 0>
+2023-05-21 13:43:55.530555 [36mI[0m [365887:puma srv tp 005] [36mRails[0m -- Rendered ActiveModel::Serializer::CollectionSerializer with Affiliated::ActiveRecord_Relation (0.19ms)
+2023-05-21 13:43:55.530711 [36mI[0m [365887:puma srv tp 005] ([1m4.603ms[0m) [36mAffiliatedsController[0m -- Completed #index -- {:controller=>"AffiliatedsController", :action=>"index", :params=>{"affiliated"=>{}}, :format=>"*/*", :method=>"GET", :path=>"/affiliateds", :status=>200, :view_runtime=>4.12, :db_runtime=>0.44, :allocations=>3531, :status_message=>"OK"}
+2023-05-21 13:44:18.261708 [35mT[0m [366447:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::File
+2023-05-21 13:44:18.261819 [35mT[0m [366447:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- All appenders flushed
+2023-05-21 13:44:18.261949 [35mT[0m [366447:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Thread has stopped
+2023-05-21 13:44:19.232252 [35mT[0m [366606:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Appender thread active
+2023-05-21 13:44:21.233152 [35mT[0m [366606:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::File
+2023-05-21 13:44:21.233276 [35mT[0m [366606:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- All appenders flushed
+2023-05-21 13:44:21.233419 [35mT[0m [366606:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Thread has stopped
+2023-05-21 13:44:22.376393 [35mT[0m [366652:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Appender thread active

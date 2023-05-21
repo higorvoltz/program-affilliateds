@@ -34,7 +34,7 @@ ActiveRecord::Schema.define(version: 20_230_521_210_550) do
     t.index ['transaction_type_id_id'], name: 'index_commissions_on_transaction_type_id_id'
   end
 
-  create_table 'productor_affiliateds', id: false, force: :cascade do |t|
+  create_table 'productor_affiliateds', force: :cascade do |t|
     t.integer 'productor_id', null: false
     t.integer 'affiliated_id', null: false
     t.datetime 'created_at', precision: 6, null: false
@@ -75,15 +75,15 @@ ActiveRecord::Schema.define(version: 20_230_521_210_550) do
   end
 
   create_table 'sales', force: :cascade do |t|
-    t.integer 'product_id_id', null: false
+    t.integer 'product_id', null: false
     t.integer 'amount'
-    t.integer 'creator_affiliated_id', null: false
+    t.integer 'productor_affiliated_id'
     t.integer 'transaction_type_id', null: false
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
-    t.index ['creator_affiliated_id'], name: 'index_sales_on_creator_affiliated_id'
     t.index ['id'], name: 'index_sales_on_id', unique: true
-    t.index ['product_id_id'], name: 'index_sales_on_product_id_id'
+    t.index ['product_id'], name: 'index_sales_on_product_id'
+    t.index ['productor_affiliated_id'], name: 'index_sales_on_productor_affiliated_id'
     t.index ['transaction_type_id'], name: 'index_sales_on_transaction_type_id'
   end
 
@@ -105,7 +105,7 @@ ActiveRecord::Schema.define(version: 20_230_521_210_550) do
   add_foreign_key 'products', 'productors'
   add_foreign_key 'sale_items', 'products'
   add_foreign_key 'sale_items', 'sales'
-  add_foreign_key 'sales', 'creator_affiliateds'
-  add_foreign_key 'sales', 'product_ids'
+  add_foreign_key 'sales', 'productor_affiliateds'
+  add_foreign_key 'sales', 'products'
   add_foreign_key 'sales', 'transaction_types'
 end

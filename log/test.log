@@ -1,0 +1,473 @@
+2023-05-21 09:33:42.461962 [35mT[0m [324374:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Appender thread active
+2023-05-21 09:33:42.576449 [35mT[0m [324391:3720] [35mSemanticLogger::Appenders[0m -- Reopening appender: SemanticLogger::Appender::File
+2023-05-21 09:33:42.577304 [35mT[0m [324391:3720] [35mSemanticLogger::Appenders[0m -- All appenders re-opened
+2023-05-21 09:33:42.577921 [35mT[0m [324391:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Appender thread active
+2023-05-21 09:33:42.642392 [32mD[0m [324391:3720] ([1m0.319ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT sqlite_version(*)", :allocations=>238, :cached=>nil}
+2023-05-21 09:33:42.656985 [32mD[0m [324391:3720] ([1m5.710ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"schema_migrations\" (\"version\" varchar NOT NULL PRIMARY KEY)", :allocations=>18, :cached=>nil}
+2023-05-21 09:33:42.661436 [32mD[0m [324391:3720] ([1m3.582ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"ar_internal_metadata\" (\"key\" varchar NOT NULL PRIMARY KEY, \"value\" varchar, \"created_at\" datetime(6) NOT NULL, \"updated_at\" datetime(6) NOT NULL)", :allocations=>18, :cached=>nil}
+2023-05-21 09:33:42.664413 [32mD[0m [324391:3720] ([1m0.067ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT \"schema_migrations\".\"version\" FROM \"schema_migrations\" ORDER BY \"schema_migrations\".\"version\" ASC", :allocations=>47, :cached=>nil}
+2023-05-21 09:33:42.664502 [36mI[0m [324391:3720] [36mActiveRecord::Base[0m -- Migrating to CreateSecretMenuItems (20230507210809)
+2023-05-21 09:33:42.666037 [32mD[0m [324391:3720] ([1m0.063ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>25, :cached=>nil}
+2023-05-21 09:33:42.666643 [32mD[0m [324391:3720] ([1m0.521ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"secret_menu_items\" (\"id\" integer PRIMARY KEY AUTOINCREMENT NOT NULL, \"menu_name\" varchar, \"restaurant_name\" varchar, \"menu_description\" varchar, \"created_at\" datetime(6) NOT NULL, \"updated_at\" datetime(6) NOT NULL)", :allocations=>21, :cached=>nil}
+2023-05-21 09:33:42.670546 [32mD[0m [324391:3720] ([1m0.099ms[0m) [32mActiveRecord[0m -- ActiveRecord::SchemaMigration Create -- {:sql=>"INSERT INTO \"schema_migrations\" (\"version\") VALUES (?)", :binds=>{:version=>"20230507210809"}, :allocations=>21, :cached=>nil}
+2023-05-21 09:33:42.674206 [32mD[0m [324391:3720] ([1m3.558ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>17, :cached=>nil}
+2023-05-21 09:33:42.674294 [36mI[0m [324391:3720] [36mActiveRecord::Base[0m -- Migrating to CreateProducts (20230520183142)
+2023-05-21 09:33:42.675220 [32mD[0m [324391:3720] ([1m0.027ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>22, :cached=>nil}
+2023-05-21 09:33:42.675523 [32mD[0m [324391:3720] ([1m0.177ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"products\" (\"id\" uuid NOT NULL PRIMARY KEY, \"name\" text, \"price\" integer, \"created_at\" datetime(6) NOT NULL, \"updated_at\" datetime(6) NOT NULL)", :allocations=>21, :cached=>nil}
+2023-05-21 09:33:42.676161 [32mD[0m [324391:3720] ([1m0.076ms[0m) [32mActiveRecord[0m -- ActiveRecord::SchemaMigration Create -- {:sql=>"INSERT INTO \"schema_migrations\" (\"version\") VALUES (?)", :binds=>{:version=>"20230520183142"}, :allocations=>24, :cached=>nil}
+2023-05-21 09:33:42.681042 [32mD[0m [324391:3720] ([1m4.806ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>16, :cached=>nil}
+2023-05-21 09:33:42.681117 [36mI[0m [324391:3720] [36mActiveRecord::Base[0m -- Migrating to CreateProductors (20230520183248)
+2023-05-21 09:33:42.682216 [32mD[0m [324391:3720] ([1m0.049ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>22, :cached=>nil}
+2023-05-21 09:33:42.682638 [32mD[0m [324391:3720] ([1m0.361ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"productors\" (\"id\" uuid NOT NULL PRIMARY KEY, \"name\" text, \"email\" text, \"created_at\" datetime(6) NOT NULL, \"updated_at\" datetime(6) NOT NULL)", :allocations=>21, :cached=>nil}
+2023-05-21 09:33:42.683429 [32mD[0m [324391:3720] ([1m0.096ms[0m) [32mActiveRecord[0m -- ActiveRecord::SchemaMigration Create -- {:sql=>"INSERT INTO \"schema_migrations\" (\"version\") VALUES (?)", :binds=>{:version=>"20230520183248"}, :allocations=>24, :cached=>nil}
+2023-05-21 09:33:42.688845 [32mD[0m [324391:3720] ([1m5.348ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>16, :cached=>nil}
+2023-05-21 09:33:42.688909 [36mI[0m [324391:3720] [36mActiveRecord::Base[0m -- Migrating to CreateAffiliateds (20230520183351)
+2023-05-21 09:33:42.690198 [32mD[0m [324391:3720] ([1m0.042ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>22, :cached=>nil}
+2023-05-21 09:33:42.690561 [32mD[0m [324391:3720] ([1m0.211ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"affiliateds\" (\"id\" uuid NOT NULL PRIMARY KEY, \"name\" text, \"email\" text, \"created_at\" datetime(6) NOT NULL, \"updated_at\" datetime(6) NOT NULL)", :allocations=>21, :cached=>nil}
+2023-05-21 09:33:42.691240 [32mD[0m [324391:3720] ([1m0.100ms[0m) [32mActiveRecord[0m -- ActiveRecord::SchemaMigration Create -- {:sql=>"INSERT INTO \"schema_migrations\" (\"version\") VALUES (?)", :binds=>{:version=>"20230520183351"}, :allocations=>24, :cached=>nil}
+2023-05-21 09:33:42.695265 [32mD[0m [324391:3720] ([1m3.939ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>16, :cached=>nil}
+2023-05-21 09:33:42.695351 [36mI[0m [324391:3720] [36mActiveRecord::Base[0m -- Migrating to CreateTransactionTypes (20230520183546)
+2023-05-21 09:33:42.696997 [32mD[0m [324391:3720] ([1m0.138ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>22, :cached=>nil}
+2023-05-21 09:33:42.697629 [32mD[0m [324391:3720] ([1m0.483ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"transaction_types\" (\"id\" uuid NOT NULL PRIMARY KEY, \"type\" text, \"description\" text, \"nature\" text, \"signal\" text, \"created_at\" datetime(6) NOT NULL, \"updated_at\" datetime(6) NOT NULL)", :allocations=>21, :cached=>nil}
+2023-05-21 09:33:42.698546 [32mD[0m [324391:3720] ([1m0.140ms[0m) [32mActiveRecord[0m -- ActiveRecord::SchemaMigration Create -- {:sql=>"INSERT INTO \"schema_migrations\" (\"version\") VALUES (?)", :binds=>{:version=>"20230520183546"}, :allocations=>24, :cached=>nil}
+2023-05-21 09:33:42.702986 [32mD[0m [324391:3720] ([1m4.305ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>16, :cached=>nil}
+2023-05-21 09:33:42.703096 [36mI[0m [324391:3720] [36mActiveRecord::Base[0m -- Migrating to CreateSales (20230520183717)
+2023-05-21 09:33:42.707170 [32mD[0m [324391:3720] ([1m0.069ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>22, :cached=>nil}
+2023-05-21 09:33:42.707533 [32mD[0m [324391:3720] ([1m0.284ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"sales\" (\"id\" uuid NOT NULL PRIMARY KEY, \"product_id_id\" uuid NOT NULL, \"amount\" integer, \"creator_affiliated_id_id\" uuid NOT NULL, \"transaction_type_id_id\" uuid NOT NULL, \"created_at\" datetime(6) NOT NULL, \"updated_at\" datetime(6) NOT NULL, CONSTRAINT \"fk_rails_65d92e1480\"\nFOREIGN KEY (\"product_id_id\")\n  REFERENCES \"product_ids\" (\"id\")\n, CONSTRAINT \"fk_rails_cc2b4a33c2\"\nFOREIGN KEY (\"creator_affiliated_id_id\")\n  REFERENCES \"creator_affiliated_ids\" (\"id\")\n, CONSTRAINT \"fk_rails_ba8a94d09f\"\nFOREIGN KEY (\"transaction_type_id_id\")\n  REFERENCES \"transaction_type_ids\" (\"id\")\n)", :allocations=>21, :cached=>nil}
+2023-05-21 09:33:42.707828 [32mD[0m [324391:3720] ([1m0.089ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE INDEX \"index_sales_on_product_id_id\" ON \"sales\" (\"product_id_id\")", :allocations=>16, :cached=>nil}
+2023-05-21 09:33:42.707964 [32mD[0m [324391:3720] ([1m0.064ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE INDEX \"index_sales_on_creator_affiliated_id_id\" ON \"sales\" (\"creator_affiliated_id_id\")", :allocations=>16, :cached=>nil}
+2023-05-21 09:33:42.708072 [32mD[0m [324391:3720] ([1m0.053ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE INDEX \"index_sales_on_transaction_type_id_id\" ON \"sales\" (\"transaction_type_id_id\")", :allocations=>16, :cached=>nil}
+2023-05-21 09:33:42.709527 [32mD[0m [324391:3720] ([1m0.446ms[0m) [32mActiveRecord[0m -- ActiveRecord::SchemaMigration Create -- {:sql=>"INSERT INTO \"schema_migrations\" (\"version\") VALUES (?)", :binds=>{:version=>"20230520183717"}, :allocations=>24, :cached=>nil}
+2023-05-21 09:33:42.713660 [32mD[0m [324391:3720] ([1m4.037ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>16, :cached=>nil}
+2023-05-21 09:33:42.713760 [36mI[0m [324391:3720] [36mActiveRecord::Base[0m -- Migrating to CreateCommissions (20230520183840)
+2023-05-21 09:33:42.716617 [32mD[0m [324391:3720] ([1m0.099ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>22, :cached=>nil}
+2023-05-21 09:33:42.717266 [32mD[0m [324391:3720] ([1m0.560ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"commissions\" (\"id\" uuid NOT NULL PRIMARY KEY, \"sale_id_id\" uuid NOT NULL, \"transaction_type_id_id\" uuid NOT NULL, \"created_at\" datetime(6) NOT NULL, \"updated_at\" datetime(6) NOT NULL, CONSTRAINT \"fk_rails_c9f7cebc0c\"\nFOREIGN KEY (\"sale_id_id\")\n  REFERENCES \"sale_ids\" (\"id\")\n, CONSTRAINT \"fk_rails_972ed221fc\"\nFOREIGN KEY (\"transaction_type_id_id\")\n  REFERENCES \"transaction_type_ids\" (\"id\")\n)", :allocations=>21, :cached=>nil}
+2023-05-21 09:33:42.717860 [32mD[0m [324391:3720] ([1m0.153ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE INDEX \"index_commissions_on_sale_id_id\" ON \"commissions\" (\"sale_id_id\")", :allocations=>16, :cached=>nil}
+2023-05-21 09:33:42.717998 [32mD[0m [324391:3720] ([1m0.065ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE INDEX \"index_commissions_on_transaction_type_id_id\" ON \"commissions\" (\"transaction_type_id_id\")", :allocations=>16, :cached=>nil}
+2023-05-21 09:33:42.719301 [32mD[0m [324391:3720] ([1m0.124ms[0m) [32mActiveRecord[0m -- ActiveRecord::SchemaMigration Create -- {:sql=>"INSERT INTO \"schema_migrations\" (\"version\") VALUES (?)", :binds=>{:version=>"20230520183840"}, :allocations=>24, :cached=>nil}
+2023-05-21 09:33:42.723034 [32mD[0m [324391:3720] ([1m3.624ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>16, :cached=>nil}
+2023-05-21 09:33:42.725403 [32mD[0m [324391:3720] ([1m0.110ms[0m) [32mActiveRecord[0m -- ActiveRecord::InternalMetadata Load -- {:sql=>"SELECT \"ar_internal_metadata\".* FROM \"ar_internal_metadata\" WHERE \"ar_internal_metadata\".\"key\" = ? LIMIT ?", :binds=>{:key=>"environment", :limit=>1}, :allocations=>53, :cached=>nil}
+2023-05-21 09:33:42.728761 [32mD[0m [324391:3720] ([1m0.040ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>18, :cached=>nil}
+2023-05-21 09:33:42.729262 [32mD[0m [324391:3720] ([1m0.181ms[0m) [32mActiveRecord[0m -- ActiveRecord::InternalMetadata Create -- {:sql=>"INSERT INTO \"ar_internal_metadata\" (\"key\", \"value\", \"created_at\", \"updated_at\") VALUES (?, ?, ?, ?)", :binds=>{:key=>"environment", :value=>"test", :created_at=>"2023-05-21 09:33:42.727961", :updated_at=>"2023-05-21 09:33:42.727961"}, :allocations=>24, :cached=>nil}
+2023-05-21 09:33:42.732510 [32mD[0m [324391:3720] ([1m3.017ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>16, :cached=>nil}
+2023-05-21 09:33:42.734451 [32mD[0m [324391:3720] ([1m0.076ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT sqlite_version(*)", :allocations=>17, :cached=>nil}
+2023-05-21 09:33:42.735993 [32mD[0m [324391:3720] ([1m0.067ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT \"schema_migrations\".\"version\" FROM \"schema_migrations\" ORDER BY \"schema_migrations\".\"version\" ASC", :allocations=>37, :cached=>nil}
+2023-05-21 09:33:42.741848 [35mT[0m [324391:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::File
+2023-05-21 09:33:42.741903 [35mT[0m [324391:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- All appenders flushed
+2023-05-21 09:33:42.741942 [35mT[0m [324391:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Thread has stopped
+2023-05-21 09:36:04.104234 [35mT[0m [324816:3720] [35mSemanticLogger::Appenders[0m -- Reopening appender: SemanticLogger::Appender::File
+2023-05-21 09:36:04.105188 [35mT[0m [324816:3720] [35mSemanticLogger::Appenders[0m -- All appenders re-opened
+2023-05-21 09:36:04.105994 [35mT[0m [324816:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Appender thread active
+2023-05-21 09:36:04.157146 [32mD[0m [324816:3720] ([1m0.375ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT sqlite_version(*)", :allocations=>238, :cached=>nil}
+2023-05-21 09:36:04.169313 [32mD[0m [324816:3720] ([1m0.069ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT \"schema_migrations\".\"version\" FROM \"schema_migrations\" ORDER BY \"schema_migrations\".\"version\" ASC", :allocations=>61, :cached=>nil}
+2023-05-21 09:36:04.169428 [36mI[0m [324816:3720] [36mActiveRecord::Base[0m -- Migrating to CreateBatatinhas (20230521123603)
+2023-05-21 09:36:04.170888 [32mD[0m [324816:3720] ([1m0.039ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>25, :cached=>nil}
+2023-05-21 09:36:04.171354 [32mD[0m [324816:3720] ([1m0.411ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"batatinhas\" (\"id\" uuid NOT NULL PRIMARY KEY, \"test\" varchar, \"created_at\" datetime(6) NOT NULL, \"updated_at\" datetime(6) NOT NULL)", :allocations=>21, :cached=>nil}
+2023-05-21 09:36:04.173932 [32mD[0m [324816:3720] ([1m0.109ms[0m) [32mActiveRecord[0m -- ActiveRecord::SchemaMigration Create -- {:sql=>"INSERT INTO \"schema_migrations\" (\"version\") VALUES (?)", :binds=>{:version=>"20230521123603"}, :allocations=>21, :cached=>nil}
+2023-05-21 09:36:04.184809 [32mD[0m [324816:3720] ([1m10.8ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>17, :cached=>nil}
+2023-05-21 09:36:04.187377 [32mD[0m [324816:3720] ([1m0.114ms[0m) [32mActiveRecord[0m -- ActiveRecord::InternalMetadata Load -- {:sql=>"SELECT \"ar_internal_metadata\".* FROM \"ar_internal_metadata\" WHERE \"ar_internal_metadata\".\"key\" = ? LIMIT ?", :binds=>{:key=>"environment", :limit=>1}, :allocations=>58, :cached=>nil}
+2023-05-21 09:36:04.192881 [32mD[0m [324816:3720] ([1m0.043ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT sqlite_version(*)", :allocations=>17, :cached=>nil}
+2023-05-21 09:36:04.193738 [32mD[0m [324816:3720] ([1m0.069ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT \"schema_migrations\".\"version\" FROM \"schema_migrations\" ORDER BY \"schema_migrations\".\"version\" ASC", :allocations=>39, :cached=>nil}
+2023-05-21 09:36:04.201077 [35mT[0m [324816:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::File
+2023-05-21 09:36:04.201174 [35mT[0m [324816:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- All appenders flushed
+2023-05-21 09:36:04.201536 [35mT[0m [324816:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Thread has stopped
+2023-05-21 09:36:12.483114 [35mT[0m [324901:3720] [35mSemanticLogger::Appenders[0m -- Reopening appender: SemanticLogger::Appender::File
+2023-05-21 09:36:12.484222 [35mT[0m [324901:3720] [35mSemanticLogger::Appenders[0m -- All appenders re-opened
+2023-05-21 09:36:12.485925 [35mT[0m [324901:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Appender thread active
+2023-05-21 09:36:12.538703 [32mD[0m [324901:3720] ([1m0.441ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT sqlite_version(*)", :allocations=>238, :cached=>nil}
+2023-05-21 09:36:12.550726 [32mD[0m [324901:3720] ([1m0.082ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT \"schema_migrations\".\"version\" FROM \"schema_migrations\" ORDER BY \"schema_migrations\".\"version\" ASC", :allocations=>63, :cached=>nil}
+2023-05-21 09:36:12.552147 [32mD[0m [324901:3720] ([1m0.077ms[0m) [32mActiveRecord[0m -- ActiveRecord::InternalMetadata Load -- {:sql=>"SELECT \"ar_internal_metadata\".* FROM \"ar_internal_metadata\" WHERE \"ar_internal_metadata\".\"key\" = ? LIMIT ?", :binds=>{:key=>"environment", :limit=>1}, :allocations=>59, :cached=>nil}
+2023-05-21 09:36:12.556052 [32mD[0m [324901:3720] ([1m0.024ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT sqlite_version(*)", :allocations=>17, :cached=>nil}
+2023-05-21 09:36:12.556572 [32mD[0m [324901:3720] ([1m0.057ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT \"schema_migrations\".\"version\" FROM \"schema_migrations\" ORDER BY \"schema_migrations\".\"version\" ASC", :allocations=>39, :cached=>nil}
+2023-05-21 09:36:12.560967 [35mT[0m [324901:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::File
+2023-05-21 09:36:12.561055 [35mT[0m [324901:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- All appenders flushed
+2023-05-21 09:36:12.561101 [35mT[0m [324901:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Thread has stopped
+2023-05-21 09:45:20.983539 [35mT[0m [326867:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Appender thread active
+2023-05-21 09:45:21.137219 [32mD[0m [326867:5480] ([1m0.233ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT sqlite_version(*)", :allocations=>242, :cached=>nil}
+2023-05-21 09:45:21.142570 [32mD[0m [326867:5480] ([1m0.078ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT \"schema_migrations\".\"version\" FROM \"schema_migrations\" ORDER BY \"schema_migrations\".\"version\" ASC", :allocations=>63, :cached=>nil}
+2023-05-21 09:45:21.167202 [32mD[0m [326867:5480] ([1m0.058ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>25, :cached=>nil}
+2023-05-21 09:45:21.185873 [32mD[0m [326867:5480] ([1m0.077ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"rollback transaction", :allocations=>22, :cached=>nil}
+2023-05-21 09:45:21.187265 [32mD[0m [326867:5480] ([1m0.062ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>22, :cached=>nil}
+2023-05-21 09:45:21.187665 [32mD[0m [326867:5480] ([1m0.044ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"rollback transaction", :allocations=>16, :cached=>nil}
+2023-05-21 09:45:21.223680 [35mT[0m [326867:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::File
+2023-05-21 09:45:21.223812 [35mT[0m [326867:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- All appenders flushed
+2023-05-21 09:45:21.223862 [35mT[0m [326867:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Thread has stopped
+2023-05-21 09:49:32.998221 [35mT[0m [327831:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Appender thread active
+2023-05-21 09:49:33.158808 [32mD[0m [327831:5480] ([1m0.226ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT sqlite_version(*)", :allocations=>242, :cached=>nil}
+2023-05-21 09:49:33.164940 [32mD[0m [327831:5480] ([1m0.092ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT \"schema_migrations\".\"version\" FROM \"schema_migrations\" ORDER BY \"schema_migrations\".\"version\" ASC", :allocations=>63, :cached=>nil}
+2023-05-21 09:49:33.173638 [32mD[0m [327831:5480] ([1m0.055ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>25, :cached=>nil}
+2023-05-21 09:49:33.179041 [32mD[0m [327831:5480] ([1m0.059ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"rollback transaction", :allocations=>22, :cached=>nil}
+2023-05-21 09:49:33.180128 [32mD[0m [327831:5480] ([1m0.040ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>22, :cached=>nil}
+2023-05-21 09:49:33.180314 [32mD[0m [327831:5480] ([1m0.020ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"rollback transaction", :allocations=>16, :cached=>nil}
+2023-05-21 09:49:33.202961 [35mT[0m [327831:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::File
+2023-05-21 09:49:33.203058 [35mT[0m [327831:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- All appenders flushed
+2023-05-21 09:49:33.203137 [35mT[0m [327831:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Thread has stopped
+2023-05-21 09:50:01.353040 [35mT[0m [327991:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Appender thread active
+2023-05-21 09:50:01.513263 [32mD[0m [327991:5480] ([1m0.229ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT sqlite_version(*)", :allocations=>242, :cached=>nil}
+2023-05-21 09:50:01.519890 [32mD[0m [327991:5480] ([1m0.064ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT \"schema_migrations\".\"version\" FROM \"schema_migrations\" ORDER BY \"schema_migrations\".\"version\" ASC", :allocations=>63, :cached=>nil}
+2023-05-21 09:50:01.527392 [32mD[0m [327991:5480] ([1m0.045ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>25, :cached=>nil}
+2023-05-21 09:50:01.532643 [32mD[0m [327991:5480] ([1m0.082ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"rollback transaction", :allocations=>22, :cached=>nil}
+2023-05-21 09:50:01.548391 [35mT[0m [327991:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::File
+2023-05-21 09:50:01.549139 [35mT[0m [327991:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- All appenders flushed
+2023-05-21 09:50:01.549312 [35mT[0m [327991:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Thread has stopped
+2023-05-21 09:52:03.995627 [35mT[0m [324374:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::File
+2023-05-21 09:52:03.995746 [35mT[0m [324374:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- All appenders flushed
+2023-05-21 09:52:03.995834 [35mT[0m [324374:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Thread has stopped
+2023-05-21 09:52:04.648575 [35mT[0m [328316:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Appender thread active
+2023-05-21 09:54:02.172282 [35mT[0m [328682:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Appender thread active
+2023-05-21 09:54:02.333702 [32mD[0m [328682:5520] ([1m0.226ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT sqlite_version(*)", :allocations=>242, :cached=>nil}
+2023-05-21 09:54:02.339706 [32mD[0m [328682:5520] ([1m0.066ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT \"schema_migrations\".\"version\" FROM \"schema_migrations\" ORDER BY \"schema_migrations\".\"version\" ASC", :allocations=>63, :cached=>nil}
+2023-05-21 09:54:02.347251 [32mD[0m [328682:5520] ([1m0.040ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>25, :cached=>nil}
+2023-05-21 09:54:02.356637 [32mD[0m [328682:5520] ([1m0.068ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"rollback transaction", :allocations=>22, :cached=>nil}
+2023-05-21 09:54:02.370430 [35mT[0m [328682:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::File
+2023-05-21 09:54:02.370796 [35mT[0m [328682:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- All appenders flushed
+2023-05-21 09:54:02.371899 [35mT[0m [328682:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Thread has stopped
+2023-05-21 09:54:33.414765 [35mT[0m [328817:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Appender thread active
+2023-05-21 09:54:33.573792 [32mD[0m [328817:5520] ([1m0.229ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT sqlite_version(*)", :allocations=>242, :cached=>nil}
+2023-05-21 09:54:33.580079 [32mD[0m [328817:5520] ([1m0.066ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT \"schema_migrations\".\"version\" FROM \"schema_migrations\" ORDER BY \"schema_migrations\".\"version\" ASC", :allocations=>63, :cached=>nil}
+2023-05-21 09:54:33.588694 [32mD[0m [328817:5520] ([1m0.089ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>25, :cached=>nil}
+2023-05-21 09:54:33.595064 [32mD[0m [328817:5520] ([1m0.060ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"rollback transaction", :allocations=>22, :cached=>nil}
+2023-05-21 09:54:33.596215 [32mD[0m [328817:5520] ([1m0.046ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>22, :cached=>nil}
+2023-05-21 09:54:33.596454 [32mD[0m [328817:5520] ([1m0.019ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"rollback transaction", :allocations=>16, :cached=>nil}
+2023-05-21 09:54:33.621171 [35mT[0m [328817:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::File
+2023-05-21 09:54:33.621832 [35mT[0m [328817:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- All appenders flushed
+2023-05-21 09:54:33.621947 [35mT[0m [328817:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Thread has stopped
+2023-05-21 09:57:07.228922 [35mT[0m [329330:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Appender thread active
+2023-05-21 09:57:07.388713 [32mD[0m [329330:5520] ([1m0.244ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT sqlite_version(*)", :allocations=>242, :cached=>nil}
+2023-05-21 09:57:07.550665 [35mT[0m [329360:3780] [35mSemanticLogger::Appenders[0m -- Reopening appender: SemanticLogger::Appender::File
+2023-05-21 09:57:07.551491 [35mT[0m [329360:3780] [35mSemanticLogger::Appenders[0m -- All appenders re-opened
+2023-05-21 09:57:07.552345 [35mT[0m [329360:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Appender thread active
+2023-05-21 09:57:07.600069 [32mD[0m [329360:3780] ([1m0.303ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT sqlite_version(*)", :allocations=>239, :cached=>nil}
+2023-05-21 09:57:07.618656 [32mD[0m [329360:3780] ([1m9.831ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"schema_migrations\" (\"version\" varchar NOT NULL PRIMARY KEY)", :allocations=>18, :cached=>nil}
+2023-05-21 09:57:07.626138 [32mD[0m [329360:3780] ([1m5.363ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"ar_internal_metadata\" (\"key\" varchar NOT NULL PRIMARY KEY, \"value\" varchar, \"created_at\" datetime(6) NOT NULL, \"updated_at\" datetime(6) NOT NULL)", :allocations=>18, :cached=>nil}
+2023-05-21 09:57:07.629465 [32mD[0m [329360:3780] ([1m0.071ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT \"schema_migrations\".\"version\" FROM \"schema_migrations\" ORDER BY \"schema_migrations\".\"version\" ASC", :allocations=>47, :cached=>nil}
+2023-05-21 09:57:07.629539 [36mI[0m [329360:3780] [36mActiveRecord::Base[0m -- Migrating to CreateSecretMenuItems (20230507210809)
+2023-05-21 09:57:07.630750 [32mD[0m [329360:3780] ([1m0.041ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>25, :cached=>nil}
+2023-05-21 09:57:07.631032 [32mD[0m [329360:3780] ([1m0.232ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"secret_menu_items\" (\"id\" integer PRIMARY KEY AUTOINCREMENT NOT NULL, \"menu_name\" varchar, \"restaurant_name\" varchar, \"menu_description\" varchar, \"created_at\" datetime(6) NOT NULL, \"updated_at\" datetime(6) NOT NULL)", :allocations=>21, :cached=>nil}
+2023-05-21 09:57:07.633850 [32mD[0m [329360:3780] ([1m0.099ms[0m) [32mActiveRecord[0m -- ActiveRecord::SchemaMigration Create -- {:sql=>"INSERT INTO \"schema_migrations\" (\"version\") VALUES (?)", :binds=>{:version=>"20230507210809"}, :allocations=>21, :cached=>nil}
+2023-05-21 09:57:07.640800 [32mD[0m [329360:3780] ([1m6.633ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>17, :cached=>nil}
+2023-05-21 09:57:07.640939 [36mI[0m [329360:3780] [36mActiveRecord::Base[0m -- Migrating to CreateProducts (20230520183142)
+2023-05-21 09:57:07.642844 [32mD[0m [329360:3780] ([1m0.454ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>22, :cached=>nil}
+2023-05-21 09:57:07.643242 [32mD[0m [329360:3780] ([1m0.307ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"products\" (\"id\" uuid NOT NULL PRIMARY KEY, \"name\" text, \"price\" integer, \"created_at\" datetime(6) NOT NULL, \"updated_at\" datetime(6) NOT NULL)", :allocations=>21, :cached=>nil}
+2023-05-21 09:57:07.644259 [32mD[0m [329360:3780] ([1m0.139ms[0m) [32mActiveRecord[0m -- ActiveRecord::SchemaMigration Create -- {:sql=>"INSERT INTO \"schema_migrations\" (\"version\") VALUES (?)", :binds=>{:version=>"20230520183142"}, :allocations=>24, :cached=>nil}
+2023-05-21 09:57:07.650040 [32mD[0m [329360:3780] ([1m5.645ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>16, :cached=>nil}
+2023-05-21 09:57:07.650134 [36mI[0m [329360:3780] [36mActiveRecord::Base[0m -- Migrating to CreateProductors (20230520183248)
+2023-05-21 09:57:07.650970 [32mD[0m [329360:3780] ([1m0.062ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>22, :cached=>nil}
+2023-05-21 09:57:07.651817 [32mD[0m [329360:3780] ([1m0.785ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"productors\" (\"id\" uuid NOT NULL PRIMARY KEY, \"name\" text, \"email\" text, \"created_at\" datetime(6) NOT NULL, \"updated_at\" datetime(6) NOT NULL)", :allocations=>56, :cached=>nil}
+2023-05-21 09:57:07.652588 [32mD[0m [329360:3780] ([1m0.102ms[0m) [32mActiveRecord[0m -- ActiveRecord::SchemaMigration Create -- {:sql=>"INSERT INTO \"schema_migrations\" (\"version\") VALUES (?)", :binds=>{:version=>"20230520183248"}, :allocations=>24, :cached=>nil}
+2023-05-21 09:57:07.658806 [32mD[0m [329360:3780] ([1m6.104ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>16, :cached=>nil}
+2023-05-21 09:57:07.658926 [36mI[0m [329360:3780] [36mActiveRecord::Base[0m -- Migrating to CreateAffiliateds (20230520183351)
+2023-05-21 09:57:07.660251 [32mD[0m [329360:3780] ([1m0.088ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>22, :cached=>nil}
+2023-05-21 09:57:07.660701 [32mD[0m [329360:3780] ([1m0.353ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"affiliateds\" (\"id\" uuid NOT NULL PRIMARY KEY, \"name\" text, \"email\" text, \"created_at\" datetime(6) NOT NULL, \"updated_at\" datetime(6) NOT NULL)", :allocations=>21, :cached=>nil}
+2023-05-21 09:57:07.661842 [32mD[0m [329360:3780] ([1m0.115ms[0m) [32mActiveRecord[0m -- ActiveRecord::SchemaMigration Create -- {:sql=>"INSERT INTO \"schema_migrations\" (\"version\") VALUES (?)", :binds=>{:version=>"20230520183351"}, :allocations=>24, :cached=>nil}
+2023-05-21 09:57:07.667726 [32mD[0m [329360:3780] ([1m5.784ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>16, :cached=>nil}
+2023-05-21 09:57:07.667802 [36mI[0m [329360:3780] [36mActiveRecord::Base[0m -- Migrating to CreateTransactionTypes (20230520183546)
+2023-05-21 09:57:07.670199 [32mD[0m [329360:3780] ([1m0.054ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>22, :cached=>nil}
+2023-05-21 09:57:07.670503 [32mD[0m [329360:3780] ([1m0.263ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"transaction_types\" (\"id\" uuid NOT NULL PRIMARY KEY, \"type\" text, \"description\" text, \"nature\" text, \"signal\" text, \"created_at\" datetime(6) NOT NULL, \"updated_at\" datetime(6) NOT NULL)", :allocations=>21, :cached=>nil}
+2023-05-21 09:57:07.671811 [32mD[0m [329360:3780] ([1m0.550ms[0m) [32mActiveRecord[0m -- ActiveRecord::SchemaMigration Create -- {:sql=>"INSERT INTO \"schema_migrations\" (\"version\") VALUES (?)", :binds=>{:version=>"20230520183546"}, :allocations=>24, :cached=>nil}
+2023-05-21 09:57:07.676527 [32mD[0m [329360:3780] ([1m4.567ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>16, :cached=>nil}
+2023-05-21 09:57:07.676634 [36mI[0m [329360:3780] [36mActiveRecord::Base[0m -- Migrating to CreateSales (20230520183717)
+2023-05-21 09:57:07.678268 [32mD[0m [329360:3780] ([1m0.079ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>22, :cached=>nil}
+2023-05-21 09:57:07.678685 [32mD[0m [329360:3780] ([1m0.345ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"sales\" (\"id\" uuid NOT NULL PRIMARY KEY, \"product_id_id\" uuid NOT NULL, \"amount\" integer, \"creator_affiliated_id_id\" uuid NOT NULL, \"transaction_type_id_id\" uuid NOT NULL, \"created_at\" datetime(6) NOT NULL, \"updated_at\" datetime(6) NOT NULL, CONSTRAINT \"fk_rails_65d92e1480\"\nFOREIGN KEY (\"product_id_id\")\n  REFERENCES \"product_ids\" (\"id\")\n, CONSTRAINT \"fk_rails_cc2b4a33c2\"\nFOREIGN KEY (\"creator_affiliated_id_id\")\n  REFERENCES \"creator_affiliated_ids\" (\"id\")\n, CONSTRAINT \"fk_rails_ba8a94d09f\"\nFOREIGN KEY (\"transaction_type_id_id\")\n  REFERENCES \"transaction_type_ids\" (\"id\")\n)", :allocations=>21, :cached=>nil}
+2023-05-21 09:57:07.678986 [32mD[0m [329360:3780] ([1m0.081ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE INDEX \"index_sales_on_product_id_id\" ON \"sales\" (\"product_id_id\")", :allocations=>16, :cached=>nil}
+2023-05-21 09:57:07.679097 [32mD[0m [329360:3780] ([1m0.055ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE INDEX \"index_sales_on_creator_affiliated_id_id\" ON \"sales\" (\"creator_affiliated_id_id\")", :allocations=>16, :cached=>nil}
+2023-05-21 09:57:07.679190 [32mD[0m [329360:3780] ([1m0.047ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE INDEX \"index_sales_on_transaction_type_id_id\" ON \"sales\" (\"transaction_type_id_id\")", :allocations=>16, :cached=>nil}
+2023-05-21 09:57:07.679836 [32mD[0m [329360:3780] ([1m0.102ms[0m) [32mActiveRecord[0m -- ActiveRecord::SchemaMigration Create -- {:sql=>"INSERT INTO \"schema_migrations\" (\"version\") VALUES (?)", :binds=>{:version=>"20230520183717"}, :allocations=>24, :cached=>nil}
+2023-05-21 09:57:07.685856 [32mD[0m [329360:3780] ([1m5.945ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>51, :cached=>nil}
+2023-05-21 09:57:07.685923 [36mI[0m [329360:3780] [36mActiveRecord::Base[0m -- Migrating to CreateCommissions (20230520183840)
+2023-05-21 09:57:07.687543 [32mD[0m [329360:3780] ([1m0.136ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>22, :cached=>nil}
+2023-05-21 09:57:07.688106 [32mD[0m [329360:3780] ([1m0.463ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"commissions\" (\"id\" uuid NOT NULL PRIMARY KEY, \"sale_id_id\" uuid NOT NULL, \"transaction_type_id_id\" uuid NOT NULL, \"created_at\" datetime(6) NOT NULL, \"updated_at\" datetime(6) NOT NULL, CONSTRAINT \"fk_rails_c9f7cebc0c\"\nFOREIGN KEY (\"sale_id_id\")\n  REFERENCES \"sale_ids\" (\"id\")\n, CONSTRAINT \"fk_rails_972ed221fc\"\nFOREIGN KEY (\"transaction_type_id_id\")\n  REFERENCES \"transaction_type_ids\" (\"id\")\n)", :allocations=>21, :cached=>nil}
+2023-05-21 09:57:07.719735 [35mT[0m [329360:3780] [35mSemanticLogger::Appenders[0m -- Async: Queued log messages: 9, running command: flush
+2023-05-21 09:57:07.688388 [32mD[0m [329360:3780] ([1m0.105ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE INDEX \"index_commissions_on_sale_id_id\" ON \"commissions\" (\"sale_id_id\")", :allocations=>16, :cached=>nil}
+2023-05-21 09:57:07.688515 [32mD[0m [329360:3780] ([1m0.058ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE INDEX \"index_commissions_on_transaction_type_id_id\" ON \"commissions\" (\"transaction_type_id_id\")", :allocations=>16, :cached=>nil}
+2023-05-21 09:57:07.690459 [32mD[0m [329360:3780] ([1m0.401ms[0m) [32mActiveRecord[0m -- ActiveRecord::SchemaMigration Create -- {:sql=>"INSERT INTO \"schema_migrations\" (\"version\") VALUES (?)", :binds=>{:version=>"20230520183840"}, :allocations=>24, :cached=>nil}
+2023-05-21 09:57:07.695390 [32mD[0m [329360:3780] ([1m4.723ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>16, :cached=>nil}
+2023-05-21 09:57:07.697530 [32mD[0m [329360:3780] ([1m0.110ms[0m) [32mActiveRecord[0m -- ActiveRecord::InternalMetadata Load -- {:sql=>"SELECT \"ar_internal_metadata\".* FROM \"ar_internal_metadata\" WHERE \"ar_internal_metadata\".\"key\" = ? LIMIT ?", :binds=>{:key=>"environment", :limit=>1}, :allocations=>53, :cached=>nil}
+2023-05-21 09:57:07.701303 [32mD[0m [329360:3780] ([1m0.035ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>18, :cached=>nil}
+2023-05-21 09:57:07.702421 [32mD[0m [329360:3780] ([1m0.826ms[0m) [32mActiveRecord[0m -- ActiveRecord::InternalMetadata Create -- {:sql=>"INSERT INTO \"ar_internal_metadata\" (\"key\", \"value\", \"created_at\", \"updated_at\") VALUES (?, ?, ?, ?)", :binds=>{:key=>"environment", :value=>"test", :created_at=>"2023-05-21 09:57:07.700550", :updated_at=>"2023-05-21 09:57:07.700550"}, :allocations=>24, :cached=>nil}
+2023-05-21 09:57:07.707552 [32mD[0m [329360:3780] ([1m4.151ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>16, :cached=>nil}
+2023-05-21 09:57:07.710593 [32mD[0m [329360:3780] ([1m1.195ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT sqlite_version(*)", :allocations=>17, :cached=>nil}
+2023-05-21 09:57:07.712348 [32mD[0m [329360:3780] ([1m0.144ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT \"schema_migrations\".\"version\" FROM \"schema_migrations\" ORDER BY \"schema_migrations\".\"version\" ASC", :allocations=>37, :cached=>nil}
+2023-05-21 09:57:07.720388 [35mT[0m [329360:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::File
+2023-05-21 09:57:07.720437 [35mT[0m [329360:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- All appenders flushed
+2023-05-21 09:57:07.720498 [35mT[0m [329360:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Thread has stopped
+2023-05-21 09:57:07.756741 [32mD[0m [329330:5520] ([1m0.087ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>24, :cached=>nil}
+2023-05-21 09:57:07.762560 [32mD[0m [329330:5520] ([1m0.049ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"rollback transaction", :allocations=>22, :cached=>nil}
+2023-05-21 09:57:07.763578 [32mD[0m [329330:5520] ([1m0.051ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>22, :cached=>nil}
+2023-05-21 09:57:07.763762 [32mD[0m [329330:5520] ([1m0.015ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"rollback transaction", :allocations=>16, :cached=>nil}
+2023-05-21 09:57:07.781190 [35mT[0m [329330:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::File
+2023-05-21 09:57:07.781528 [35mT[0m [329330:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- All appenders flushed
+2023-05-21 09:57:07.781692 [35mT[0m [329330:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Thread has stopped
+2023-05-21 10:03:49.936672 [35mT[0m [330534:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Appender thread active
+2023-05-21 10:03:50.099871 [32mD[0m [330534:5520] ([1m0.230ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT sqlite_version(*)", :allocations=>242, :cached=>nil}
+2023-05-21 10:03:50.105588 [32mD[0m [330534:5520] ([1m0.080ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT \"schema_migrations\".\"version\" FROM \"schema_migrations\" ORDER BY \"schema_migrations\".\"version\" ASC", :allocations=>61, :cached=>nil}
+2023-05-21 10:03:50.113720 [32mD[0m [330534:5520] ([1m0.060ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>25, :cached=>nil}
+2023-05-21 10:03:50.118876 [32mD[0m [330534:5520] ([1m0.049ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"rollback transaction", :allocations=>22, :cached=>nil}
+2023-05-21 10:03:50.120078 [32mD[0m [330534:5520] ([1m0.049ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>22, :cached=>nil}
+2023-05-21 10:03:50.120277 [32mD[0m [330534:5520] ([1m0.019ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"rollback transaction", :allocations=>16, :cached=>nil}
+2023-05-21 10:03:50.146407 [35mT[0m [330534:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::File
+2023-05-21 10:03:50.146531 [35mT[0m [330534:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- All appenders flushed
+2023-05-21 10:03:50.146599 [35mT[0m [330534:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Thread has stopped
+2023-05-21 10:05:44.274408 [35mT[0m [331051:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Appender thread active
+2023-05-21 10:05:44.433245 [32mD[0m [331051:5520] ([1m0.221ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT sqlite_version(*)", :allocations=>242, :cached=>nil}
+2023-05-21 10:05:44.440860 [32mD[0m [331051:5520] ([1m0.113ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT \"schema_migrations\".\"version\" FROM \"schema_migrations\" ORDER BY \"schema_migrations\".\"version\" ASC", :allocations=>61, :cached=>nil}
+2023-05-21 10:05:44.451086 [35mT[0m [331051:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::File
+2023-05-21 10:05:44.451161 [35mT[0m [331051:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- All appenders flushed
+2023-05-21 10:05:44.451201 [35mT[0m [331051:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Thread has stopped
+2023-05-21 10:09:47.365183 [35mT[0m [331609:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Appender thread active
+2023-05-21 10:09:47.516947 [32mD[0m [331609:5520] ([1m0.228ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT sqlite_version(*)", :allocations=>242, :cached=>nil}
+2023-05-21 10:09:47.532353 [32mD[0m [331609:5520] ([1m0.147ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT \"schema_migrations\".\"version\" FROM \"schema_migrations\" ORDER BY \"schema_migrations\".\"version\" ASC", :allocations=>61, :cached=>nil}
+2023-05-21 10:09:47.544185 [35mT[0m [331609:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::File
+2023-05-21 10:09:47.544268 [35mT[0m [331609:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- All appenders flushed
+2023-05-21 10:09:47.544351 [35mT[0m [331609:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Thread has stopped
+2023-05-21 10:13:35.640882 [35mT[0m [332716:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Appender thread active
+2023-05-21 10:13:35.800649 [32mD[0m [332716:4720] ([1m0.239ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT sqlite_version(*)", :allocations=>242, :cached=>nil}
+2023-05-21 10:13:35.806542 [32mD[0m [332716:4720] ([1m0.058ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT \"schema_migrations\".\"version\" FROM \"schema_migrations\" ORDER BY \"schema_migrations\".\"version\" ASC", :allocations=>61, :cached=>nil}
+2023-05-21 10:13:35.818478 [35mT[0m [332716:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::File
+2023-05-21 10:13:35.818713 [35mT[0m [332716:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- All appenders flushed
+2023-05-21 10:13:35.818779 [35mT[0m [332716:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Thread has stopped
+2023-05-21 10:21:56.121486 [35mT[0m [333386:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Appender thread active
+2023-05-21 10:21:56.270425 [32mD[0m [333386:5520] ([1m0.236ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT sqlite_version(*)", :allocations=>242, :cached=>nil}
+2023-05-21 10:21:56.276103 [32mD[0m [333386:5520] ([1m0.063ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT \"schema_migrations\".\"version\" FROM \"schema_migrations\" ORDER BY \"schema_migrations\".\"version\" ASC", :allocations=>61, :cached=>nil}
+2023-05-21 10:21:56.286234 [35mT[0m [333386:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::File
+2023-05-21 10:21:56.286298 [35mT[0m [333386:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- All appenders flushed
+2023-05-21 10:21:56.286363 [35mT[0m [333386:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Thread has stopped
+2023-05-21 10:25:07.235478 [35mT[0m [328316:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::File
+2023-05-21 10:25:07.235633 [35mT[0m [328316:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- All appenders flushed
+2023-05-21 10:25:07.235701 [35mT[0m [328316:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Thread has stopped
+2023-05-21 10:25:08.341433 [35mT[0m [333724:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Appender thread active
+2023-05-21 10:25:25.119547 [35mT[0m [333853:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Appender thread active
+2023-05-21 10:25:25.290299 [32mD[0m [333853:5520] ([1m0.842ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT sqlite_version(*)", :allocations=>538, :cached=>nil}
+2023-05-21 10:25:25.300563 [32mD[0m [333853:5520] ([1m0.086ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT \"schema_migrations\".\"version\" FROM \"schema_migrations\" ORDER BY \"schema_migrations\".\"version\" ASC", :allocations=>61, :cached=>nil}
+2023-05-21 10:25:25.307858 [32mD[0m [333853:5520] ([1m0.048ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>25, :cached=>nil}
+2023-05-21 10:25:25.321849 [32mD[0m [333853:5520] ([1m0.055ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"rollback transaction", :allocations=>22, :cached=>nil}
+2023-05-21 10:25:25.327559 [32mD[0m [333853:5520] ([1m0.078ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>22, :cached=>nil}
+2023-05-21 10:25:25.328120 [32mD[0m [333853:5520] ([1m0.027ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"rollback transaction", :allocations=>16, :cached=>nil}
+2023-05-21 10:25:25.386831 [35mT[0m [333853:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::File
+2023-05-21 10:25:25.386948 [35mT[0m [333853:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- All appenders flushed
+2023-05-21 10:25:25.387002 [35mT[0m [333853:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Thread has stopped
+2023-05-21 10:30:01.130485 [35mT[0m [334908:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Appender thread active
+2023-05-21 10:30:01.257597 [32mD[0m [334908:5520] ([1m0.233ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT sqlite_version(*)", :allocations=>241, :cached=>nil}
+2023-05-21 10:30:01.263762 [32mD[0m [334908:5520] ([1m0.072ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT \"schema_migrations\".\"version\" FROM \"schema_migrations\" ORDER BY \"schema_migrations\".\"version\" ASC", :allocations=>61, :cached=>nil}
+2023-05-21 10:30:01.271046 [32mD[0m [334908:5520] ([1m0.057ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>25, :cached=>nil}
+2023-05-21 10:30:01.280039 [32mD[0m [334908:5520] ([1m0.068ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"rollback transaction", :allocations=>22, :cached=>nil}
+2023-05-21 10:30:01.281867 [32mD[0m [334908:5520] ([1m0.061ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>22, :cached=>nil}
+2023-05-21 10:30:01.282290 [32mD[0m [334908:5520] ([1m0.026ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"rollback transaction", :allocations=>16, :cached=>nil}
+2023-05-21 10:30:01.346398 [35mT[0m [334908:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::File
+2023-05-21 10:30:01.346487 [35mT[0m [334908:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- All appenders flushed
+2023-05-21 10:30:01.346540 [35mT[0m [334908:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Thread has stopped
+2023-05-21 10:30:22.077971 [35mT[0m [333724:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::File
+2023-05-21 10:30:22.078261 [35mT[0m [333724:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- All appenders flushed
+2023-05-21 10:30:22.078762 [35mT[0m [333724:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Thread has stopped
+2023-05-21 10:30:43.281535 [35mT[0m [335242:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Appender thread active
+2023-05-21 10:30:43.409250 [32mD[0m [335242:5520] ([1m0.230ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT sqlite_version(*)", :allocations=>241, :cached=>nil}
+2023-05-21 10:30:43.414756 [32mD[0m [335242:5520] ([1m0.062ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT \"schema_migrations\".\"version\" FROM \"schema_migrations\" ORDER BY \"schema_migrations\".\"version\" ASC", :allocations=>61, :cached=>nil}
+2023-05-21 10:30:43.421918 [32mD[0m [335242:5520] ([1m0.037ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>25, :cached=>nil}
+2023-05-21 10:30:43.430957 [32mD[0m [335242:5520] ([1m0.070ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"rollback transaction", :allocations=>22, :cached=>nil}
+2023-05-21 10:30:43.432057 [32mD[0m [335242:5520] ([1m0.045ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>22, :cached=>nil}
+2023-05-21 10:30:43.432518 [32mD[0m [335242:5520] ([1m0.030ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"rollback transaction", :allocations=>16, :cached=>nil}
+2023-05-21 10:30:43.506817 [35mT[0m [335242:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::File
+2023-05-21 10:30:43.506912 [35mT[0m [335242:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- All appenders flushed
+2023-05-21 10:30:43.506954 [35mT[0m [335242:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Thread has stopped
+2023-05-21 10:31:36.076480 [35mT[0m [335599:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Appender thread active
+2023-05-21 10:31:36.200628 [32mD[0m [335599:5520] ([1m0.279ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT sqlite_version(*)", :allocations=>241, :cached=>nil}
+2023-05-21 10:31:36.206764 [32mD[0m [335599:5520] ([1m0.067ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT \"schema_migrations\".\"version\" FROM \"schema_migrations\" ORDER BY \"schema_migrations\".\"version\" ASC", :allocations=>61, :cached=>nil}
+2023-05-21 10:31:36.240376 [32mD[0m [335599:5520] ([1m0.058ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>25, :cached=>nil}
+2023-05-21 10:31:36.276064 [32mD[0m [335599:5520] ([1m0.061ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"rollback transaction", :allocations=>22, :cached=>nil}
+2023-05-21 10:31:36.278407 [32mD[0m [335599:5520] ([1m0.051ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>22, :cached=>nil}
+2023-05-21 10:31:36.278865 [32mD[0m [335599:5520] ([1m0.028ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"rollback transaction", :allocations=>16, :cached=>nil}
+2023-05-21 10:31:36.293227 [35mT[0m [335599:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::File
+2023-05-21 10:31:36.293329 [35mT[0m [335599:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- All appenders flushed
+2023-05-21 10:31:36.293384 [35mT[0m [335599:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Thread has stopped
+2023-05-21 10:35:19.076924 [35mT[0m [336243:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Appender thread active
+2023-05-21 10:35:19.197671 [32mD[0m [336243:5520] ([1m0.229ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT sqlite_version(*)", :allocations=>241, :cached=>nil}
+2023-05-21 10:35:19.203422 [32mD[0m [336243:5520] ([1m0.069ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT \"schema_migrations\".\"version\" FROM \"schema_migrations\" ORDER BY \"schema_migrations\".\"version\" ASC", :allocations=>61, :cached=>nil}
+2023-05-21 10:35:19.210594 [32mD[0m [336243:5520] ([1m0.053ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>25, :cached=>nil}
+2023-05-21 10:35:19.222634 [32mD[0m [336243:5520] ([1m0.071ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"rollback transaction", :allocations=>22, :cached=>nil}
+2023-05-21 10:35:19.224254 [32mD[0m [336243:5520] ([1m0.066ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>22, :cached=>nil}
+2023-05-21 10:35:19.224834 [32mD[0m [336243:5520] ([1m0.030ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"rollback transaction", :allocations=>16, :cached=>nil}
+2023-05-21 10:35:19.303534 [35mT[0m [336243:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::File
+2023-05-21 10:35:19.303650 [35mT[0m [336243:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- All appenders flushed
+2023-05-21 10:35:19.303722 [35mT[0m [336243:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Thread has stopped
+2023-05-21 10:35:41.269017 [35mT[0m [336437:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Appender thread active
+2023-05-21 10:35:41.445864 [32mD[0m [336437:5520] ([1m0.217ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT sqlite_version(*)", :allocations=>241, :cached=>nil}
+2023-05-21 10:35:41.451373 [32mD[0m [336437:5520] ([1m0.066ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT \"schema_migrations\".\"version\" FROM \"schema_migrations\" ORDER BY \"schema_migrations\".\"version\" ASC", :allocations=>61, :cached=>nil}
+2023-05-21 10:35:41.458208 [32mD[0m [336437:5520] ([1m0.033ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>25, :cached=>nil}
+2023-05-21 10:35:41.563983 [32mD[0m [336437:5520] ([1m0.052ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"SAVEPOINT active_record_1", :allocations=>17, :cached=>nil}
+2023-05-21 10:35:41.564336 [32mD[0m [336437:5520] ([1m0.197ms[0m) [32mActiveRecord[0m -- Product Create -- {:sql=>"INSERT INTO \"products\" (\"name\", \"price\", \"created_at\", \"updated_at\") VALUES (?, ?, ?, ?)", :binds=>{:name=>"Small Steel Coat", :price=>9994, :created_at=>"2023-05-21 10:35:41.563298", :updated_at=>"2023-05-21 10:35:41.563298"}, :allocations=>165, :cached=>nil}
+2023-05-21 10:35:41.564414 [32mD[0m [336437:5520] ([1m0.021ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"ROLLBACK TO SAVEPOINT active_record_1", :allocations=>16, :cached=>nil}
+2023-05-21 10:35:41.569690 [32mD[0m [336437:5520] ([1m0.045ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"rollback transaction", :allocations=>22, :cached=>nil}
+2023-05-21 10:35:41.570398 [32mD[0m [336437:5520] ([1m0.038ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>22, :cached=>nil}
+2023-05-21 10:35:41.571438 [32mD[0m [336437:5520] ([1m0.045ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"SAVEPOINT active_record_1", :allocations=>21, :cached=>nil}
+2023-05-21 10:35:41.571697 [32mD[0m [336437:5520] ([1m0.159ms[0m) [32mActiveRecord[0m -- Product Create -- {:sql=>"INSERT INTO \"products\" (\"name\", \"price\", \"created_at\", \"updated_at\") VALUES (?, ?, ?, ?)", :binds=>{:name=>"Rustic Leather Coat", :price=>1979, :created_at=>"2023-05-21 10:35:41.571093", :updated_at=>"2023-05-21 10:35:41.571093"}, :allocations=>149, :cached=>nil}
+2023-05-21 10:35:41.571751 [32mD[0m [336437:5520] ([1m0.017ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"ROLLBACK TO SAVEPOINT active_record_1", :allocations=>16, :cached=>nil}
+2023-05-21 10:35:41.571866 [32mD[0m [336437:5520] ([1m0.016ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"rollback transaction", :allocations=>16, :cached=>nil}
+2023-05-21 10:35:41.586755 [35mT[0m [336437:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::File
+2023-05-21 10:35:41.586889 [35mT[0m [336437:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- All appenders flushed
+2023-05-21 10:35:41.588116 [35mT[0m [336437:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Thread has stopped
+2023-05-21 10:37:31.870359 [35mT[0m [336869:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Appender thread active
+2023-05-21 10:37:32.070901 [32mD[0m [336869:5520] ([1m0.362ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT sqlite_version(*)", :allocations=>241, :cached=>nil}
+2023-05-21 10:37:32.695294 [35mT[0m [336921:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Appender thread active
+2023-05-21 10:37:32.803830 [35mT[0m [336933:3760] [35mSemanticLogger::Appenders[0m -- Reopening appender: SemanticLogger::Appender::File
+2023-05-21 10:37:32.804774 [35mT[0m [336933:3760] [35mSemanticLogger::Appenders[0m -- All appenders re-opened
+2023-05-21 10:37:32.805578 [35mT[0m [336933:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Appender thread active
+2023-05-21 10:37:32.857188 [32mD[0m [336933:3760] ([1m0.890ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT sqlite_version(*)", :allocations=>238, :cached=>nil}
+2023-05-21 10:37:32.877010 [32mD[0m [336933:3760] ([1m11.3ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"schema_migrations\" (\"version\" varchar NOT NULL PRIMARY KEY)", :allocations=>18, :cached=>nil}
+2023-05-21 10:37:32.883672 [32mD[0m [336933:3760] ([1m5.319ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"ar_internal_metadata\" (\"key\" varchar NOT NULL PRIMARY KEY, \"value\" varchar, \"created_at\" datetime(6) NOT NULL, \"updated_at\" datetime(6) NOT NULL)", :allocations=>18, :cached=>nil}
+2023-05-21 10:37:32.888168 [32mD[0m [336933:3760] ([1m0.104ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT \"schema_migrations\".\"version\" FROM \"schema_migrations\" ORDER BY \"schema_migrations\".\"version\" ASC", :allocations=>47, :cached=>nil}
+2023-05-21 10:37:32.888264 [36mI[0m [336933:3760] [36mActiveRecord::Base[0m -- Migrating to CreateSecretMenuItems (20230507210809)
+2023-05-21 10:37:32.889441 [32mD[0m [336933:3760] ([1m0.059ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>25, :cached=>nil}
+2023-05-21 10:37:32.889837 [32mD[0m [336933:3760] ([1m0.340ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"secret_menu_items\" (\"id\" integer PRIMARY KEY AUTOINCREMENT NOT NULL, \"menu_name\" varchar, \"restaurant_name\" varchar, \"menu_description\" varchar, \"created_at\" datetime(6) NOT NULL, \"updated_at\" datetime(6) NOT NULL)", :allocations=>21, :cached=>nil}
+2023-05-21 10:37:32.893391 [32mD[0m [336933:3760] ([1m0.133ms[0m) [32mActiveRecord[0m -- ActiveRecord::SchemaMigration Create -- {:sql=>"INSERT INTO \"schema_migrations\" (\"version\") VALUES (?)", :binds=>{:version=>"20230507210809"}, :allocations=>21, :cached=>nil}
+2023-05-21 10:37:32.900962 [32mD[0m [336933:3760] ([1m7.429ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>17, :cached=>nil}
+2023-05-21 10:37:32.901259 [36mI[0m [336933:3760] [36mActiveRecord::Base[0m -- Migrating to CreateProducts (20230520183142)
+2023-05-21 10:37:32.903072 [32mD[0m [336933:3760] ([1m0.123ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>22, :cached=>nil}
+2023-05-21 10:37:32.903855 [32mD[0m [336933:3760] ([1m0.674ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"products\" (\"id\" uuid NOT NULL PRIMARY KEY, \"name\" text, \"price\" integer, \"created_at\" datetime(6) NOT NULL, \"updated_at\" datetime(6) NOT NULL)", :allocations=>21, :cached=>nil}
+2023-05-21 10:37:32.904731 [32mD[0m [336933:3760] ([1m0.101ms[0m) [32mActiveRecord[0m -- ActiveRecord::SchemaMigration Create -- {:sql=>"INSERT INTO \"schema_migrations\" (\"version\") VALUES (?)", :binds=>{:version=>"20230520183142"}, :allocations=>24, :cached=>nil}
+2023-05-21 10:37:32.910801 [32mD[0m [336933:3760] ([1m5.972ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>16, :cached=>nil}
+2023-05-21 10:37:32.910898 [36mI[0m [336933:3760] [36mActiveRecord::Base[0m -- Migrating to CreateProductors (20230520183248)
+2023-05-21 10:37:32.911882 [32mD[0m [336933:3760] ([1m0.081ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>22, :cached=>nil}
+2023-05-21 10:37:32.912406 [32mD[0m [336933:3760] ([1m0.469ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"productors\" (\"id\" uuid NOT NULL PRIMARY KEY, \"name\" text, \"email\" text, \"created_at\" datetime(6) NOT NULL, \"updated_at\" datetime(6) NOT NULL)", :allocations=>21, :cached=>nil}
+2023-05-21 10:37:32.913205 [32mD[0m [336933:3760] ([1m0.108ms[0m) [32mActiveRecord[0m -- ActiveRecord::SchemaMigration Create -- {:sql=>"INSERT INTO \"schema_migrations\" (\"version\") VALUES (?)", :binds=>{:version=>"20230520183248"}, :allocations=>24, :cached=>nil}
+2023-05-21 10:37:32.917765 [32mD[0m [336933:3760] ([1m4.452ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>16, :cached=>nil}
+2023-05-21 10:37:32.917869 [36mI[0m [336933:3760] [36mActiveRecord::Base[0m -- Migrating to CreateAffiliateds (20230520183351)
+2023-05-21 10:37:32.919349 [32mD[0m [336933:3760] ([1m0.086ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>22, :cached=>nil}
+2023-05-21 10:37:32.919744 [32mD[0m [336933:3760] ([1m0.318ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"affiliateds\" (\"id\" uuid NOT NULL PRIMARY KEY, \"name\" text, \"email\" text, \"created_at\" datetime(6) NOT NULL, \"updated_at\" datetime(6) NOT NULL)", :allocations=>21, :cached=>nil}
+2023-05-21 10:37:32.921055 [32mD[0m [336933:3760] ([1m0.116ms[0m) [32mActiveRecord[0m -- ActiveRecord::SchemaMigration Create -- {:sql=>"INSERT INTO \"schema_migrations\" (\"version\") VALUES (?)", :binds=>{:version=>"20230520183351"}, :allocations=>24, :cached=>nil}
+2023-05-21 10:37:32.926064 [32mD[0m [336933:3760] ([1m4.898ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>16, :cached=>nil}
+2023-05-21 10:37:32.926146 [36mI[0m [336933:3760] [36mActiveRecord::Base[0m -- Migrating to CreateTransactionTypes (20230520183546)
+2023-05-21 10:37:32.928166 [32mD[0m [336933:3760] ([1m0.092ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>22, :cached=>nil}
+2023-05-21 10:37:32.928638 [32mD[0m [336933:3760] ([1m0.399ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"transaction_types\" (\"id\" uuid NOT NULL PRIMARY KEY, \"type\" text, \"description\" text, \"nature\" text, \"signal\" text, \"created_at\" datetime(6) NOT NULL, \"updated_at\" datetime(6) NOT NULL)", :allocations=>21, :cached=>nil}
+2023-05-21 10:37:32.929560 [32mD[0m [336933:3760] ([1m0.145ms[0m) [32mActiveRecord[0m -- ActiveRecord::SchemaMigration Create -- {:sql=>"INSERT INTO \"schema_migrations\" (\"version\") VALUES (?)", :binds=>{:version=>"20230520183546"}, :allocations=>24, :cached=>nil}
+2023-05-21 10:37:32.934838 [32mD[0m [336933:3760] ([1m5.144ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>16, :cached=>nil}
+2023-05-21 10:37:32.934964 [36mI[0m [336933:3760] [36mActiveRecord::Base[0m -- Migrating to CreateSales (20230520183717)
+2023-05-21 10:37:32.937133 [32mD[0m [336933:3760] ([1m0.090ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>22, :cached=>nil}
+2023-05-21 10:37:32.937502 [32mD[0m [336933:3760] ([1m0.300ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"sales\" (\"id\" uuid NOT NULL PRIMARY KEY, \"product_id_id\" uuid NOT NULL, \"amount\" integer, \"creator_affiliated_id_id\" uuid NOT NULL, \"transaction_type_id_id\" uuid NOT NULL, \"created_at\" datetime(6) NOT NULL, \"updated_at\" datetime(6) NOT NULL, CONSTRAINT \"fk_rails_65d92e1480\"\nFOREIGN KEY (\"product_id_id\")\n  REFERENCES \"product_ids\" (\"id\")\n, CONSTRAINT \"fk_rails_cc2b4a33c2\"\nFOREIGN KEY (\"creator_affiliated_id_id\")\n  REFERENCES \"creator_affiliated_ids\" (\"id\")\n, CONSTRAINT \"fk_rails_ba8a94d09f\"\nFOREIGN KEY (\"transaction_type_id_id\")\n  REFERENCES \"transaction_type_ids\" (\"id\")\n)", :allocations=>21, :cached=>nil}
+2023-05-21 10:37:32.937830 [32mD[0m [336933:3760] ([1m0.106ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE INDEX \"index_sales_on_product_id_id\" ON \"sales\" (\"product_id_id\")", :allocations=>16, :cached=>nil}
+2023-05-21 10:37:32.938014 [32mD[0m [336933:3760] ([1m0.079ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE INDEX \"index_sales_on_creator_affiliated_id_id\" ON \"sales\" (\"creator_affiliated_id_id\")", :allocations=>16, :cached=>nil}
+2023-05-21 10:37:32.938194 [32mD[0m [336933:3760] ([1m0.100ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE INDEX \"index_sales_on_transaction_type_id_id\" ON \"sales\" (\"transaction_type_id_id\")", :allocations=>16, :cached=>nil}
+2023-05-21 10:37:32.939413 [32mD[0m [336933:3760] ([1m0.110ms[0m) [32mActiveRecord[0m -- ActiveRecord::SchemaMigration Create -- {:sql=>"INSERT INTO \"schema_migrations\" (\"version\") VALUES (?)", :binds=>{:version=>"20230520183717"}, :allocations=>24, :cached=>nil}
+2023-05-21 10:37:32.944483 [32mD[0m [336933:3760] ([1m4.956ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>16, :cached=>nil}
+2023-05-21 10:37:32.944558 [36mI[0m [336933:3760] [36mActiveRecord::Base[0m -- Migrating to CreateCommissions (20230520183840)
+2023-05-21 10:37:32.945710 [32mD[0m [336933:3760] ([1m0.057ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>22, :cached=>nil}
+2023-05-21 10:37:32.946031 [32mD[0m [336933:3760] ([1m0.258ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"commissions\" (\"id\" uuid NOT NULL PRIMARY KEY, \"sale_id_id\" uuid NOT NULL, \"transaction_type_id_id\" uuid NOT NULL, \"created_at\" datetime(6) NOT NULL, \"updated_at\" datetime(6) NOT NULL, CONSTRAINT \"fk_rails_c9f7cebc0c\"\nFOREIGN KEY (\"sale_id_id\")\n  REFERENCES \"sale_ids\" (\"id\")\n, CONSTRAINT \"fk_rails_972ed221fc\"\nFOREIGN KEY (\"transaction_type_id_id\")\n  REFERENCES \"transaction_type_ids\" (\"id\")\n)", :allocations=>21, :cached=>nil}
+2023-05-21 10:37:32.946204 [32mD[0m [336933:3760] ([1m0.071ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE INDEX \"index_commissions_on_sale_id_id\" ON \"commissions\" (\"sale_id_id\")", :allocations=>16, :cached=>nil}
+2023-05-21 10:37:32.946307 [32mD[0m [336933:3760] ([1m0.053ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE INDEX \"index_commissions_on_transaction_type_id_id\" ON \"commissions\" (\"transaction_type_id_id\")", :allocations=>16, :cached=>nil}
+2023-05-21 10:37:32.947210 [32mD[0m [336933:3760] ([1m0.081ms[0m) [32mActiveRecord[0m -- ActiveRecord::SchemaMigration Create -- {:sql=>"INSERT INTO \"schema_migrations\" (\"version\") VALUES (?)", :binds=>{:version=>"20230520183840"}, :allocations=>24, :cached=>nil}
+2023-05-21 10:37:32.954516 [32mD[0m [336933:3760] ([1m7.180ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>16, :cached=>nil}
+2023-05-21 10:37:32.958065 [32mD[0m [336933:3760] ([1m0.125ms[0m) [32mActiveRecord[0m -- ActiveRecord::InternalMetadata Load -- {:sql=>"SELECT \"ar_internal_metadata\".* FROM \"ar_internal_metadata\" WHERE \"ar_internal_metadata\".\"key\" = ? LIMIT ?", :binds=>{:key=>"environment", :limit=>1}, :allocations=>53, :cached=>nil}
+2023-05-21 10:37:32.961719 [32mD[0m [336933:3760] ([1m0.059ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>18, :cached=>nil}
+2023-05-21 10:37:32.962127 [32mD[0m [336933:3760] ([1m0.218ms[0m) [32mActiveRecord[0m -- ActiveRecord::InternalMetadata Create -- {:sql=>"INSERT INTO \"ar_internal_metadata\" (\"key\", \"value\", \"created_at\", \"updated_at\") VALUES (?, ?, ?, ?)", :binds=>{:key=>"environment", :value=>"test", :created_at=>"2023-05-21 10:37:32.960885", :updated_at=>"2023-05-21 10:37:32.960885"}, :allocations=>24, :cached=>nil}
+2023-05-21 10:37:32.968521 [32mD[0m [336933:3760] ([1m6.197ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>16, :cached=>nil}
+2023-05-21 10:37:32.971690 [32mD[0m [336933:3760] ([1m0.063ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT sqlite_version(*)", :allocations=>17, :cached=>nil}
+2023-05-21 10:37:32.972816 [32mD[0m [336933:3760] ([1m0.108ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT \"schema_migrations\".\"version\" FROM \"schema_migrations\" ORDER BY \"schema_migrations\".\"version\" ASC", :allocations=>37, :cached=>nil}
+2023-05-21 10:37:32.982665 [35mT[0m [336933:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::File
+2023-05-21 10:37:32.982739 [35mT[0m [336933:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- All appenders flushed
+2023-05-21 10:37:32.983448 [35mT[0m [336933:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Thread has stopped
+2023-05-21 10:37:33.064806 [32mD[0m [336869:5520] ([1m0.062ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>24, :cached=>nil}
+2023-05-21 10:37:33.247616 [32mD[0m [336869:5520] ([1m0.058ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"SAVEPOINT active_record_1", :allocations=>27, :cached=>nil}
+2023-05-21 10:37:33.247978 [32mD[0m [336869:5520] ([1m0.187ms[0m) [32mActiveRecord[0m -- Product Create -- {:sql=>"INSERT INTO \"products\" (\"name\", \"price\", \"created_at\", \"updated_at\") VALUES (?, ?, ?, ?)", :binds=>{:name=>"Durable Silk Lamp", :price=>7975, :created_at=>"2023-05-21 10:37:33.245274", :updated_at=>"2023-05-21 10:37:33.245274"}, :allocations=>168, :cached=>nil}
+2023-05-21 10:37:33.248047 [32mD[0m [336869:5520] ([1m0.019ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"ROLLBACK TO SAVEPOINT active_record_1", :allocations=>16, :cached=>nil}
+2023-05-21 10:37:33.255260 [32mD[0m [336869:5520] ([1m0.071ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"rollback transaction", :allocations=>22, :cached=>nil}
+2023-05-21 10:37:33.256308 [32mD[0m [336869:5520] ([1m0.038ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>22, :cached=>nil}
+2023-05-21 10:37:33.257420 [32mD[0m [336869:5520] ([1m0.052ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"SAVEPOINT active_record_1", :allocations=>21, :cached=>nil}
+2023-05-21 10:37:33.257780 [32mD[0m [336869:5520] ([1m0.221ms[0m) [32mActiveRecord[0m -- Product Create -- {:sql=>"INSERT INTO \"products\" (\"name\", \"price\", \"created_at\", \"updated_at\") VALUES (?, ?, ?, ?)", :binds=>{:name=>"Ergonomic Rubber Bench", :price=>4193, :created_at=>"2023-05-21 10:37:33.256963", :updated_at=>"2023-05-21 10:37:33.256963"}, :allocations=>149, :cached=>nil}
+2023-05-21 10:37:33.257864 [32mD[0m [336869:5520] ([1m0.029ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"ROLLBACK TO SAVEPOINT active_record_1", :allocations=>16, :cached=>nil}
+2023-05-21 10:37:33.258057 [32mD[0m [336869:5520] ([1m0.023ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"rollback transaction", :allocations=>16, :cached=>nil}
+2023-05-21 10:37:33.285972 [35mT[0m [336869:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::File
+2023-05-21 10:37:33.286522 [35mT[0m [336869:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- All appenders flushed
+2023-05-21 10:37:33.286692 [35mT[0m [336869:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Thread has stopped
+2023-05-21 10:40:04.432405 [35mT[0m [337571:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Appender thread active
+2023-05-21 10:40:04.609732 [32mD[0m [337571:5520] ([1m0.240ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT sqlite_version(*)", :allocations=>241, :cached=>nil}
+2023-05-21 10:40:04.768090 [35mT[0m [337613:3760] [35mSemanticLogger::Appenders[0m -- Reopening appender: SemanticLogger::Appender::File
+2023-05-21 10:40:04.768902 [35mT[0m [337613:3760] [35mSemanticLogger::Appenders[0m -- All appenders re-opened
+2023-05-21 10:40:04.770939 [35mT[0m [337613:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Appender thread active
+2023-05-21 10:40:04.817102 [32mD[0m [337613:3760] ([1m0.397ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT sqlite_version(*)", :allocations=>238, :cached=>nil}
+2023-05-21 10:40:04.836778 [32mD[0m [337613:3760] ([1m11.8ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"schema_migrations\" (\"version\" varchar NOT NULL PRIMARY KEY)", :allocations=>18, :cached=>nil}
+2023-05-21 10:40:04.843129 [32mD[0m [337613:3760] ([1m5.238ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"ar_internal_metadata\" (\"key\" varchar NOT NULL PRIMARY KEY, \"value\" varchar, \"created_at\" datetime(6) NOT NULL, \"updated_at\" datetime(6) NOT NULL)", :allocations=>18, :cached=>nil}
+2023-05-21 10:40:04.846007 [32mD[0m [337613:3760] ([1m0.062ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT \"schema_migrations\".\"version\" FROM \"schema_migrations\" ORDER BY \"schema_migrations\".\"version\" ASC", :allocations=>47, :cached=>nil}
+2023-05-21 10:40:04.846076 [36mI[0m [337613:3760] [36mActiveRecord::Base[0m -- Migrating to EnableUuidExtension (0)
+2023-05-21 10:40:04.853982 [32mD[0m [337613:3760] ([1m0.040ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>25, :cached=>nil}
+2023-05-21 10:40:04.856603 [32mD[0m [337613:3760] ([1m0.179ms[0m) [32mActiveRecord[0m -- ActiveRecord::SchemaMigration Create -- {:sql=>"INSERT INTO \"schema_migrations\" (\"version\") VALUES (?)", :binds=>{:version=>"0"}, :allocations=>21, :cached=>nil}
+2023-05-21 10:40:04.861274 [32mD[0m [337613:3760] ([1m4.502ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>17, :cached=>nil}
+2023-05-21 10:40:04.861367 [36mI[0m [337613:3760] [36mActiveRecord::Base[0m -- Migrating to CreateSecretMenuItems (20230507210809)
+2023-05-21 10:40:04.862548 [32mD[0m [337613:3760] ([1m0.043ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>22, :cached=>nil}
+2023-05-21 10:40:04.862798 [32mD[0m [337613:3760] ([1m0.212ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"secret_menu_items\" (\"id\" integer PRIMARY KEY AUTOINCREMENT NOT NULL, \"menu_name\" varchar, \"restaurant_name\" varchar, \"menu_description\" varchar, \"created_at\" datetime(6) NOT NULL, \"updated_at\" datetime(6) NOT NULL)", :allocations=>21, :cached=>nil}
+2023-05-21 10:40:04.863696 [32mD[0m [337613:3760] ([1m0.093ms[0m) [32mActiveRecord[0m -- ActiveRecord::SchemaMigration Create -- {:sql=>"INSERT INTO \"schema_migrations\" (\"version\") VALUES (?)", :binds=>{:version=>"20230507210809"}, :allocations=>24, :cached=>nil}
+2023-05-21 10:40:04.870054 [32mD[0m [337613:3760] ([1m6.202ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>16, :cached=>nil}
+2023-05-21 10:40:04.870227 [36mI[0m [337613:3760] [36mActiveRecord::Base[0m -- Migrating to CreateProducts (20230520183142)
+2023-05-21 10:40:04.871906 [32mD[0m [337613:3760] ([1m0.083ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>22, :cached=>nil}
+2023-05-21 10:40:04.872323 [32mD[0m [337613:3760] ([1m0.338ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"products\" (\"id\" uuid NOT NULL PRIMARY KEY, \"name\" text, \"price\" integer, \"created_at\" datetime(6) NOT NULL, \"updated_at\" datetime(6) NOT NULL)", :allocations=>21, :cached=>nil}
+2023-05-21 10:40:04.873793 [32mD[0m [337613:3760] ([1m0.469ms[0m) [32mActiveRecord[0m -- ActiveRecord::SchemaMigration Create -- {:sql=>"INSERT INTO \"schema_migrations\" (\"version\") VALUES (?)", :binds=>{:version=>"20230520183142"}, :allocations=>24, :cached=>nil}
+2023-05-21 10:40:04.878581 [32mD[0m [337613:3760] ([1m4.643ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>16, :cached=>nil}
+2023-05-21 10:40:04.878655 [36mI[0m [337613:3760] [36mActiveRecord::Base[0m -- Migrating to CreateProductors (20230520183248)
+2023-05-21 10:40:04.880155 [32mD[0m [337613:3760] ([1m0.052ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>22, :cached=>nil}
+2023-05-21 10:40:04.880451 [32mD[0m [337613:3760] ([1m0.248ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"productors\" (\"id\" uuid NOT NULL PRIMARY KEY, \"name\" text, \"email\" text, \"created_at\" datetime(6) NOT NULL, \"updated_at\" datetime(6) NOT NULL)", :allocations=>21, :cached=>nil}
+2023-05-21 10:40:04.881286 [32mD[0m [337613:3760] ([1m0.097ms[0m) [32mActiveRecord[0m -- ActiveRecord::SchemaMigration Create -- {:sql=>"INSERT INTO \"schema_migrations\" (\"version\") VALUES (?)", :binds=>{:version=>"20230520183248"}, :allocations=>24, :cached=>nil}
+2023-05-21 10:40:04.886481 [32mD[0m [337613:3760] ([1m5.105ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>16, :cached=>nil}
+2023-05-21 10:40:04.886568 [36mI[0m [337613:3760] [36mActiveRecord::Base[0m -- Migrating to CreateAffiliateds (20230520183351)
+2023-05-21 10:40:04.888043 [32mD[0m [337613:3760] ([1m0.098ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>22, :cached=>nil}
+2023-05-21 10:40:04.888460 [32mD[0m [337613:3760] ([1m0.336ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"affiliateds\" (\"id\" uuid NOT NULL PRIMARY KEY, \"name\" text, \"email\" text, \"created_at\" datetime(6) NOT NULL, \"updated_at\" datetime(6) NOT NULL)", :allocations=>21, :cached=>nil}
+2023-05-21 10:40:04.889370 [32mD[0m [337613:3760] ([1m0.124ms[0m) [32mActiveRecord[0m -- ActiveRecord::SchemaMigration Create -- {:sql=>"INSERT INTO \"schema_migrations\" (\"version\") VALUES (?)", :binds=>{:version=>"20230520183351"}, :allocations=>24, :cached=>nil}
+2023-05-21 10:40:04.893967 [32mD[0m [337613:3760] ([1m4.490ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>16, :cached=>nil}
+2023-05-21 10:40:04.894054 [36mI[0m [337613:3760] [36mActiveRecord::Base[0m -- Migrating to CreateTransactionTypes (20230520183546)
+2023-05-21 10:40:04.896335 [32mD[0m [337613:3760] ([1m0.053ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>22, :cached=>nil}
+2023-05-21 10:40:04.896751 [32mD[0m [337613:3760] ([1m0.367ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"transaction_types\" (\"id\" uuid NOT NULL PRIMARY KEY, \"type\" text, \"description\" text, \"nature\" text, \"signal\" text, \"created_at\" datetime(6) NOT NULL, \"updated_at\" datetime(6) NOT NULL)", :allocations=>21, :cached=>nil}
+2023-05-21 10:40:04.897726 [32mD[0m [337613:3760] ([1m0.220ms[0m) [32mActiveRecord[0m -- ActiveRecord::SchemaMigration Create -- {:sql=>"INSERT INTO \"schema_migrations\" (\"version\") VALUES (?)", :binds=>{:version=>"20230520183546"}, :allocations=>24, :cached=>nil}
+2023-05-21 10:40:04.902541 [32mD[0m [337613:3760] ([1m4.681ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>16, :cached=>nil}
+2023-05-21 10:40:04.902657 [36mI[0m [337613:3760] [36mActiveRecord::Base[0m -- Migrating to CreateSales (20230520183717)
+2023-05-21 10:40:04.904401 [32mD[0m [337613:3760] ([1m0.089ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>22, :cached=>nil}
+2023-05-21 10:40:04.904817 [32mD[0m [337613:3760] ([1m0.343ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"sales\" (\"id\" uuid NOT NULL PRIMARY KEY, \"product_id_id\" uuid NOT NULL, \"amount\" integer, \"creator_affiliated_id_id\" uuid NOT NULL, \"transaction_type_id_id\" uuid NOT NULL, \"created_at\" datetime(6) NOT NULL, \"updated_at\" datetime(6) NOT NULL, CONSTRAINT \"fk_rails_65d92e1480\"\nFOREIGN KEY (\"product_id_id\")\n  REFERENCES \"product_ids\" (\"id\")\n, CONSTRAINT \"fk_rails_cc2b4a33c2\"\nFOREIGN KEY (\"creator_affiliated_id_id\")\n  REFERENCES \"creator_affiliated_ids\" (\"id\")\n, CONSTRAINT \"fk_rails_ba8a94d09f\"\nFOREIGN KEY (\"transaction_type_id_id\")\n  REFERENCES \"transaction_type_ids\" (\"id\")\n)", :allocations=>21, :cached=>nil}
+2023-05-21 10:40:04.905308 [32mD[0m [337613:3760] ([1m0.182ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE INDEX \"index_sales_on_product_id_id\" ON \"sales\" (\"product_id_id\")", :allocations=>16, :cached=>nil}
+2023-05-21 10:40:04.905473 [32mD[0m [337613:3760] ([1m0.064ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE INDEX \"index_sales_on_creator_affiliated_id_id\" ON \"sales\" (\"creator_affiliated_id_id\")", :allocations=>16, :cached=>nil}
+2023-05-21 10:40:04.905587 [32mD[0m [337613:3760] ([1m0.052ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE INDEX \"index_sales_on_transaction_type_id_id\" ON \"sales\" (\"transaction_type_id_id\")", :allocations=>16, :cached=>nil}
+2023-05-21 10:40:04.906403 [32mD[0m [337613:3760] ([1m0.108ms[0m) [32mActiveRecord[0m -- ActiveRecord::SchemaMigration Create -- {:sql=>"INSERT INTO \"schema_migrations\" (\"version\") VALUES (?)", :binds=>{:version=>"20230520183717"}, :allocations=>24, :cached=>nil}
+2023-05-21 10:40:04.913267 [32mD[0m [337613:3760] ([1m6.764ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>16, :cached=>nil}
+2023-05-21 10:40:04.913351 [36mI[0m [337613:3760] [36mActiveRecord::Base[0m -- Migrating to CreateCommissions (20230520183840)
+2023-05-21 10:40:04.915637 [32mD[0m [337613:3760] ([1m0.117ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>22, :cached=>nil}
+2023-05-21 10:40:04.916095 [32mD[0m [337613:3760] ([1m0.379ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE TABLE \"commissions\" (\"id\" uuid NOT NULL PRIMARY KEY, \"sale_id_id\" uuid NOT NULL, \"transaction_type_id_id\" uuid NOT NULL, \"created_at\" datetime(6) NOT NULL, \"updated_at\" datetime(6) NOT NULL, CONSTRAINT \"fk_rails_c9f7cebc0c\"\nFOREIGN KEY (\"sale_id_id\")\n  REFERENCES \"sale_ids\" (\"id\")\n, CONSTRAINT \"fk_rails_972ed221fc\"\nFOREIGN KEY (\"transaction_type_id_id\")\n  REFERENCES \"transaction_type_ids\" (\"id\")\n)", :allocations=>21, :cached=>nil}
+2023-05-21 10:40:04.916313 [32mD[0m [337613:3760] ([1m0.083ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE INDEX \"index_commissions_on_sale_id_id\" ON \"commissions\" (\"sale_id_id\")", :allocations=>16, :cached=>nil}
+2023-05-21 10:40:04.916436 [32mD[0m [337613:3760] ([1m0.046ms[0m) [32mActiveRecord[0m -- {:sql=>"CREATE INDEX \"index_commissions_on_transaction_type_id_id\" ON \"commissions\" (\"transaction_type_id_id\")", :allocations=>16, :cached=>nil}
+2023-05-21 10:40:04.917416 [32mD[0m [337613:3760] ([1m0.097ms[0m) [32mActiveRecord[0m -- ActiveRecord::SchemaMigration Create -- {:sql=>"INSERT INTO \"schema_migrations\" (\"version\") VALUES (?)", :binds=>{:version=>"20230520183840"}, :allocations=>24, :cached=>nil}
+2023-05-21 10:40:04.923896 [32mD[0m [337613:3760] ([1m6.379ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>16, :cached=>nil}
+2023-05-21 10:40:04.926329 [32mD[0m [337613:3760] ([1m0.325ms[0m) [32mActiveRecord[0m -- ActiveRecord::InternalMetadata Load -- {:sql=>"SELECT \"ar_internal_metadata\".* FROM \"ar_internal_metadata\" WHERE \"ar_internal_metadata\".\"key\" = ? LIMIT ?", :binds=>{:key=>"environment", :limit=>1}, :allocations=>53, :cached=>nil}
+2023-05-21 10:40:04.929748 [32mD[0m [337613:3760] ([1m0.036ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>18, :cached=>nil}
+2023-05-21 10:40:04.930213 [32mD[0m [337613:3760] ([1m0.312ms[0m) [32mActiveRecord[0m -- ActiveRecord::InternalMetadata Create -- {:sql=>"INSERT INTO \"ar_internal_metadata\" (\"key\", \"value\", \"created_at\", \"updated_at\") VALUES (?, ?, ?, ?)", :binds=>{:key=>"environment", :value=>"test", :created_at=>"2023-05-21 10:40:04.928864", :updated_at=>"2023-05-21 10:40:04.928864"}, :allocations=>24, :cached=>nil}
+2023-05-21 10:40:04.935409 [32mD[0m [337613:3760] ([1m5.026ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"commit transaction", :allocations=>16, :cached=>nil}
+2023-05-21 10:40:04.937678 [32mD[0m [337613:3760] ([1m0.082ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT sqlite_version(*)", :allocations=>17, :cached=>nil}
+2023-05-21 10:40:04.938672 [32mD[0m [337613:3760] ([1m0.081ms[0m) [32mActiveRecord[0m -- {:sql=>"SELECT \"schema_migrations\".\"version\" FROM \"schema_migrations\" ORDER BY \"schema_migrations\".\"version\" ASC", :allocations=>39, :cached=>nil}
+2023-05-21 10:40:04.945816 [35mT[0m [337613:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::File
+2023-05-21 10:40:04.945892 [35mT[0m [337613:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- All appenders flushed
+2023-05-21 10:40:04.945971 [35mT[0m [337613:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Thread has stopped
+2023-05-21 10:40:04.972705 [32mD[0m [337571:5520] ([1m0.058ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>24, :cached=>nil}
+2023-05-21 10:40:05.078973 [32mD[0m [337571:5520] ([1m0.064ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"SAVEPOINT active_record_1", :allocations=>27, :cached=>nil}
+2023-05-21 10:40:05.079312 [32mD[0m [337571:5520] ([1m0.178ms[0m) [32mActiveRecord[0m -- Product Create -- {:sql=>"INSERT INTO \"products\" (\"name\", \"price\", \"created_at\", \"updated_at\") VALUES (?, ?, ?, ?)", :binds=>{:name=>"Enormous Aluminum Bench", :price=>8120, :created_at=>"2023-05-21 10:40:05.076932", :updated_at=>"2023-05-21 10:40:05.076932"}, :allocations=>168, :cached=>nil}
+2023-05-21 10:40:05.079373 [32mD[0m [337571:5520] ([1m0.017ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"ROLLBACK TO SAVEPOINT active_record_1", :allocations=>16, :cached=>nil}
+2023-05-21 10:40:05.085412 [32mD[0m [337571:5520] ([1m0.049ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"rollback transaction", :allocations=>22, :cached=>nil}
+2023-05-21 10:40:05.086559 [32mD[0m [337571:5520] ([1m0.045ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"begin transaction", :allocations=>22, :cached=>nil}
+2023-05-21 10:40:05.087434 [32mD[0m [337571:5520] ([1m0.045ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"SAVEPOINT active_record_1", :allocations=>21, :cached=>nil}
+2023-05-21 10:40:05.087687 [32mD[0m [337571:5520] ([1m0.161ms[0m) [32mActiveRecord[0m -- Product Create -- {:sql=>"INSERT INTO \"products\" (\"name\", \"price\", \"created_at\", \"updated_at\") VALUES (?, ?, ?, ?)", :binds=>{:name=>"Gorgeous Silk Wallet", :price=>1715, :created_at=>"2023-05-21 10:40:05.087083", :updated_at=>"2023-05-21 10:40:05.087083"}, :allocations=>149, :cached=>nil}
+2023-05-21 10:40:05.087740 [32mD[0m [337571:5520] ([1m0.016ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"ROLLBACK TO SAVEPOINT active_record_1", :allocations=>16, :cached=>nil}
+2023-05-21 10:40:05.087860 [32mD[0m [337571:5520] ([1m0.016ms[0m) [32mActiveRecord[0m -- TRANSACTION -- {:sql=>"rollback transaction", :allocations=>16, :cached=>nil}
+2023-05-21 10:40:05.104550 [35mT[0m [337571:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::File
+2023-05-21 10:40:05.104697 [35mT[0m [337571:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- All appenders flushed
+2023-05-21 10:40:05.104780 [35mT[0m [337571:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Thread has stopped
+2023-05-21 10:46:34.032506 [35mT[0m [336921:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::File
+2023-05-21 10:46:34.032611 [35mT[0m [336921:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- All appenders flushed
+2023-05-21 10:46:34.032673 [35mT[0m [336921:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Thread has stopped
+2023-05-21 10:46:34.524264 [35mT[0m [339184:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Appender thread active
+2023-05-21 10:47:41.704745 [35mT[0m [339184:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::File
+2023-05-21 10:47:41.704839 [35mT[0m [339184:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- All appenders flushed
+2023-05-21 10:47:41.704887 [35mT[0m [339184:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Thread has stopped
+2023-05-21 10:47:42.208190 [35mT[0m [339464:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Appender thread active
+2023-05-21 10:51:24.376451 [35mT[0m [339464:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::File
+2023-05-21 10:51:24.376757 [35mT[0m [339464:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- All appenders flushed
+2023-05-21 10:51:24.377707 [35mT[0m [339464:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Thread has stopped
+2023-05-21 10:51:24.820892 [35mT[0m [340235:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Appender thread active
+2023-05-21 10:52:23.567997 [35mT[0m [340235:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::File
+2023-05-21 10:52:23.568085 [35mT[0m [340235:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- All appenders flushed
+2023-05-21 10:52:23.568134 [35mT[0m [340235:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Thread has stopped
+2023-05-21 10:52:24.034418 [35mT[0m [340340:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Appender thread active
+2023-05-21 10:53:12.086860 [35mT[0m [340340:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Flushing appender: SemanticLogger::Appender::File
+2023-05-21 10:53:12.086986 [35mT[0m [340340:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- All appenders flushed
+2023-05-21 10:53:12.087072 [35mT[0m [340340:SemanticLogger::Appenders] [35mSemanticLogger::Appenders[0m -- Async: Thread has stopped

@@ -3,7 +3,7 @@
 Productor.create!(name: Faker::Name.name, email: Faker::Internet.email, balance: 0)
 
 product1 = Product.create(name: 'Chicken', price: Faker::Number.number(digits: 4), productor_id: 1)
-Product.create(name: 'Veggie', price: Faker::Number.number(digits: 4), productor_id: 1)
+product2 = Product.create(name: 'Veggie', price: Faker::Number.number(digits: 4), productor_id: 1)
 Product.create(name: 'Beef', price: Faker::Number.number(digits: 4), productor_id: 1)
 
 Affiliated.create!(name: Faker::Name.name, email: Faker::Internet.email, balance: 0, productor_id: 1)
@@ -15,7 +15,7 @@ transaction_type1 = TransactionType.create!(
   nature: 'input',
   signal: '+'
 )
-TransactionType.create!(
+transaction_type2 = TransactionType.create!(
   type: 2,
   description: 'Venda afiliado',
   nature: 'input',
@@ -34,8 +34,16 @@ TransactionType.create!(
   signal: '+'
 )
 
+productor_affiliated = ProductorAffiliated.create!(productor_id: 1, affiliated_id: 1)
+
 Sale.create!(
   product_id: product1.id,
   amount: product1.price,
   transaction_type_id: transaction_type1.id
+)
+Sale.create!(
+  product_id: product2.id,
+  amount: product2.price,
+  transaction_type_id: transaction_type2.id,
+  productor_affiliated_id: productor_affiliated.id
 )

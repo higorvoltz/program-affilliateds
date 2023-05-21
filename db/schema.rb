@@ -12,14 +12,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_230_521_173_100) do
+ActiveRecord::Schema.define(version: 20_230_521_210_550) do
   create_table 'affiliateds', force: :cascade do |t|
     t.text 'name'
     t.text 'email'
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
     t.integer 'balance'
+    t.integer 'productor_id'
     t.index ['id'], name: 'index_affiliateds_on_id', unique: true
+    t.index ['productor_id'], name: 'index_affiliateds_on_productor_id'
   end
 
   create_table 'commissions', force: :cascade do |t|
@@ -95,6 +97,7 @@ ActiveRecord::Schema.define(version: 20_230_521_173_100) do
     t.index ['id'], name: 'index_transaction_types_on_id', unique: true
   end
 
+  add_foreign_key 'affiliateds', 'productors'
   add_foreign_key 'commissions', 'sale_ids'
   add_foreign_key 'commissions', 'transaction_type_ids'
   add_foreign_key 'productor_affiliateds', 'affiliateds'

@@ -7,5 +7,5 @@ Product.create(name: 'Chicken', price: Faker::Number.number(digits: 4), producto
 Product.create(name: 'Veggie', price: Faker::Number.number(digits: 4), productor_id: 1)
 Product.create(name: 'Beef', price: Faker::Number.number(digits: 4), productor_id: 1)
 
-Affiliated.create!(name: Faker::Name.name, email: Faker::Internet.email, balance: 0)
-Affiliated.create!(name: Faker::Name.name, email: Faker::Internet.email, balance: 0)
+Affiliated.create!(name: Faker::Name.name, email: Faker::Internet.email, balance: 0, productor_id: 1)
+Affiliated.create!(name: Faker::Name.name, email: Faker::Internet.email, balance: 0, productor_id: 1)

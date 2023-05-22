@@ -9,9 +9,10 @@ class ProductsController < ApplicationController
   end
 
   def create
-    @product = Product.create(
+    @product = Product.create!(
       name: params[:name],
-      price: params[:price]
+      price: params[:price],
+      productor_id: params[:productor_id]
     )
     render json: @product
   end
@@ -25,7 +26,8 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @product.update(
       name: params[:name],
-      price: params[:price]
+      price: params[:price],
+      productor_id: params[:productor_id]
     )
     render json: @product
   end

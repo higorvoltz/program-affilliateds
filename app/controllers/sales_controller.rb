@@ -7,7 +7,7 @@ class SalesController < ApplicationController
   end
 
   def create # needs update balance of seller | check logic of commission
-    @sale = Sale.create(
+    @sale = Sale.create!(
       amount: params[:amount],
       transaction_type_id: params[:transaction_type_id],
       seller_id: params[:seller_id]

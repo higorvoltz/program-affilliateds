@@ -7,7 +7,7 @@ class ProductorsController < ApplicationController # criar serializers
   end
 
   def create
-    @productor = Productor.create(
+    @productor = Productor.create!(
       name: params[:name],
       email: params[:email],
       balance: params[:balance]

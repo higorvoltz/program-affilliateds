@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ProductorsController < ApplicationController
+class ProductorsController < ApplicationController # criar serializers
   def index
     @productors = Productor.all
     render json: @productors
@@ -9,7 +9,8 @@ class ProductorsController < ApplicationController
   def create
     @productor = Productor.create(
       name: params[:name],
-      email: params[:email]
+      email: params[:email],
+      balance: params[:balance]
     )
     render json: @productor
   end
@@ -23,7 +24,8 @@ class ProductorsController < ApplicationController
     @productor = Productor.find(params[:id])
     @productor.update(
       name: params[:name],
-      email: params[:email]
+      email: params[:email],
+      balance: params[:balance]
     )
     render json: @productor
   end

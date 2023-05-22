@@ -36,14 +36,31 @@ TransactionType.create!(
 
 productor_affiliated = ProductorAffiliated.create!(productor_id: 1, affiliated_id: 1)
 
-Sale.create!(
+sale_item1 = SaleItem.create!(
   product_id: product1.id,
-  amount: product1.price,
+  quantity: 1
+)
+sale1 = Sale.create!(
+  sale_item_id: sale_item1.id,
+  amount: product1.price * sale_item1.quantity,
   transaction_type_id: transaction_type1.id
 )
-Sale.create!(
+Commission.create!(
+  sale_id: sale1.id,
+  transaction_type_id: sale1.transaction_type.id
+)
+
+sale_item2 = SaleItem.create!(
   product_id: product2.id,
-  amount: product2.price,
+  quantity: 1
+)
+sale2 = Sale.create!(
+  sale_item_id: sale_item2.id,
+  amount: product2.price * sale_item2.quantity,
   transaction_type_id: transaction_type2.id,
   productor_affiliated_id: productor_affiliated.id
+)
+Commission.create!(
+  sale_id: sale2.id,
+  transaction_type_id: sale2.transaction_type.id
 )

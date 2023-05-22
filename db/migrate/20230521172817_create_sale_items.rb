@@ -3,7 +3,6 @@
 class CreateSaleItems < ActiveRecord::Migration[6.1]
   def change
     create_table :sale_items, id: :integer do |t|
-      t.references :sale, null: false, foreign_key: true, type: :integer
       t.references :product, null: false, foreign_key: true, type: :integer
       t.integer :quantity
 

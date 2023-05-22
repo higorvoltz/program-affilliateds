@@ -25,13 +25,14 @@ ActiveRecord::Schema.define(version: 20_230_521_210_550) do
   end
 
   create_table 'commissions', force: :cascade do |t|
-    t.integer 'sale_id_id', null: false
-    t.integer 'transaction_type_id_id', null: false
+    t.integer 'sale_id', null: false
+    t.integer 'transaction_type_id', null: false
+    t.boolean 'must_pay'
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
     t.index ['id'], name: 'index_commissions_on_id', unique: true
-    t.index ['sale_id_id'], name: 'index_commissions_on_sale_id_id'
-    t.index ['transaction_type_id_id'], name: 'index_commissions_on_transaction_type_id_id'
+    t.index ['sale_id'], name: 'index_commissions_on_sale_id'
+    t.index ['transaction_type_id'], name: 'index_commissions_on_transaction_type_id'
   end
 
   create_table 'productor_affiliateds', force: :cascade do |t|
@@ -64,26 +65,24 @@ ActiveRecord::Schema.define(version: 20_230_521_210_550) do
   end
 
   create_table 'sale_items', force: :cascade do |t|
-    t.integer 'sale_id', null: false
     t.integer 'product_id', null: false
     t.integer 'quantity'
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
     t.index ['id'], name: 'index_sale_items_on_id', unique: true
     t.index ['product_id'], name: 'index_sale_items_on_product_id'
-    t.index ['sale_id'], name: 'index_sale_items_on_sale_id'
   end
 
   create_table 'sales', force: :cascade do |t|
-    t.integer 'product_id', null: false
+    t.integer 'sale_item_id', null: false
     t.integer 'amount'
     t.integer 'productor_affiliated_id'
     t.integer 'transaction_type_id', null: false
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
     t.index ['id'], name: 'index_sales_on_id', unique: true
-    t.index ['product_id'], name: 'index_sales_on_product_id'
     t.index ['productor_affiliated_id'], name: 'index_sales_on_productor_affiliated_id'
+    t.index ['sale_item_id'], name: 'index_sales_on_sale_item_id'
     t.index ['transaction_type_id'], name: 'index_sales_on_transaction_type_id'
   end
 
@@ -98,14 +97,13 @@ ActiveRecord::Schema.define(version: 20_230_521_210_550) do
   end
 
   add_foreign_key 'affiliateds', 'productors'
-  add_foreign_key 'commissions', 'sale_ids'
-  add_foreign_key 'commissions', 'transaction_type_ids'
+  add_foreign_key 'commissions', 'sales'
+  add_foreign_key 'commissions', 'transaction_types'
   add_foreign_key 'productor_affiliateds', 'affiliateds'
   add_foreign_key 'productor_affiliateds', 'productors'
   add_foreign_key 'products', 'productors'
   add_foreign_key 'sale_items', 'products'
-  add_foreign_key 'sale_items', 'sales'
   add_foreign_key 'sales', 'productor_affiliateds'
-  add_foreign_key 'sales', 'products'
+  add_foreign_key 'sales', 'sale_items'
   add_foreign_key 'sales', 'transaction_types'
 end

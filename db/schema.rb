@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_230_521_210_550) do
+ActiveRecord::Schema.define(version: 20_230_521_222_200) do
   create_table 'affiliateds', force: :cascade do |t|
     t.text 'name'
     t.text 'email'
@@ -80,9 +80,12 @@ ActiveRecord::Schema.define(version: 20_230_521_210_550) do
     t.integer 'transaction_type_id', null: false
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
+    t.string 'seller_type', null: false
+    t.integer 'seller_id', null: false
     t.index ['id'], name: 'index_sales_on_id', unique: true
     t.index ['productor_affiliated_id'], name: 'index_sales_on_productor_affiliated_id'
     t.index ['sale_item_id'], name: 'index_sales_on_sale_item_id'
+    t.index %w[seller_type seller_id], name: 'index_sales_on_seller'
     t.index ['transaction_type_id'], name: 'index_sales_on_transaction_type_id'
   end
 

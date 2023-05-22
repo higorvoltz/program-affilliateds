@@ -1,12 +1,12 @@
 # frozen_string_literal: true
 
-Productor.create!(name: Faker::Name.name, email: Faker::Internet.email, balance: 0)
+productor1 = Productor.create!(name: Faker::Name.name, email: Faker::Internet.email, balance: 0)
 
 product1 = Product.create(name: 'Chicken', price: Faker::Number.number(digits: 4), productor_id: 1)
 product2 = Product.create(name: 'Veggie', price: Faker::Number.number(digits: 4), productor_id: 1)
 Product.create(name: 'Beef', price: Faker::Number.number(digits: 4), productor_id: 1)
 
-Affiliated.create!(name: Faker::Name.name, email: Faker::Internet.email, balance: 0, productor_id: 1)
+affiliated1 = Affiliated.create!(name: Faker::Name.name, email: Faker::Internet.email, balance: 0, productor_id: 1)
 Affiliated.create!(name: Faker::Name.name, email: Faker::Internet.email, balance: 0, productor_id: 1)
 
 transaction_type1 = TransactionType.create!(
@@ -43,7 +43,8 @@ sale_item1 = SaleItem.create!(
 sale1 = Sale.create!(
   sale_item_id: sale_item1.id,
   amount: product1.price * sale_item1.quantity,
-  transaction_type_id: transaction_type1.id
+  transaction_type_id: transaction_type1.id,
+  seller: productor1
 )
 Commission.create!(
   sale_id: sale1.id,
@@ -58,7 +59,8 @@ sale2 = Sale.create!(
   sale_item_id: sale_item2.id,
   amount: product2.price * sale_item2.quantity,
   transaction_type_id: transaction_type2.id,
-  productor_affiliated_id: productor_affiliated.id
+  productor_affiliated_id: productor_affiliated.id,
+  seller: affiliated1
 )
 Commission.create!(
   sale_id: sale2.id,

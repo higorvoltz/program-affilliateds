@@ -1,7 +1,7 @@
 # frozen_string_literal: true
 
 class SalesController < ApplicationController
-  def index # ok
+  def index
     @sales = Sale.all
     render json: @sales
   end
@@ -24,20 +24,14 @@ class SalesController < ApplicationController
     render json: @sale
   end
 
-  def update # check logic of commission
+  # check logic of commission
+  def update
     @sale = Sale.find(params[:id])
     @sale.update(
       amount: params[:amount],
       transaction_type_id: params[:transaction_type_id],
       seller_id: params[:seller_id]
     )
-    render json: @sale
-  end
-
-  def destroy # broken
-    @sales = Sale.all
-    @sale = Sale.find(params[:id])
-    @sale.destroy
     render json: @sale
   end
 
@@ -52,16 +46,14 @@ class SalesController < ApplicationController
     )
   end
 
-  def seller
-    if transaction_type_id == 1
-      @seller ||= Productor.find(seller_id).first
-    end
-  end
-
   def update_seller_balance(sale)
-    if sale.transaction_type_id == 1 || sale.transaction_type_id == 2
+    if sale.transaction_type_id == 1
       seller = sale.seller
       seller.update!(balance: seller.balance + sale.amount)
+    elsif sale.transaction_type_id == 2
+      affiliated = sale.seller
+      productor = affiliated.productor
+      productor.update!(balance: productor.balance + sale.amount)
     end
   end
 end

@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class AffiliatedsController < ApplicationController
+class Api::V1::AffiliatedsController < ApplicationController
   def index
     @affiliateds = Affiliated.all
     render json: @affiliateds

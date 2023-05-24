@@ -6,6 +6,12 @@ Rails.application.routes.draw do
       resources :products, only: %i[index show create update destroy]
     end
   end
+
+  namespace :api do
+    namespace :v1 do
+      resources :affiliateds, only: %i[index show create update destroy]
+    end
+  end
   resources :productors, only: %i[index show create update destroy]
   resources :affiliateds, only: %i[index show create update destroy]
   resources :sales, only: %i[index show create update destroy]

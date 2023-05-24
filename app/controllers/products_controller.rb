@@ -12,7 +12,8 @@ class ProductsController < ApplicationController
     @product = Product.create!(
       name: params[:name],
       price: params[:price],
-      productor_id: params[:productor_id]
+      productor_id: params[:productor_id],
+      comission_value: params[:comission_value]
     )
     render json: @product
   end
@@ -27,7 +28,8 @@ class ProductsController < ApplicationController
     @product.update(
       name: params[:name],
       price: params[:price],
-      productor_id: params[:productor_id]
+      productor_id: params[:productor_id],
+      comission_value: params[:comission_value]
     )
     render json: @product
   end

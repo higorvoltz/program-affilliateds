@@ -12,7 +12,12 @@ Rails.application.routes.draw do
       resources :affiliateds, only: %i[index show create update destroy]
     end
   end
-  resources :productors, only: %i[index show create update destroy]
+
+  namespace :api do
+    namespace :v1 do
+      resources :productors, only: %i[index show create update destroy]
+    end
+  end
   resources :affiliateds, only: %i[index show create update destroy]
   resources :sales, only: %i[index show create update destroy]
   resources :sale_items, only: %i[index show create update]

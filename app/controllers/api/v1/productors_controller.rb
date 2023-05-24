@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class ProductorsController < ApplicationController # criar serializers
+class Api::V1::ProductorsController < ApplicationController # criar serializers
   def index
     @productors = Productor.all
     render json: @productors

@@ -28,7 +28,6 @@ class Api::V1::SalesController < ApplicationController
   def update
     @sale = Sale.find(params[:id])
     @sale.update(
-      amount: params[:amount],
       transaction_type_id: params[:transaction_type_id],
       seller_id: params[:seller_id]
     )
@@ -40,7 +39,6 @@ class Api::V1::SalesController < ApplicationController
   def sale_params
     params.permit(
       :sale_item_id,
-      :amount,
       :productor_affiliated_id,
       :transaction_type_id
     )
@@ -49,11 +47,23 @@ class Api::V1::SalesController < ApplicationController
   def update_seller_balance(sale)
     if sale.transaction_type_id == 1
       seller = sale.seller
-      seller.update!(balance: seller.balance + sale.amount)
+      sale_item = SaleItem.find(sale.sale_item_id)
+      sale_item_product_id = sale_item[:product_id]
+      sale_item_quantity = sale_item[:quantity]
+      product = Product.find(sale_item_product_id)
+      product_price = product[:price]
+      total_product_price = product_price * sale_item_quantity
+      seller.update!(balance: seller.balance + total_product_price)
     elsif sale.transaction_type_id == 2
       affiliated = sale.seller
       productor = affiliated.productor
-      productor.update!(balance: productor.balance + sale.amount)
+      sale_item = SaleItem.find(sale.sale_item_id)
+      sale_item_product_id = sale_item[:product_id]
+      sale_item_quantity = sale_item[:quantity]
+      product = Product.find(sale_item_product_id)
+      product_price = product[:price]
+      total_product_price = product_price * sale_item_quantity
+      productor.update!(balance: productor.balance + total_product_price)
     elsif sale.transaction_type_id == 3
       sale_item = SaleItem.find(sale.sale_item_id)
       sale_item_product_id = sale_item[:product_id]

@@ -67,25 +67,23 @@ sale_item1 = SaleItem.create!(
   product_id: product1.id,
   quantity: 1
 )
-sale1 = Sale.create!(
+Sale.create!(
   sale_item_id: sale_item1.id,
-  amount: 10_000,
   transaction_type_id: transaction_type1.id,
   seller: productor1
 )
-productor1.update!(balance: sale1.amount)
+productor1.update!(balance: product1.price)
 
 sale_item2 = SaleItem.create!(
   product_id: product2.id,
   quantity: 1
 )
-sale2 = Sale.create!(
+Sale.create!(
   sale_item_id: sale_item2.id,
-  amount: 20_000,
   transaction_type_id: transaction_type2.id,
   productor_affiliated_id: productor_affiliated2.id,
   seller: affiliated2
 )
-productor2.update!(balance: sale2.amount)
-productor2.update!(balance: (sale2.amount + (product2.comission_value * -1)))
+productor2.update!(balance: product2.price)
+productor2.update!(balance: (product2.price + (product2.comission_value * -1)))
 affiliated2.update!(balance: product2.comission_value)

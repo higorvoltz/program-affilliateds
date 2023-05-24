@@ -65,7 +65,6 @@ ActiveRecord::Schema.define(version: 20_230_523_204_648) do
 
   create_table 'sales', force: :cascade do |t|
     t.integer 'sale_item_id', null: false
-    t.integer 'amount'
     t.integer 'productor_affiliated_id'
     t.integer 'transaction_type_id', null: false
     t.datetime 'created_at', precision: 6, null: false

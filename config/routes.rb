@@ -30,5 +30,11 @@ Rails.application.routes.draw do
       resources :sale_items, only: %i[index show create update], path: '/sale-items'
     end
   end
+
+  namespace :api do
+    namespace :v1 do
+      resources :productor_affiliateds, only: %i[index show create update destroy], path: '/productor-affiliateds'
+    end
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

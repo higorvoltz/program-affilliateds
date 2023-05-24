@@ -24,6 +24,11 @@ Rails.application.routes.draw do
       resources :sales, only: %i[index show create update]
     end
   end
-  resources :sale_items, only: %i[index show create update]
+
+  namespace :api do
+    namespace :v1 do
+      resources :sale_items, only: %i[index show create update], path: '/sale-items'
+    end
+  end
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

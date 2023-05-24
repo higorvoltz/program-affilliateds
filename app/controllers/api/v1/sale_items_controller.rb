@@ -1,6 +1,6 @@
 # frozen_string_literal: true
 
-class SaleItemsController < ApplicationController
+class Api::V1::SaleItemsController < ApplicationController
   def index
     @sale_items = SaleItem.all
     render json: @sale_items

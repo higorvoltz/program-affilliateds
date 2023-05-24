@@ -27,6 +27,8 @@ gem 'active_model_serializers', '~> 0.10.13'
 # https://logger.rocketjob.io/rails.html
 gem 'bcrypt', '~> 3.1.7'
 gem 'rails_semantic_logger', '~> 4.11'
+ # https://rubygems.org/gems/rswag
+gem 'rswag', '~> 2.9'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

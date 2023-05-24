@@ -1,0 +1,201 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/affiliateds":
+    get:
+      summary: list affiliateds
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create affiliated
+      responses:
+        '200':
+          description: successful
+  "/api/v1/affiliateds/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show affiliated
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update affiliated
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update affiliated
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete affiliated
+      responses:
+        '200':
+          description: successful
+  "/api/v1/productor-affiliateds":
+    get:
+      summary: list productor_affiliateds
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create productor_affiliated
+      responses:
+        '200':
+          description: successful
+  "/api/v1/productor-affiliateds/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show productor_affiliated
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update productor_affiliated
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update productor_affiliated
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete productor_affiliated
+      responses:
+        '200':
+          description: successful
+  "/api/v1/productors":
+    get:
+      summary: list productors
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create productor
+      responses:
+        '200':
+          description: successful
+  "/api/v1/productors/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show productor
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update productor
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update productor
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete productor
+      responses:
+        '200':
+          description: successful
+  "/api/v1/products":
+    get:
+      summary: list products
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create product
+      responses:
+        '200':
+          description: successful
+  "/api/v1/products/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show product
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update product
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update product
+      responses:
+        '200':
+          description: successful
+    delete:
+      summary: delete product
+      responses:
+        '200':
+          description: successful
+  "/api/v1/sales":
+    get:
+      summary: list sales
+      responses:
+        '200':
+          description: successful
+    post:
+      summary: create sale
+      responses:
+        '200':
+          description: successful
+  "/api/v1/sales/{id}":
+    parameters:
+    - name: id
+      in: path
+      description: id
+      required: true
+      schema:
+        type: string
+    get:
+      summary: show sale
+      responses:
+        '200':
+          description: successful
+    patch:
+      summary: update sale
+      responses:
+        '200':
+          description: successful
+    put:
+      summary: update sale
+      responses:
+        '200':
+          description: successful
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com

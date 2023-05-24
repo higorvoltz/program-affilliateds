@@ -72,6 +72,16 @@ class Api::V1::SalesController < ApplicationController
       comission_value = product[:comission_value]
       total_comission_value = comission_value * sale_item_quantity
       sale.seller.update!(balance: sale.seller.balance + total_comission_value)
+    elsif sale.transaction_type_id == 4
+      affiliated = sale.seller
+      productor = affiliated.productor
+      sale_item = SaleItem.find(sale.sale_item_id)
+      sale_item_product_id = sale_item[:product_id]
+      product = Product.find(sale_item_product_id)
+      sale_item_quantity = sale_item[:quantity]
+      comission_value = product[:comission_value]
+      total_comission_value = comission_value * sale_item_quantity
+      productor.update!(balance: productor.balance - total_comission_value)
     end
   end
 end

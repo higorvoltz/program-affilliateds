@@ -44,44 +44,41 @@ class Api::V1::SalesController < ApplicationController
     )
   end
 
+  def update_seller_balance_for_sale(sale, amount)
+    seller = sale.seller
+    seller.update!(balance: seller.balance + amount)
+  end
+
+  def update_productor_balance_for_sale(sale, amount)
+    affiliated = sale.seller
+    productor = affiliated.productor
+    productor.update!(balance: productor.balance + amount)
+  end
+
+  def update_affiliated_balance_for_sale(sale, amount)
+    affiliated = sale.seller
+    affiliated.update!(balance: affiliated.balance + amount)
+  end
+
+  def update_productor_balance_for_refund(sale, amount)
+    affiliated = sale.seller
+    productor = affiliated.productor
+    productor.update!(balance: productor.balance - amount)
+  end
+
   def update_seller_balance(sale)
-    if sale.transaction_type_id == 1
-      seller = sale.seller
-      sale_item = SaleItem.find(sale.sale_item_id)
-      sale_item_product_id = sale_item[:product_id]
-      sale_item_quantity = sale_item[:quantity]
-      product = Product.find(sale_item_product_id)
-      product_price = product[:price]
-      total_product_price = product_price * sale_item_quantity
-      seller.update!(balance: seller.balance + total_product_price)
-    elsif sale.transaction_type_id == 2
-      affiliated = sale.seller
-      productor = affiliated.productor
-      sale_item = SaleItem.find(sale.sale_item_id)
-      sale_item_product_id = sale_item[:product_id]
-      sale_item_quantity = sale_item[:quantity]
-      product = Product.find(sale_item_product_id)
-      product_price = product[:price]
-      total_product_price = product_price * sale_item_quantity
-      productor.update!(balance: productor.balance + total_product_price)
-    elsif sale.transaction_type_id == 3
-      sale_item = SaleItem.find(sale.sale_item_id)
-      sale_item_product_id = sale_item[:product_id]
-      sale_item_quantity = sale_item[:quantity]
-      product = Product.find(sale_item_product_id)
-      comission_value = product[:comission_value]
-      total_comission_value = comission_value * sale_item_quantity
-      sale.seller.update!(balance: sale.seller.balance + total_comission_value)
-    elsif sale.transaction_type_id == 4
-      affiliated = sale.seller
-      productor = affiliated.productor
-      sale_item = SaleItem.find(sale.sale_item_id)
-      sale_item_product_id = sale_item[:product_id]
-      product = Product.find(sale_item_product_id)
-      sale_item_quantity = sale_item[:quantity]
-      comission_value = product[:comission_value]
-      total_comission_value = comission_value * sale_item_quantity
-      productor.update!(balance: productor.balance - total_comission_value)
+    sale_item = SaleItem.find(sale.sale_item_id)
+    product = Product.find(sale_item.product_id)
+
+    case sale.transaction_type_id
+    when 1
+      update_seller_balance_for_sale(sale, product.price * sale_item.quantity)
+    when 2
+      update_productor_balance_for_sale(sale, product.price * sale_item.quantity)
+    when 3
+      update_affiliated_balance_for_sale(sale, product.comission_value * sale_item.quantity)
+    when 4
+      update_productor_balance_for_refund(sale, product.comission_value * sale_item.quantity)
     end
   end
 end

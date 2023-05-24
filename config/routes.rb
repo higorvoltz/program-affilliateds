@@ -1,7 +1,11 @@
 # frozen_string_literal: true
 
 Rails.application.routes.draw do
-  resources :products, only: %i[index show create update destroy]
+  namespace :api do
+    namespace :v1 do
+      resources :products, only: %i[index show create update destroy]
+    end
+  end
   resources :productors, only: %i[index show create update destroy]
   resources :affiliateds, only: %i[index show create update destroy]
   resources :sales, only: %i[index show create update destroy]

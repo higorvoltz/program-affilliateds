@@ -2,19 +2,14 @@
 
 # froze_string_literlal: true
 
-class ProductsController < ApplicationController
+class Api::V1::ProductsController < ApplicationController
   def index
     @products = Product.all
     render json: @products
   end
 
   def create
-    @product = Product.create!(
-      name: params[:name],
-      price: params[:price],
-      productor_id: params[:productor_id],
-      comission_value: params[:comission_value]
-    )
+    @product = Product.create!(product_params)
     render json: @product
   end
 
@@ -25,12 +20,7 @@ class ProductsController < ApplicationController
 
   def update
     @product = Product.find(params[:id])
-    @product.update(
-      name: params[:name],
-      price: params[:price],
-      productor_id: params[:productor_id],
-      comission_value: params[:comission_value]
-    )
+    @product.update(product_params)
     render json: @product
   end
 
@@ -39,5 +29,11 @@ class ProductsController < ApplicationController
     @product = Product.find(params[:id])
     @product.destroy
     render json: @product
+  end
+
+  private
+
+  def product_params
+    params.require(:product).permit(:name, :price, :productor_id, :comission_value)
   end
 end

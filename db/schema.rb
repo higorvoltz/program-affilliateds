@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_230_521_222_200) do
+ActiveRecord::Schema.define(version: 20_230_523_204_648) do
   create_table 'affiliateds', force: :cascade do |t|
     t.text 'name'
     t.text 'email'
@@ -22,17 +22,6 @@ ActiveRecord::Schema.define(version: 20_230_521_222_200) do
     t.integer 'productor_id'
     t.index ['id'], name: 'index_affiliateds_on_id', unique: true
     t.index ['productor_id'], name: 'index_affiliateds_on_productor_id'
-  end
-
-  create_table 'commissions', force: :cascade do |t|
-    t.integer 'sale_id', null: false
-    t.integer 'transaction_type_id', null: false
-    t.boolean 'must_pay'
-    t.datetime 'created_at', precision: 6, null: false
-    t.datetime 'updated_at', precision: 6, null: false
-    t.index ['id'], name: 'index_commissions_on_id', unique: true
-    t.index ['sale_id'], name: 'index_commissions_on_sale_id'
-    t.index ['transaction_type_id'], name: 'index_commissions_on_transaction_type_id'
   end
 
   create_table 'productor_affiliateds', force: :cascade do |t|
@@ -61,6 +50,7 @@ ActiveRecord::Schema.define(version: 20_230_521_222_200) do
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
     t.integer 'productor_id'
+    t.integer 'comission_value'
     t.index ['id'], name: 'index_products_on_id', unique: true
   end
 
@@ -100,8 +90,6 @@ ActiveRecord::Schema.define(version: 20_230_521_222_200) do
   end
 
   add_foreign_key 'affiliateds', 'productors'
-  add_foreign_key 'commissions', 'sales'
-  add_foreign_key 'commissions', 'transaction_types'
   add_foreign_key 'productor_affiliateds', 'affiliateds'
   add_foreign_key 'productor_affiliateds', 'productors'
   add_foreign_key 'products', 'productors'

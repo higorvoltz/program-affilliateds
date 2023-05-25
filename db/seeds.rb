@@ -1,89 +1,28 @@
 # frozen_string_literal: true
 
-productor1 = Productor.create!(name: Faker::Name.name, email: Faker::Internet.email, balance: 0)
-productor2 = Productor.create!(name: Faker::Name.name, email: Faker::Internet.email, balance: 0)
+productor1 = Productor.create!(name: 'JOSE CARLOS', email: 'jose_carlos@gmail.com', balance: 0)
+productor2 = Productor.create!(name: 'ELIANA NOGUEIRA', email: 'eliana@gmail.com', balance: 0)
+productor3 = Productor.create!(name: 'MARIA CANDIDA', email: 'candida@gmail.com', balance: 0)
 
-product1 = Product.create(
-  name: Faker::ProgrammingLanguage.name,
-  price: 10_000,
-  productor_id: productor1.id,
-  comission_value: 1000
-)
-product2 = Product.create(
-  name: Faker::ProgrammingLanguage.name,
-  price: 20_000,
-  productor_id: productor1.id,
-  comission_value: 2000
-)
-Product.create(
-  name: Faker::ProgrammingLanguage.name,
-  price: 150_000,
-  productor_id: productor2.id,
-  comission_value: 15_000
-)
+product1 = Product.create(name: 'CURSO DE BEM-ESTAR ', price: 12_750, productor_id: productor1.id, comission_value: 4_500)
+product2 = Product.create(name: 'DOMINANDO INVESTIMENTOS', price: 50_000, productor_id: productor3.id, comission_value: 16_500)
+product3 = Product.create(name: 'DESENVOLVEDOR FULL STACK', price: 155_000, productor_id: productor2.id, comission_value: 50_000)
 
-affiliated1 = Affiliated.create!(
-  name: Faker::Name.name,
-  email: Faker::Internet.email,
-  balance: 0,
-  productor_id: productor1.id
-)
-affiliated2 = Affiliated.create!(
-  name: Faker::Name.name,
-  email: Faker::Internet.email,
-  balance: 0,
-  productor_id: productor2.id
-)
-
-transaction_type1 = TransactionType.create!(
-  type: 1,
-  description: 'Venda produtor',
-  nature: 'input',
-  signal: '+'
-)
-transaction_type2 = TransactionType.create!(
-  type: 2,
-  description: 'Venda afiliado',
-  nature: 'input',
-  signal: '+'
-)
-TransactionType.create!(
-  type: 3,
-  description: 'Comissão paga',
-  nature: 'output',
-  signal: '-'
-)
-TransactionType.create!(
-  type: 4,
-  description: 'Comissão recebida',
-  nature: 'input',
-  signal: '+'
-)
+affiliated1 = Affiliated.create!(name: 'THIAGO OLIVEIRA', email: 'thiago@gmail.com', balance: 0, productor_id: productor1.id)
+affiliated2 = Affiliated.create!(name: 'CELSO DE MELO', email: 'celso@gmail.com', balance: 0, productor_id: productor2.id)
+affiliated3 = Affiliated.create!(name: 'CARLOS BATISTA', email: 'carlos@gmail.com', balance: 0, productor_id: productor2.id)
+affiliated4 = Affiliated.create!(name: 'CAROLINA MACHADO', email: 'carolina@gmail.com', balance: 0, productor_id: productor2.id)
 
 ProductorAffiliated.create!(productor_id: productor1.id, affiliated_id: affiliated1.id)
-productor_affiliated2 = ProductorAffiliated.create!(productor_id: productor2.id, affiliated_id: affiliated2.id)
+ProductorAffiliated.create!(productor_id: productor2.id, affiliated_id: affiliated2.id)
+ProductorAffiliated.create!(productor_id: productor2.id, affiliated_id: affiliated3.id)
+ProductorAffiliated.create!(productor_id: productor2.id, affiliated_id: affiliated4.id)
 
-sale_item1 = SaleItem.create!(
-  product_id: product1.id,
-  quantity: 1
-)
-Sale.create!(
-  sale_item_id: sale_item1.id,
-  transaction_type_id: transaction_type1.id,
-  seller: productor1
-)
-productor1.update!(balance: product1.price)
+TransactionType.create!(type: 1, description: 'Venda produtor', nature: 'input', signal: '+')
+TransactionType.create!(type: 2, description: 'Venda afiliado', nature: 'input', signal: '+')
+TransactionType.create!(type: 3, description: 'Comissão paga', nature: 'output', signal: '-')
+TransactionType.create!(type: 4, description: 'Comissão recebida', nature: 'input', signal: '+')
 
-sale_item2 = SaleItem.create!(
-  product_id: product2.id,
-  quantity: 1
-)
-Sale.create!(
-  sale_item_id: sale_item2.id,
-  transaction_type_id: transaction_type2.id,
-  productor_affiliated_id: productor_affiliated2.id,
-  seller: affiliated2
-)
-productor2.update!(balance: product2.price)
-productor2.update!(balance: (product2.price + (product2.comission_value * -1)))
-affiliated2.update!(balance: product2.comission_value)
+SaleItem.create!(product_id: product1.id, quantity: 1)
+SaleItem.create!(product_id: product2.id, quantity: 1)
+SaleItem.create!(product_id: product3.id, quantity: 1)

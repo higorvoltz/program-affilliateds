@@ -5,30 +5,39 @@
 class Api::V1::ProductsController < ApplicationController
   def index
     @products = Product.all
-    render json: @products
+    if @products.present?
+      render json: @products, status: :ok
+    else
+      render json: { error: 'Products not found' }, status: :not_found
+    end
   end
 
   def create
     @product = Product.create!(product_params)
-    render json: @product
+    if @product.present?
+      render json: @product, status: :created
+    else
+      render json: { error: 'Unprocessable product' }, status: :unprocessable_entity
+    end
   end
 
   def show
     @product = Product.find(params[:id])
-    render json: @product
+    if @product.present?
+      render json: @product, status: :ok
+    else
+      render json: { error: 'Product not found' }, status: :not_found
+    end
   end
 
   def update
     @product = Product.find(params[:id])
-    @product.update(product_params)
-    render json: @product
-  end
-
-  def destroy
-    @products = Product.all
-    @product = Product.find(params[:id])
-    @product.destroy
-    render json: @product
+    if @product.present?
+      @product.update(product_params)
+      render json: @product, status: :ok
+    else
+      render json: { error: 'Product not found' }, status: :not_found
+    end
   end
 
   private

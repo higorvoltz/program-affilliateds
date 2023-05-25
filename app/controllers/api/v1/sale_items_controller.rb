@@ -3,24 +3,40 @@
 class Api::V1::SaleItemsController < ApplicationController
   def index
     @sale_items = SaleItem.all
-    render json: @sale_items
+    if @sale_items.present?
+      render json: @sale_items, status: :ok
+    else
+      render json: { error: 'saleItems not found' }, status: :not_found
+    end
   end
 
   def create
     @sale_item = SaleItem.new(sale_item_params)
-    @sale_item.save
-    render json: @sale_item
+    if @sale_item.present?
+      @sale_item.save
+      render json: @sale_item, status: :created
+    else
+      render json: { error: 'saleItem not found' }, status: :not_found
+    end
   end
 
   def show
     @sale_item = SaleItem.find(params[:id])
-    render json: @sale_item
+    if @sale_item.present?
+      render json: @sale_item, status: :ok
+    else
+      render json: { error: 'saleItem not found' }, status: :not_found
+    end
   end
 
   def update
     @sale_item = SaleItem.find(params[:id])
-    @sale_item.update(sale_item_params)
-    render json: @sale_item
+    if @sale_item.present?
+      @sale_item.update(sale_item_params)
+      render json: @sale_item, status: :ok
+    else
+      render json: { error: 'saleItem not found' }, status: :not_found
+    end
   end
 
   private

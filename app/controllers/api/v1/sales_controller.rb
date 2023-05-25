@@ -3,7 +3,11 @@
 class Api::V1::SalesController < ApplicationController
   def index
     @sales = Sale.all
-    render json: @sales
+    if @sales.present?
+      render json: @sales, status: :ok
+    else
+      render json: { error: 'Sales not found' }, status: :not_found
+    end
   end
 
   def create
@@ -21,27 +25,28 @@ class Api::V1::SalesController < ApplicationController
 
   def show
     @sale = Sale.find(params[:id])
-    render json: @sale
+    if @sale.present?
+      render json: @sale, status: :ok
+    else
+      render json: { error: 'permissions not found' }, status: :not_found
+    end
   end
 
-  # check logic of commission
   def update
     @sale = Sale.find(params[:id])
-    @sale.update(
-      transaction_type_id: params[:transaction_type_id],
-      seller_id: params[:seller_id]
-    )
-    render json: @sale
+    @sale.update(sale_params)
+    if @sale.present?
+      update_seller_balance(sale)
+      render json: @sale, status: :ok
+    else
+      render json: { error: 'permissions not found' }, status: :not_found
+    end
   end
 
   private
 
   def sale_params
-    params.permit(
-      :sale_item_id,
-      :productor_affiliated_id,
-      :transaction_type_id
-    )
+    params.permit(:sale_item_id, :productor_affiliated_id, :transaction_type_id)
   end
 
   def update_seller_balance_for_sale(sale, amount)

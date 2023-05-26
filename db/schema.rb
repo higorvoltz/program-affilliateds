@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_230_523_204_648) do
+ActiveRecord::Schema.define(version: 20_230_526_114_815) do
   create_table 'affiliateds', force: :cascade do |t|
     t.text 'name'
     t.text 'email'
@@ -20,8 +20,19 @@ ActiveRecord::Schema.define(version: 20_230_523_204_648) do
     t.datetime 'updated_at', precision: 6, null: false
     t.integer 'balance'
     t.integer 'productor_id'
+    t.string 'password_digest'
     t.index ['id'], name: 'index_affiliateds_on_id', unique: true
     t.index ['productor_id'], name: 'index_affiliateds_on_productor_id'
+  end
+
+  create_table 'clients', force: :cascade do |t|
+    t.string 'name'
+    t.string 'email'
+    t.integer 'balance'
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.string 'password_digest'
+    t.index ['id'], name: 'index_clients_on_id', unique: true
   end
 
   create_table 'productor_affiliateds', force: :cascade do |t|
@@ -41,6 +52,7 @@ ActiveRecord::Schema.define(version: 20_230_523_204_648) do
     t.datetime 'created_at', precision: 6, null: false
     t.datetime 'updated_at', precision: 6, null: false
     t.integer 'balance'
+    t.string 'password_digest'
     t.index ['id'], name: 'index_productors_on_id', unique: true
   end
 

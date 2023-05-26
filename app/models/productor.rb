@@ -7,4 +7,6 @@ class Productor < ApplicationRecord
   validates :name, presence: true
   validates :email, presence: true
   validates :balance, presence: true
+
+  has_secure_password
 end

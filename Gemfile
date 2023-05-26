@@ -29,10 +29,6 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'rails_semantic_logger', '~> 4.11'
 # https://rubygems.org/gems/rswag
 gem 'rswag', '~> 2.9'
-# https://signoz.io/blog/opentelemetry-ruby/
-gem 'opentelemetry-sdk'
-gem 'opentelemetry-exporter-otlp'
-gem 'opentelemetry-instrumentation-all'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

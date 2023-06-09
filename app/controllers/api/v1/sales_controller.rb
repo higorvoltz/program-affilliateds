@@ -26,6 +26,20 @@ module Api
         end
       end
 
+      def report_affiliateds_last_sales_balance
+        seller_type = params[:seller_type]
+        seller_id = params[:seller_id]
+        if seller_id.present?
+          @total_commission = Sale.joins(sale_item: :product)
+                                  .where(seller_type:, seller_id:, created_at: (Time.now - 30.days)..Time.now)
+                                  .sum('products.comission_value')
+          affiliated = Affiliated.find(seller_id)
+          render json: { total_commission: @total_commission, balance: affiliated.balance }, status: :ok
+        else
+          render json: { error: 'seller_id parameter is missing' }, status: :bad_request
+        end
+      end
+
       def show
         @sale = Sale.find(params[:id])
         if @sale.present?

@@ -23,7 +23,9 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :sales, only: %i[index show create update]
+      get '/sales/report-affiliateds-last-sales-balance', to: 'sales#report_affiliateds_last_sales_balance'
+      resources :sales, only: %i[index create update]
+      get '/sales/:id/show', to: 'sales#show'
     end
   end
 

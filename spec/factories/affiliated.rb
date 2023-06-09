@@ -5,6 +5,7 @@ FactoryBot.define do
     name { Faker::Name.name }
     email { Faker::Internet.email }
     balance { Faker::Number.number(digits: 3) }
-    productor
+    productor_id { Faker::Number.between(from: 1, to: 10) }
+    password { Faker::Internet.password }
   end
 end

@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_230_610_164_431) do
+ActiveRecord::Schema.define(version: 20_230_610_174_619) do
   create_table 'affiliateds', force: :cascade do |t|
     t.text 'name'
     t.text 'email'
@@ -65,6 +65,7 @@ ActiveRecord::Schema.define(version: 20_230_610_164_431) do
     t.datetime 'updated_at', precision: 6, null: false
     t.integer 'productor_id'
     t.integer 'comission_value'
+    t.integer 'ranking'
     t.index ['id'], name: 'index_products_on_id', unique: true
   end
 

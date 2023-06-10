@@ -1,29 +1,29 @@
 # frozen_string_literal: true
 
 module Api
-  module V1
+  module V2
     # crud clients
     class ClientsController < ApplicationController
       def index
-        @clients = Client.all
+        clients = ClientReader.call(params)
         if @clients.present?
-          render json: @clients, status: :ok
+          render json: clients, status: :ok
         else
           render json: { error: 'Clients not found' }, status: :not_found
         end
       end
 
       def show
-        @client = Client.find(params[:id])
+        client = ClientReader.call(params)
         if @client.present?
-          render json: @client, status: :ok
+          render json: client, status: :ok
         else
-          render json: { error: 'Clients not found' }, status: :not_found
+          render json: { error: 'Client not found' }, status: :not_found
         end
       end
 
       def create
-        client = Client.new(client_params)
+        client = ClientCreator.call(client_params)
         if client.save
           render json: client, status: :created
         else
@@ -32,22 +32,20 @@ module Api
       end
 
       def update
-        @client = Client.find(params[:id])
-        if @client.present?
-          @client.update(client_params)
-          render json: @client, status: :ok
+        client = ClientUpdater.call(params[:id], client_params)
+        if client.update(client_params)
+          render json: client, status: :ok
         else
-          render json: { error: 'Clients not found' }, status: :not_found
+          render json: client.errors, status: :unprocessable_entity
         end
       end
 
       def destroy
-        @client = Client.find(params[:id])
-        if @client.present?
-          @client.destroy
-          render json: @client, status: :ok
+        client = ClientDestroyer.call(params[:id])
+        if client.destroy
+          render json: client, status: :ok
         else
-          render json: { error: 'Clients not found' }, status: :not_found
+          render json: client.errors, status: :unprocessable_entity
         end
       end
 

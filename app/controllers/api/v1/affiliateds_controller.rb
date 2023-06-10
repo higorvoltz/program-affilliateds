@@ -54,7 +54,7 @@ module Api
       private
 
       def params_affiliated
-        params.permit(:name, :email, :balance, :productor_id)
+        params.require(:affiliated).permit(:name, :email, :balance, :productor_id, :password_digest).merge(is_active: true)
       end
     end
   end

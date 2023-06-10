@@ -55,7 +55,7 @@ module Api
       private
 
       def productor_params
-        params.permit(:name, :email, :balance)
+        params.require(:productor).permit(:name, :email, :balance, :password_digest).merge(is_active: true)
       end
     end
   end

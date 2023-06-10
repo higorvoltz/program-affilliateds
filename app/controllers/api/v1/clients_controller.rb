@@ -51,10 +51,12 @@ module Api
         end
       end
 
+      # TODO include new action to update ranking of a product
+
       private
 
       def client_params
-        params.permit(:name, :email, :balance, :password)
+        params.require(:client).permit(:name, :email, :balance, :password_digest)
       end
     end
   end

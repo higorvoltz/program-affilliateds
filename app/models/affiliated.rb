@@ -7,6 +7,7 @@ class Affiliated < ApplicationRecord
   validates :email, presence: true
   validates :balance, presence: true
   validates :productor_id, presence: true
+  validates :password_digest, presence: true
 
   has_secure_password
 end

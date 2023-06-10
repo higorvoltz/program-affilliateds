@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_230_526_114_815) do
+ActiveRecord::Schema.define(version: 20_230_610_164_431) do
   create_table 'affiliateds', force: :cascade do |t|
     t.text 'name'
     t.text 'email'
@@ -21,6 +21,7 @@ ActiveRecord::Schema.define(version: 20_230_526_114_815) do
     t.integer 'balance'
     t.integer 'productor_id'
     t.string 'password_digest'
+    t.boolean 'is_active'
     t.index ['id'], name: 'index_affiliateds_on_id', unique: true
     t.index ['productor_id'], name: 'index_affiliateds_on_productor_id'
   end
@@ -53,6 +54,7 @@ ActiveRecord::Schema.define(version: 20_230_526_114_815) do
     t.datetime 'updated_at', precision: 6, null: false
     t.integer 'balance'
     t.string 'password_digest'
+    t.boolean 'is_active'
     t.index ['id'], name: 'index_productors_on_id', unique: true
   end
 

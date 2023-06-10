@@ -29,9 +29,10 @@ module Api
       def report_affiliateds_last_sales_balance
         seller_type = params[:seller_type]
         seller_id = params[:seller_id]
-        if seller_id.present?
+        period = params[:period] || 30
+        if seller_id.present? && seller_type.present?
           @total_commission = Sale.joins(sale_item: :product)
-                                  .where(seller_type:, seller_id:, created_at: (Time.now - 30.days)..Time.now)
+                                  .where(seller_type:, seller_id:, created_at: (Time.now - period.to_i.days)..Time.now)
                                   .sum('products.comission_value')
           affiliated = Affiliated.find(seller_id)
           render json: { total_commission: @total_commission, balance: affiliated.balance }, status: :ok

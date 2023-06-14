@@ -12,7 +12,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_230_610_174_619) do
+ActiveRecord::Schema.define(version: 20_230_614_193_846) do
   create_table 'affiliateds', force: :cascade do |t|
     t.text 'name'
     t.text 'email'
@@ -34,6 +34,17 @@ ActiveRecord::Schema.define(version: 20_230_610_174_619) do
     t.datetime 'updated_at', precision: 6, null: false
     t.string 'password_digest'
     t.index ['id'], name: 'index_clients_on_id', unique: true
+  end
+
+  create_table 'product_rankings', force: :cascade do |t|
+    t.integer 'ranking'
+    t.integer 'client_id', null: false
+    t.integer 'product_id', null: false
+    t.datetime 'created_at', precision: 6, null: false
+    t.datetime 'updated_at', precision: 6, null: false
+    t.index ['client_id'], name: 'index_product_rankings_on_client_id'
+    t.index ['id'], name: 'index_product_rankings_on_id', unique: true
+    t.index ['product_id'], name: 'index_product_rankings_on_product_id'
   end
 
   create_table 'productor_affiliateds', force: :cascade do |t|
@@ -65,7 +76,6 @@ ActiveRecord::Schema.define(version: 20_230_610_174_619) do
     t.datetime 'updated_at', precision: 6, null: false
     t.integer 'productor_id'
     t.integer 'comission_value'
-    t.integer 'ranking'
     t.index ['id'], name: 'index_products_on_id', unique: true
   end
 
@@ -104,6 +114,8 @@ ActiveRecord::Schema.define(version: 20_230_610_174_619) do
   end
 
   add_foreign_key 'affiliateds', 'productors'
+  add_foreign_key 'product_rankings', 'clients'
+  add_foreign_key 'product_rankings', 'products'
   add_foreign_key 'productor_affiliateds', 'affiliateds'
   add_foreign_key 'productor_affiliateds', 'productors'
   add_foreign_key 'products', 'productors'

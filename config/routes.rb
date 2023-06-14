@@ -48,6 +48,12 @@ Rails.application.routes.draw do
   end
 
   namespace :api do
+    namespace :v1 do
+      resources :product_rankings, only: %i[index show create update destroy], path: '/product-rankings'
+    end
+  end
+
+  namespace :api do
     namespace :v2 do
       resources :clients, only: %i[index show create update destroy], path: '/clients'
     end

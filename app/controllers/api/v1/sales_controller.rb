@@ -20,6 +20,7 @@ module Api
 
         if sale.save
           update_seller_balance(sale)
+          update_last_sales(sale)
           render json: sale, status: :created
         else
           render json: sale.errors, status: :unprocessable_entity
@@ -103,6 +104,13 @@ module Api
         when 4
           update_productor_balance_for_refund(sale, product.comission_value * sale_item.quantity)
         end
+      end
+
+      def update_last_sales(sale)
+        sale_item = SaleItem.find(sale.sale_item_id)
+        product = Product.find(sale_item.product_id)
+
+        product.update!(last_sales: product.last_sales + sale_item.quantity)
       end
     end
   end

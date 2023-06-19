@@ -12,12 +12,14 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :affiliateds, only: %i[index show create update destroy]
+      get 'affiliateds/search_by_name/:name', to: 'affiliateds#show_by_name'
     end
   end
 
   namespace :api do
     namespace :v1 do
       resources :productors, only: %i[index show create update destroy]
+      get 'productors/by-name/:name', to: 'productors#show_by_name'
     end
   end
 

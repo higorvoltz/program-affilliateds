@@ -31,6 +31,15 @@ module Api
         end
       end
 
+      def show_by_name
+        @productor = Productor.find_by(name: params[:name])
+        if @productor.present?
+          render json: @productor, status: :ok
+        else
+          render json: { error: 'Productor not found' }, status: :not_found
+        end
+      end
+
       def update
         @productor = Productor.find(params[:id])
         if @productor.present?

@@ -30,6 +30,15 @@ module Api
         end
       end
 
+      def show_by_name
+        @affiliated = Affiliated.find_by(name: params[:name])
+        if @affiliated.present?
+          render json: @affiliated, status: :ok
+        else
+          render json: { error: 'Affiliated not found' }, status: :not_found
+        end
+      end
+
       def update
         @affiliated = Affiliated.find(params[:id])
         if @affiliated.present?

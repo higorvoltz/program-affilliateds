@@ -22,6 +22,15 @@ module Api
         end
       end
 
+      def show_by_name
+        @client = Client.find_by(name: params[:name])
+        if @client.present?
+          render json: @client, status: :ok
+        else
+          render json: { error: 'Client not found' }, status: :not_found
+        end
+      end
+
       def create
         client = Client.new(client_params)
         if client.save

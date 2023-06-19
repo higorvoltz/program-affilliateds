@@ -46,6 +46,7 @@ Rails.application.routes.draw do
   namespace :api do
     namespace :v1 do
       resources :clients, only: %i[index show create update destroy], path: '/clients'
+      get 'clients/by-name/:name', to: 'clients#show_by_name'
     end
   end
 

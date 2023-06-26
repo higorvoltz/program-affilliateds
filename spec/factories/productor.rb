@@ -5,5 +5,6 @@ FactoryBot.define do
     name { Faker::Name.name}
     email { Faker::Internet.email }
     balance { Faker::Number.number(digits: 3) }
+    password_digest { Faker::Internet.password }
   end
 end

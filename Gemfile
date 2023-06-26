@@ -50,7 +50,7 @@ group :development do
   # https://github.com/thoughtbot/factory_bot_rails
   gem 'factory_bot_rails', '~> 6.2'
   # https://github.com/faker-ruby/faker
-  gem 'faker', '~> 2.23'
+  gem 'faker', '~> 3.2.0'
   # https://rubygems.org/gems/rubocop-rails
   gem 'rubocop-rails', '~> 2.16', '>= 2.16.1'
   # https://rubygems.org/gems/rubocop-performance

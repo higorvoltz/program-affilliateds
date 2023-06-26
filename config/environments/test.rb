@@ -53,6 +53,7 @@ Rails.application.configure do
 
   # Tell Active Support which deprecation messages to disallow.
   config.active_support.disallowed_deprecation_warnings = []
+  ENV['API_KEY'] = '94a08da1fecbb6e8b46990538c7b50b2'
 
   # Raises error for missing translations.
   # config.i18n.raise_on_missing_translations = true

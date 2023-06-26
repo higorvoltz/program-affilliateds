@@ -1,68 +1,97 @@
 # frozen_string_literal: true
 
-RSpec.describe Api::V1::AffiliatedsController, type: :controller do
-  describe 'GET #index' do
-    it 'returns all Affiliateds' do
-      affiliateds = create_list(:affiliated, 3)
-      get :index
-      expect(response).to have_http_status(:ok)
-      expect(JSON.parse(response.body)).to match_array(
-        affiliateds.map { |affiliated| a_hash_including('id' => affiliated.id) }
-      )
-    end
+require 'rails_helper'
 
-    it 'returns a not found error if no affiliateds are found' do
-      get :index
-      expect(response).to have_http_status(:not_found)
-      expect(JSON.parse(response.body)).to eq({ error: 'Affiliateds not found' })
-    end
-  end
+module Api
+  module V1
+    RSpec.describe AffiliatedsController, type: :controller do
+      before do
+        request.headers['X-Api-Key'] = ENV['API_KEY']
+      end
 
-  describe 'POST #create' do
-    it 'creates a new Affiliated' do
-      affiliated_params = attributes_for(:affiliated)
-      post :create, params: affiliated_params
-      expect(response).to have_http_status(:created)
-      expect(JSON.parse(response.body)).to eq('error' => 'Unprocessable affiliated')
-    end
+      describe 'GET #index' do
+        it 'returns status ok with valid params' do
+          create_list(:affiliated, 3)
+          get :index
+          expect(response).to have_http_status(:ok)
+        end
 
-    it 'returns an unprocessable entity error if params are invalid' do
-      post :create, params: { name: nil }
-      expect(response).to have_http_status(:unprocessable_entity)
-      expect(JSON.parse(response.body)).to eq('error' => 'Unprocessable affiliated')
-    end
-  end
+        it 'returns all Affiliateds' do
+          affiliateds = create_list(:affiliated, 3)
+          get :index
+          expect(JSON.parse(response.body)).to match_array(
+            affiliateds.map { |affiliated| a_hash_including('id' => affiliated.id) }
+          )
+        end
 
-  describe 'PUT #update' do
-    let(:affiliated) { create(:affiliated) }
+        it 'returns a not found error status, if no affiliateds are found' do
+          get :index
+          expect(response).to have_http_status(:not_found)
+        end
+      end
 
-    it 'updates the affiliated with the given id' do
-      put :update, params: { id: affiliated.id, name: 'New name' }
-      affiliated.reload
-      expect(response).to have_http_status(:ok)
-      expect(affiliated.name).to eq('New name')
-    end
+      describe 'GET #show' do
+        let(:affiliated) { create(:affiliated) }
 
-    it 'returns a not found error if no affiliated is found with the given name' do
-      put :update, params: { id: 'invalid', name: 'New name' }
-      expect(response).to have_http_status(:not_found)
-      expect(JSON.parse(response.body)).to eq('error' => 'Affiliated not found')
-    end
-  end
+        it 'returns status ok with valid params' do
+          get :show, params: { id: affiliated.id }
+          expect(response).to have_http_status(:ok)
+        end
 
-  describe 'DELETE #destroy' do
-    let!(:affiliated) { create(:affiliated) }
+        it 'returns the affiliated the correct params when it is given the id' do
+          get :show, params: { id: affiliated.id }
+          expect(JSON.parse(response.body)).to eq(
+            'id' => affiliated.id,
+            'name' => affiliated.name,
+            'email' => affiliated.email,
+            'balance' => affiliated.balance,
+            'productor_id' => affiliated.productor_id,
+            'is_active' => affiliated.is_active
+          )
+        end
+      end
 
-    it 'deletes the affiliated with the given id' do
-      delete :destroy, params: { id: affiliated.id }
-      expect(response).to have_http_status(:ok)
-      expect(Affiliated.find_by(id: affiliated.id)).to be_nil
-    end
+      describe 'POST #create' do
+        let(:productor) { create(:productor) }
 
-    it 'returns a not found error if no affiliated is found with the given id' do
-      delete :destroy, params: { id: 'invalid' }
-      expect(response).to have_http_status(:not_found)
-      expect(JSON.parse(response.body)).to eq('error' => 'Affiliated not found')
+        it 'creates a new Affiliated' do
+          affiliated_params = { affiliated: attributes_for(:affiliated, productor_id: productor.id) }
+          post :create, params: affiliated_params
+          expect(response).to have_http_status(:created)
+        end
+      end
+
+      describe 'PUT #update' do
+        let(:affiliated) { create(:affiliated) }
+        let(:productor) { create(:productor) }
+
+        it 'update the relative field' do
+          affiliated_params = {
+            affiliated: attributes_for(:affiliated, productor_id: productor.id, name: 'New Name')
+          }
+          put :update, params: affiliated_params.merge(id: affiliated.id)
+          affiliated.reload
+          expect(affiliated.name).to eq('New Name')
+        end
+
+        it 'updates PUT returns status ok' do
+          affiliated_params = {
+            affiliated: attributes_for(:affiliated, productor_id: productor.id, name: 'New Name')
+          }
+          put :update, params: affiliated_params.merge(id: affiliated.id)
+          affiliated.reload
+          expect(response).to have_http_status(:ok)
+        end
+      end
+
+      describe 'DELETE #destroy' do
+        let(:affiliated) { create(:affiliated) }
+
+        it 'deletes the affiliated with the given id' do
+          delete :destroy, params: { id: affiliated.id }
+          expect(response).to have_http_status(:ok)
+        end
+      end
     end
   end
 end

@@ -1,6 +1,7 @@
 # frozen_string_literal: true
 
 require 'rails_helper'
+require 'pry-rails'
 
 RSpec.describe ProductRanking do
   context 'when saved' do

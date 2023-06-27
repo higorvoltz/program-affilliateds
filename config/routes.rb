@@ -61,5 +61,24 @@ Rails.application.routes.draw do
       resources :clients, only: %i[index show create update destroy], path: '/clients'
     end
   end
+
+  namespace :api do
+    namespace :v1 do
+      post 'login-productor', to: 'sessions#create_productor'
+    end
+  end
+
+  namespace :api do
+    namespace :v1 do
+      post 'login-affiliated', to: 'sessions#create_affiliated'
+    end
+  end
+
+  namespace :api do
+    namespace :v1 do
+      post 'login-client', to: 'sessions#create_client'
+    end
+  end
+
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

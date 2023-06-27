@@ -29,6 +29,12 @@ gem 'bcrypt', '~> 3.1.7'
 gem 'rails_semantic_logger', '~> 4.11'
 # https://rubygems.org/gems/rswag
 gem 'rswag', '~> 2.9'
+# https://rubygems.org/gems/jwt
+gem 'jwt', '~> 2.7', '>= 2.7.1'
+# https://rubygems.org/gems/rack-attack
+gem 'rack-attack', '~> 6.6', '>= 6.6.1'
+# https://rubygems.org/gems/brakeman
+gem 'brakeman', '~> 6.0'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'

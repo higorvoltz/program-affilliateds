@@ -45,5 +45,13 @@ module ProgramAffiliatedApi
       g.orm :active_record, primary_key_type: :uuid
       g.test_framework :rspec
     end
+
+    config.middleware.use Rack::Attack do
+      # Use Redis as the cache store
+      Rack::Attack.cache.store = Rack::Attack::Store::Redis.new
+
+      # Allow 10 requests per second per IP0
+      throttle('req/ip', limit: 10, period: 1.second, &:ip)
+    end
   end
 end

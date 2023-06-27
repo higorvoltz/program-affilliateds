@@ -64,11 +64,21 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :productors, only: %i[index show create update destroy]
       post 'login-productor', to: 'sessions#create_productor'
     end
   end
 
+  namespace :api do
+    namespace :v1 do
+      post 'login-affiliated', to: 'sessions#create_affiliated'
+    end
+  end
+
+  namespace :api do
+    namespace :v1 do
+      post 'login-client', to: 'sessions#create_client'
+    end
+  end
 
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end

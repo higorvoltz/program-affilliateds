@@ -35,6 +35,8 @@ gem 'jwt', '~> 2.7', '>= 2.7.1'
 gem 'rack-attack', '~> 6.6', '>= 6.6.1'
 # https://rubygems.org/gems/brakeman
 gem 'brakeman', '~> 6.0'
+# https://rubygems.org/gems/sendgrid-ruby
+gem 'sendgrid-ruby', '~> 6.6', '>= 6.6.2'
 
 # Use Active Storage variant
 # gem 'image_processing', '~> 1.2'
